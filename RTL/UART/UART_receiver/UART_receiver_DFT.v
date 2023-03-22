@@ -7,7 +7,7 @@
 * parity_enable: Signal to enable the transmission of the parity bit in the frame.
 * prescale:      The ratio between the frequency of the receiver and the frequecy of the 
 *                transmitter (The avaialable prescale values are: 8, 16, 32).
-* serial_data:   The data which is received serially. 
+* serial_data_in:   The data which is received serially. 
 * 
 * ----------------------------- Outputs -----------------------------
 * parallel_data: The data which was transmitted serially bit by bit.
@@ -35,7 +35,7 @@ module UART_receiver #(
     input parity_type,
     input parity_enable,
     input [5:0] prescale,
-    input serial_data,
+    input serial_data_in,
 
     // ---------------- DFT ports ---------------- 
     input scan_clk,
@@ -91,7 +91,7 @@ module UART_receiver #(
         .clk(multiplexed_clk),
         .reset(multiplexed_reset),
         .parity_enable(parity_enable),
-        .serial_data(serial_data),
+        .serial_data_in(serial_data_in),
         .prescale(prescale),
         .start_bit_error(start_bit_error),
         .parity_bit_error(parity_error),
@@ -111,7 +111,7 @@ module UART_receiver #(
     data_sampler U_data_sampler (
         .clk(multiplexed_clk),
         .reset(multiplexed_reset),
-        .serial_data(serial_data),
+        .serial_data_in(serial_data_in),
         .prescale(prescale[5:1]),
         .enable(edge_counter_and_data_sampler_enable),
         .edge_count(edge_count),

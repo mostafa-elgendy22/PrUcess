@@ -24,7 +24,7 @@ prescale[3]    in      0.0000   0.0000    1.50    0.18   --
 prescale[4]    in      0.0000   0.0000    1.50    0.18   --         
 prescale[5]    in      0.0000   0.0000    1.50    0.18   --         
 reset          in      0.0000   0.0000   --      --      --         d
-serial_data    in      0.0000   0.0000    1.50    0.18   --         
+serial_data_in    in      0.0000   0.0000    1.50    0.18   --         
 data_valid     out     2.0000   0.0000   --      --      --         
 frame_error    out     2.0000   0.0000   --      --      --         
 parallel_data[0]

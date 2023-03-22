@@ -14,7 +14,7 @@ module UART_transmitter_tb ();
     reg [DATA_WIDTH - 1:0] parallel_data_tb;
 
     // Output signals' declaration
-    wire TX_out_tb;
+    wire serial_data_out_tb;
     wire busy_tb;
 
     // A variable to store all the bits transmitted serially from the transmitter
@@ -53,12 +53,12 @@ module UART_transmitter_tb ();
                   parity_enable_tb, parallel_data_tb);
         #CLK_PERIOD
         data_valid_tb = 1'b0;
-        transmitter_output[0] = TX_out_tb;
+        transmitter_output[0] = serial_data_out_tb;
 
         for (i = 1; i <= DATA_WIDTH + 2; i = i + 1)
         begin
             #CLK_PERIOD
-            transmitter_output[i] = TX_out_tb;
+            transmitter_output[i] = serial_data_out_tb;
         end
 
         $display("time = %0t", $time);
@@ -95,11 +95,11 @@ module UART_transmitter_tb ();
                   parity_enable_tb, parallel_data_tb);
         #CLK_PERIOD
         data_valid_tb = 1'b0;
-        transmitter_output[0] = TX_out_tb;
+        transmitter_output[0] = serial_data_out_tb;
         for (i = 1; i <= DATA_WIDTH + 2; i = i + 1)
         begin
             #CLK_PERIOD
-            transmitter_output[i] = TX_out_tb;
+            transmitter_output[i] = serial_data_out_tb;
         end
 
         $display("time = %0t", $time);
@@ -135,11 +135,11 @@ module UART_transmitter_tb ();
                   parity_enable_tb, parallel_data_tb);
         #CLK_PERIOD
         data_valid_tb = 1'b0;
-        transmitter_output[0] = TX_out_tb;
+        transmitter_output[0] = serial_data_out_tb;
         for (i = 1; i <= DATA_WIDTH + 1; i = i + 1)
         begin
             #CLK_PERIOD
-            transmitter_output[i] = TX_out_tb;
+            transmitter_output[i] = serial_data_out_tb;
         end
 
         $display("time = %0t", $time);
@@ -206,7 +206,7 @@ module UART_transmitter_tb ();
         .data_valid(data_valid_tb),
         .parallel_data(parallel_data_tb),
 
-        .TX_out(TX_out_tb),
+        .serial_data_out(serial_data_out_tb),
         .busy(busy_tb)
     );
 

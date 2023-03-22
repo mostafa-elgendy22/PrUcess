@@ -21,7 +21,7 @@ if {$argc == 0} {
     sim:/UART_receiver_tb/U_UART_receiver/parity_type \
     sim:/UART_receiver_tb/U_UART_receiver/parity_enable \
     sim:/UART_receiver_tb/U_UART_receiver/prescale \
-    sim:/UART_receiver_tb/U_UART_receiver/serial_data \
+    sim:/UART_receiver_tb/U_UART_receiver/serial_data_in \
     sim:/UART_receiver_tb/U_UART_receiver/U_UART_receiver_FSM/current_state \
     sim:/UART_receiver_tb/U_UART_receiver/U_UART_receiver_FSM/edge_count_done \
     sim:/UART_receiver_tb/U_UART_receiver/U_UART_receiver_FSM/deserializer_enable \

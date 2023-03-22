@@ -1,20 +1,20 @@
 /*
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
-* clk:           Generated clock produced from the clock divider whose source clock is
-*                UART clock.
-* reset:         Global active low asynchronous reset after synchronization.
-* parity_type:   Signal to indicate the parity type (1 for odd, 0 for even).
-* parity_enable: Signal to enable the transmission of the parity bit in the frame.
-* data_valid:    Signal that indicates that there exist data to be transmitted.
-* parallel_data: The data to be transmitted by the UART transmitter, and its size is 1-byte.
+* clk:             Generated clock produced from the clock divider whose source clock is
+*                  UART clock.
+* reset:           Global active low asynchronous reset after synchronization.
+* parity_type:     Signal to indicate the parity type (1 for odd, 0 for even).
+* parity_enable:   Signal to enable the transmission of the parity bit in the frame.
+* data_valid:      Signal that indicates that there exist data to be transmitted.
+* parallel_data:   The data to be transmitted by the UART transmitter, and its size is 1-byte.
 * 
 * ----------------------------- Outputs -----------------------------
-* TX_out:        The output of the transmitter (It is also the output of the mux that selects
-*                between start, serial data, parity, or stop bits according to the state
-*                of the transmission).
-* busy:          A signal that indicates that the transmitter is currently in operation
-*                and it can't transmit a new byte.
+* serial_data_out: The output of the transmitter (It is also the output of the mux that selects
+*                  between start, serial data, parity, or stop bits according to the state
+*                  of the transmission).
+* busy:            A signal that indicates that the transmitter is currently in operation
+*                  and it can't transmit a new byte.
 */
 
 `include "UART_transmitter_FSM.v"
@@ -33,7 +33,7 @@ module UART_transmitter #(
     input data_valid,
     input [DATA_WIDTH - 1:0] parallel_data,
 
-    output TX_out,
+    output serial_data_out,
     output busy
 
 );
@@ -106,7 +106,7 @@ module UART_transmitter #(
         .bit_select(bit_select),
         .serial_data(serial_data),
         .parity_bit(parity_bit),
-        .mux_out(TX_out)
+        .mux_out(serial_data_out)
     );
 
 endmodule

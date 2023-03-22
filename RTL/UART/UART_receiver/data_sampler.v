@@ -1,7 +1,7 @@
 module data_sampler (
     input clk,
     input reset,
-    input serial_data,
+    input serial_data_in,
     input [4:0] prescale,
     input enable,
     input [4:0] edge_count,
@@ -24,17 +24,17 @@ module data_sampler (
             case (edge_count)
                 
                 sampling_edge_number: begin
-                    samples[0] <= serial_data;
+                    samples[0] <= serial_data_in;
                     sample_enable <= 1'b0;
                 end
 
                 sampling_edge_number + 4'd1: begin
-                    samples[1] <= serial_data;
+                    samples[1] <= serial_data_in;
                     sample_enable <= 1'b0;
                 end
                 
                 sampling_edge_number + 4'd2: begin
-                    samples[2] <= serial_data;
+                    samples[2] <= serial_data_in;
                     sample_enable <= 1'b0;
                 end
 

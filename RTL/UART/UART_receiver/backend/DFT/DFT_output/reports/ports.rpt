@@ -24,7 +24,7 @@ prescale[5]    in      0.0000   0.0000    1.50    0.18   --
 reset          in      0.0000   0.0000   --      --      --         
 scan_clk       in      0.0000   0.0000   --      --      --         
 scan_reset     in      0.0000   0.0000   --      --      --         
-serial_data    in      0.0000   0.0000    1.50    0.18   --         
+serial_data_in    in      0.0000   0.0000    1.50    0.18   --         
 test_mode      in      0.0000   0.0000   --      --      --         
 SO             out     0.0000   0.0000   --      --      --         
 data_valid     out     2.0000   0.0000   --      --      --         

@@ -21,7 +21,7 @@ set input_delay [expr 0.2 * $CLK_PERIOD]
 set_input_delay $input_delay -clock $CLK_NAME [get_port parity_type]
 set_input_delay $input_delay -clock $CLK_NAME [get_port parity_enable]
 set_input_delay $input_delay -clock $CLK_NAME [get_port prescale]
-set_input_delay $input_delay -clock $CLK_NAME [get_port serial_data]
+set_input_delay $input_delay -clock $CLK_NAME [get_port serial_data_in]
 
 
 # Output ports' constraints
@@ -37,7 +37,7 @@ set_output_delay $output_delay -clock $CLK_NAME [get_port frame_error]
 set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port parity_type]
 set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port parity_enable]
 set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port prescale]
-set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port serial_data]
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port serial_data_in]
 
 
 # Output load

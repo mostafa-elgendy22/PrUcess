@@ -34,7 +34,7 @@ module UART #(
         .data_valid(transmitter_parallel_data_valid),
         .parallel_data(transmitter_parallel_data),
 
-        .TX_out(serial_data_transmitter),
+        .serial_data_out(serial_data_transmitter),
         .busy(transmitter_busy)
 
     );
@@ -48,7 +48,7 @@ module UART #(
         .parity_type(parity_type),
         .parity_enable(parity_enable),
         .prescale(prescale),
-        .serial_data(serial_data_receiver),
+        .serial_data_in(serial_data_receiver),
 
         .data_valid(receiver_parallel_data_valid),
         .parallel_data(receiver_parallel_data),

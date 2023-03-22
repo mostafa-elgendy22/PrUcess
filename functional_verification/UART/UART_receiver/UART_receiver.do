@@ -6,7 +6,7 @@ sim:/UART_receiver/reset \
 sim:/UART_receiver/parity_type \
 sim:/UART_receiver/parity_enable \
 sim:/UART_receiver/prescale \
-sim:/UART_receiver/serial_data \
+sim:/UART_receiver/serial_data_in \
 sim:/UART_receiver/U_UART_receiver_FSM/current_state \
 sim:/UART_receiver/U_UART_receiver_FSM/data_transmission_state \
 sim:/UART_receiver/U_UART_receiver_FSM/edge_count_done \
@@ -23,7 +23,7 @@ force -freeze sim:/UART_receiver/reset 0 0
 force -freeze sim:/UART_receiver/parity_type 0 0
 force -freeze sim:/UART_receiver/parity_enable 0 0
 force -freeze sim:/UART_receiver/prescale 00_1000 0
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {200 ps}
 
 
@@ -31,42 +31,42 @@ run {200 ps}
 force -freeze sim:/UART_receiver/reset 1 0
 force -freeze sim:/UART_receiver/parity_type 1 0
 force -freeze sim:/UART_receiver/parity_enable 1 0
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {200 ps}
 
 
 
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {1600 ps}
 
 # 0101 0101
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 0 0
+force -freeze sim:/UART_receiver/serial_data_in 0 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {1600 ps}
 
-force -freeze sim:/UART_receiver/serial_data 1 0
+force -freeze sim:/UART_receiver/serial_data_in 1 0
 run {6000 ps}

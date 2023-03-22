@@ -11,7 +11,7 @@ module UART_receiver_tb;
     reg parity_type_tb;
     reg parity_enable_tb;
     reg [5:0] prescale_tb;
-    reg serial_data_tb;
+    reg serial_data_in_tb;
 
 
     // Output signals' declaration
@@ -53,11 +53,11 @@ module UART_receiver_tb;
                   parity_enable_tb, prescale_tb);
         
         // Stop bit (IDLE)
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #RECEIVER_CLK_PERIOD
         
         for (i = 0; i <= DATA_WIDTH + 2; i = i + 1) begin
-            serial_data_tb = transmitted_frame[i];
+            serial_data_in_tb = transmitted_frame[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
 
@@ -83,7 +83,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
         
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
 
         $display("--------------------- Test case (2) ---------------------");
@@ -93,15 +93,15 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         for (i = 0; i <= DATA_WIDTH - 1; i = i + 1) begin
-            serial_data_tb = transmitted_byte[i];
+            serial_data_in_tb = transmitted_byte[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         $display("time = %0t", $time);
@@ -126,7 +126,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
         
         $display("--------------------- Test case (3) ---------------------");
@@ -137,18 +137,18 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         for (i = 0; i <= DATA_WIDTH - 1; i = i + 1) begin
-            serial_data_tb = transmitted_byte[i];
+            serial_data_in_tb = transmitted_byte[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
 
-        serial_data_tb = ~^transmitted_byte;
+        serial_data_in_tb = ~^transmitted_byte;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         $display("time = %0t", $time);
@@ -173,7 +173,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
 
         $display("--------------------- Test case (4) ---------------------");
@@ -183,15 +183,15 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         for (i = 0; i <= DATA_WIDTH - 1; i = i + 1) begin
-            serial_data_tb = transmitted_byte[i];
+            serial_data_in_tb = transmitted_byte[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         $display("time = %0t", $time);
@@ -216,7 +216,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
 
         $display("--------------------- Test case (5) ---------------------");
@@ -226,10 +226,10 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(RECEIVER_CLK_PERIOD);
         
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         @(posedge frame_error_tb)
         #(2 * RECEIVER_CLK_PERIOD);
         
@@ -247,7 +247,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
 
         $display("--------------------- Test case (6) ---------------------");
@@ -258,18 +258,18 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         for (i = 0; i <= DATA_WIDTH - 1; i = i + 1) begin
-            serial_data_tb = transmitted_byte[i];
+            serial_data_in_tb = transmitted_byte[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
         
-        serial_data_tb = ^transmitted_byte;
+        serial_data_in_tb = ^transmitted_byte;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
         
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         @(posedge parity_error_tb)
         #(2 * RECEIVER_CLK_PERIOD)
 
@@ -288,7 +288,7 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
-        serial_data_tb = 1'b1;
+        serial_data_in_tb = 1'b1;
         #(4 * RECEIVER_CLK_PERIOD);
 
         $display("--------------------- Test case (7) ---------------------");
@@ -299,15 +299,15 @@ module UART_receiver_tb;
         $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
                   parity_enable_tb, prescale_tb);
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         #(prescale_tb * RECEIVER_CLK_PERIOD);
 
         for (i = 0; i <= DATA_WIDTH - 1; i = i + 1) begin
-            serial_data_tb = transmitted_byte[i];
+            serial_data_in_tb = transmitted_byte[i];
             #(prescale_tb * RECEIVER_CLK_PERIOD);
         end
         
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
         @(posedge frame_error_tb)
         #(2 * RECEIVER_CLK_PERIOD)
 
@@ -340,7 +340,7 @@ module UART_receiver_tb;
         parity_type_tb = 1'b0;
         parity_enable_tb = 1'b0;
         prescale_tb = 6'b00_1000;
-        serial_data_tb = 1'b0;
+        serial_data_in_tb = 1'b0;
     end
     endtask
 
@@ -367,7 +367,7 @@ module UART_receiver_tb;
         .parity_type(parity_type_tb),
         .parity_enable(parity_enable_tb),
         .prescale(prescale_tb),
-        .serial_data(serial_data_tb),
+        .serial_data_in(serial_data_in_tb),
 
         .data_valid(data_valid_tb),
         .parallel_data(parallel_data_tb),

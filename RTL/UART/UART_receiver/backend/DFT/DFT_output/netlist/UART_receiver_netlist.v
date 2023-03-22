@@ -23,7 +23,7 @@ module multiplexer_2x1_1 ( IN0, IN1, select, OUT );
 endmodule
 
 
-module UART_receiver_FSM_test_1 ( clk, reset, parity_enable, serial_data, 
+module UART_receiver_FSM_test_1 ( clk, reset, parity_enable, serial_data_in, 
         prescale, start_bit_error, parity_bit_error, stop_bit_error, 
         edge_count, edge_count_done, start_bit_check_enable, 
         parity_bit_check_enable, stop_bit_check_enable, 
@@ -32,7 +32,7 @@ module UART_receiver_FSM_test_1 ( clk, reset, parity_enable, serial_data,
   input [5:0] prescale;
   input [4:0] edge_count;
   output [2:0] data_index;
-  input clk, reset, parity_enable, serial_data, start_bit_error,
+  input clk, reset, parity_enable, serial_data_in, start_bit_error,
          parity_bit_error, stop_bit_error, edge_count_done, test_si, test_se;
   output start_bit_check_enable, parity_bit_check_enable,
          stop_bit_check_enable, edge_counter_and_data_sampler_enable,
@@ -102,7 +102,7 @@ module UART_receiver_FSM_test_1 ( clk, reset, parity_enable, serial_data,
   AOI2BB1X1M U65 ( .A0N(parity_bit_error), .A1N(stop_bit_error), .B0(n69), .Y(
         n38) );
   AOI31X2M U66 ( .A0(n8), .A1(n76), .A2(\data_transmission_state[3] ), .B0(n36), .Y(n37) );
-  OAI21X1M U67 ( .A0(serial_data), .A1(n43), .B0(n44), .Y(next_state[0]) );
+  OAI21X1M U67 ( .A0(serial_data_in), .A1(n43), .B0(n44), .Y(next_state[0]) );
   AOI33X2M U68 ( .A0(n45), .A1(n69), .A2(edge_count_done), .B0(n12), .B1(n68), 
         .B2(n2), .Y(n44) );
   OAI32X2M U69 ( .A0(n76), .A1(n75), .A2(n70), .B0(n8), .B1(n12), .Y(n45) );
@@ -175,11 +175,11 @@ module UART_receiver_FSM_test_1 ( clk, reset, parity_enable, serial_data,
 endmodule
 
 
-module data_sampler_test_1 ( clk, reset, serial_data, prescale, enable, 
+module data_sampler_test_1 ( clk, reset, serial_data_in, prescale, enable, 
         edge_count, sampled_bit, test_si, test_so, test_se );
   input [4:0] prescale;
   input [4:0] edge_count;
-  input clk, reset, serial_data, enable, test_si, test_se;
+  input clk, reset, serial_data_in, enable, test_si, test_se;
   output sampled_bit, test_so;
   wire   sample_enable, N18, N19, N20, N21, N23, N25, N26, N27, N30, N31, N32,
          N33, n29, n30, n31, n32, \add_24_3/carry[2] , \add_24_3/carry[3] ,
@@ -217,7 +217,7 @@ module data_sampler_test_1 ( clk, reset, serial_data, prescale, enable,
   NAND3X2M U17 ( .A(n37), .B(n38), .C(n39), .Y(n15) );
   NOR3X2M U18 ( .A(n40), .B(n41), .C(n42), .Y(n39) );
   NOR3X2M U19 ( .A(n49), .B(n50), .C(n51), .Y(n48) );
-  MX2XLM U20 ( .A(samples[2]), .B(serial_data), .S0(n9), .Y(n32) );
+  MX2XLM U20 ( .A(samples[2]), .B(serial_data_in), .S0(n9), .Y(n32) );
   XOR2X2M U21 ( .A(sampling_edge_number[4]), .B(\add_24_2/carry[4] ), .Y(N27)
          );
   ADDHX1M U22 ( .A(sampling_edge_number[2]), .B(\add_24/carry[2] ), .CO(
@@ -258,9 +258,9 @@ module data_sampler_test_1 ( clk, reset, serial_data, prescale, enable,
   CLKNAND2X2M U47 ( .A(samples[1]), .B(samples[0]), .Y(n6) );
   NOR4X1M U48 ( .A(n10), .B(n11), .C(n12), .D(n13), .Y(n9) );
   NAND3X1M U49 ( .A(n14), .B(n15), .C(n16), .Y(n10) );
-  CLKMX2X2M U50 ( .A(samples[1]), .B(serial_data), .S0(n17), .Y(n31) );
+  CLKMX2X2M U50 ( .A(samples[1]), .B(serial_data_in), .S0(n17), .Y(n31) );
   NOR2X1M U51 ( .A(n12), .B(n15), .Y(n17) );
-  CLKMX2X2M U52 ( .A(samples[0]), .B(serial_data), .S0(n18), .Y(n30) );
+  CLKMX2X2M U52 ( .A(samples[0]), .B(serial_data_in), .S0(n18), .Y(n30) );
   NOR2BX1M U53 ( .AN(enable), .B(n19), .Y(n18) );
   OAI22X1M U54 ( .A0(n20), .A1(n21), .B0(enable), .B1(n8), .Y(n29) );
   CLKINVX1M U55 ( .A(sample_enable), .Y(n8) );
@@ -463,11 +463,11 @@ endmodule
 
 
 module UART_receiver ( clk, reset, parity_type, parity_enable, prescale, 
-        serial_data, scan_clk, scan_reset, test_mode, SE, SI, SO, 
+        serial_data_in, scan_clk, scan_reset, test_mode, SE, SI, SO, 
         parallel_data, data_valid, parity_error, frame_error );
   input [5:0] prescale;
   output [7:0] parallel_data;
-  input clk, reset, parity_type, parity_enable, serial_data, scan_clk,
+  input clk, reset, parity_type, parity_enable, serial_data_in, scan_clk,
          scan_reset, test_mode, SE, SI;
   output SO, data_valid, parity_error, frame_error;
   wire   multiplexed_clk, multiplexed_reset, start_bit_error, edge_count_done,
@@ -489,7 +489,7 @@ module UART_receiver ( clk, reset, parity_type, parity_enable, prescale,
   multiplexer_2x1_1 U_reset_multiplexer ( .IN0(reset), .IN1(scan_reset), 
         .select(test_mode), .OUT(multiplexed_reset) );
   UART_receiver_FSM_test_1 U_UART_receiver_FSM ( .clk(multiplexed_clk), 
-        .reset(n6), .parity_enable(parity_enable), .serial_data(serial_data), 
+        .reset(n6), .parity_enable(parity_enable), .serial_data_in(serial_data_in), 
         .prescale({n5, n4, n3, n2, n1, prescale[0]}), .start_bit_error(
         start_bit_error), .parity_bit_error(parity_error), .stop_bit_error(
         frame_error), .edge_count(edge_count), .edge_count_done(
@@ -501,7 +501,7 @@ module UART_receiver ( clk, reset, parity_type, parity_enable, prescale,
         deserializer_enable), .data_index(data_index), .data_valid(data_valid), 
         .test_si(SI), .test_so(n11), .test_se(SE) );
   data_sampler_test_1 U_data_sampler ( .clk(multiplexed_clk), .reset(n6), 
-        .serial_data(serial_data), .prescale({n5, n4, n3, n2, n1}), .enable(
+        .serial_data_in(serial_data_in), .prescale({n5, n4, n3, n2, n1}), .enable(
         edge_counter_and_data_sampler_enable), .edge_count(edge_count), 
         .sampled_bit(sampled_bit), .test_si(n11), .test_so(n10), .test_se(SE)
          );
