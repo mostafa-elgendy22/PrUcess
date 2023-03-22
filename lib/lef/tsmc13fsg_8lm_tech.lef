@@ -1,0 +1,1343 @@
+#******
+#
+# TECH LIB NAME: tsmc13fsg
+#
+# RC values have been extracted from TSMC's worst case interconnect
+# tables included with Document No. T-013-LO-SP-019 Version 1.1 04/01/2004 
+#
+# Resistance and Capacitance Values
+# ---------------------------------
+# The LEF technology files included in this directory contain resistance and
+# capacitance (RC) values for the purpose of timing driven place & route.
+# Please note that the RC values contained in this tech file were created using
+# the worst case interconnect models from the foundry and assume a full metal
+# route at every grid location on every metal layer, so the values are
+# intentionally very conservative. It is assumed that this technology file will
+# be used only as a starting point for creating initial timing driven place &
+# route runs during the development of your own more accurate RC values,
+# tailored to your specific place & route environment. AS A RESULT, TIMING
+# NUMBERS DERIVED FROM THESE RC VALUES MAY BE SIGNIFICANTLY SLOWER THAN
+# REALITY.
+# 
+# The RC values used in the LEF technology file are to be used only for timing
+# driven place & route. Due to accuracy limitations, please do not attempt to
+# use this file for chip-level RC extraction in conjunction with your sign-off
+# timing simulations. For chip-level extraction, please use a dedicated
+# extraction tool such as HyperExtract, starRC or Simplex, etc.
+#
+# Antenna Effect Properties
+# -------------------------
+# Antenna effect properties were modeled based on the following design rule
+# document:
+#
+# Document No. T-013-LO-DR-001 (TSMC 0.13UM LOGIC 1P8M SALICIDE CU_FSG 1.0V/2.5V,
+#                               1.2V/2.5V, 1.0V/3.3V, 1.2V/3.3V DESIGN RULE
+#                               Version 2.1 03/31/2004 )
+#
+# DO NOT USE SILICON ENSEMBLE OR WROUTE AS A SIGN-OFF VALIDATION FLOW FOR
+# PROCESS ANTENNA EFFECT VIOLATIONS.  Foundry DRC command files should always be
+# used for sign-off validation of process antenna effect in your design.
+#
+# $Id: tsmc13fsg_8lm_tech.lef,v 1.1 2005-03-31 18:20:22+05:30 sanju Exp $
+#
+#******
+
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/"  ;
+
+UNITS
+    DATABASE MICRONS 2000  ;
+END UNITS
+
+MANUFACTURINGGRID 0.005 ;
+USEMINSPACING OBS OFF ;
+
+LAYER POLY1
+    TYPE MASTERSLICE ;
+END POLY1
+
+LAYER METAL1
+    TYPE ROUTING ;
+    WIDTH 0.160 ;
+    SPACING 0.180 ;
+    SPACING 0.18 LENGTHTHRESHOLD  1.0 ;
+    SPACING 0.22 RANGE 0.3 10.0 USELENGTHTHRESHOLD ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION HORIZONTAL ;
+    AREA 0.122 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.364 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL1 = 0.117 ohm/sq) = 1.1700e-01
+    RESISTANCE RPERSQ      1.1700e-01 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M2-M1-PO1(FOX):0.16:0.18: CAP1 = (Cb_a * PO1(FOX) ratio + Ct_a * M2 ratio) / M1 width = 0.230803342998465
+      # M2-M1-PO1(FOX):0.16:0.18: CAP1 = (2.75e-02 * 1 + 1.22e-02 * 0.451219512195122) / 0.143 = 0.230803342998465
+      # M3-M1-PO1(FOX):0.16:0.18: CAP2 = (Cb_a * PO1(FOX) ratio + Ct_a * M3 ratio) / M1 width = 0.0161564045710387
+      # M3-M1-PO1(FOX):0.16:0.18: CAP2 = (2.75e-02 * 0 + 4.21e-03 * 0.548780487804878) / 0.143 = 0.0161564045710387
+      # CAP = (0.230803342998465 + 0.0161564045710387) * 0.001 pF/fF = 2.4696e-04
+    CAPACITANCE CPERSQDIST 2.4696e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M2-M1-PO1(FOX):0.16:0.18: ECAP1 = Cfb * PO1(FOX) ratio + Cft * M2 ratio = 0.0197187804878049
+      # M2-M1-PO1(FOX):0.16:0.18: ECAP1 = 1.61e-02 * 1 + 8.02e-03 * 0.451219512195122 = 0.0197187804878049
+      # M3-M1-PO1(FOX):0.16:0.18: ECAP2 = Cfb * PO1(FOX) ratio + Cft * M3 ratio = 0.00170670731707317
+      # M3-M1-PO1(FOX):0.16:0.18: ECAP2 = 1.67e-02 * 0 + 3.11e-03 * 0.548780487804878 = 0.00170670731707317
+      # M3-M1-PO1(FOX):0.16:0.18: Cc = 7.39e-02
+      # ECAP = (0.0197187804878049 + 0.00170670731707317 + 7.39e-02) * 0.001 pF/fF = 9.5325e-05
+    EDGECAPACITANCE        9.5325e-05 ;
+END METAL1
+
+LAYER VIA12
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA12
+
+LAYER METAL2
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION VERTICAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL2 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M3-M2-M1:0.2:0.21: CAP1 = (Cb_a * M1 ratio + Ct_a * M3 ratio) / M2 width = 0.0807251153592617
+      # M3-M2-M1:0.2:0.21: CAP1 = (1.57e-02 * 0.5 + 1.57e-02 * 0.451219512195122) / 0.185 = 0.0807251153592617
+      # M4-M2-PO1(FOX):0.2:0.21: CAP2 = (Cb_a * PO1(FOX) ratio + Ct_a * M4 ratio) / M2 width = 0.035188529993408
+      # M4-M2-PO1(FOX):0.2:0.21: CAP2 = (7.06e-03 * 0.5 + 5.43e-03 * 0.548780487804878) / 0.185 = 0.035188529993408
+      # CAP = (0.0807251153592617 + 0.035188529993408) * 0.001 pF/fF = 1.1591e-04
+    CAPACITANCE CPERSQDIST 1.1591e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M3-M2-M1:0.2:0.21: ECAP1 = Cfb * M1 ratio + Cft * M3 ratio = 0.00852963414634146
+      # M3-M2-M1:0.2:0.21: ECAP1 = 8.82e-03 * 0.5 + 9.13e-03 * 0.451219512195122 = 0.00852963414634146
+      # M4-M2-PO1(FOX):0.2:0.21: ECAP2 = Cfb * PO1(FOX) ratio + Cft * M4 ratio = 0.0043969512195122
+      # M4-M2-PO1(FOX):0.2:0.21: ECAP2 = 4.70e-03 * 0.5 + 3.73e-03 * 0.548780487804878 = 0.0043969512195122
+      # M4-M2-PO1(FOX):0.2:0.21: Cc = 8.57e-02
+      # ECAP = (0.00852963414634146 + 0.0043969512195122 + 8.57e-02) * 0.001 pF/fF = 9.8627e-05
+    EDGECAPACITANCE        9.8627e-05 ;
+END METAL2
+
+LAYER VIA23
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA23
+
+LAYER METAL3
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION HORIZONTAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL3 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M4-M3-M2:0.2:0.21: CAP1 = (Cb_a * M2 ratio + Ct_a * M4 ratio) / M3 width = 0.0765853658536585
+      # M4-M3-M2:0.2:0.21: CAP1 = (1.57e-02 * 0.451219512195122 + 1.57e-02 * 0.451219512195122) / 0.185 = 0.0765853658536585
+      # M5-M3-M1:0.2:0.21: CAP2 = (Cb_a * M1 ratio + Ct_a * M5 ratio) / M3 width = 0.0322148978246539
+      # M5-M3-M1:0.2:0.21: CAP2 = (5.43e-03 * 0.548780487804878 + 5.43e-03 * 0.548780487804878) / 0.185 = 0.0322148978246539
+      # CAP = (0.0765853658536585 + 0.0322148978246539) * 0.001 pF/fF = 1.0880e-04
+    CAPACITANCE CPERSQDIST 1.0880e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M4-M3-M2:0.2:0.21: ECAP1 = Cfb * M2 ratio + Cft * M4 ratio = 0.00810390243902439
+      # M4-M3-M2:0.2:0.21: ECAP1 = 8.82e-03 * 0.451219512195122 + 9.14e-03 * 0.451219512195122 = 0.00810390243902439
+      # M5-M3-M1:0.2:0.21: ECAP2 = Cfb * M1 ratio + Cft * M5 ratio = 0.00417621951219512
+      # M5-M3-M1:0.2:0.21: ECAP2 = 3.81e-03 * 0.548780487804878 + 3.80e-03 * 0.548780487804878 = 0.00417621951219512
+      # M5-M3-M1:0.2:0.21: Cc = 8.63e-02
+      # ECAP = (0.00810390243902439 + 0.00417621951219512 + 8.63e-02) * 0.001 pF/fF = 9.8580e-05
+    EDGECAPACITANCE        9.8580e-05 ;
+END METAL3
+
+LAYER VIA34
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA34
+
+LAYER METAL4
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION VERTICAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL4 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M5-M4-M3:0.2:0.21: CAP1 = (Cb_a * M3 ratio + Ct_a * M5 ratio) / M4 width = 0.0765853658536585
+      # M5-M4-M3:0.2:0.21: CAP1 = (1.57e-02 * 0.451219512195122 + 1.57e-02 * 0.451219512195122) / 0.185 = 0.0765853658536585
+      # M6-M4-M2:0.2:0.21: CAP2 = (Cb_a * M2 ratio + Ct_a * M6 ratio) / M4 width = 0.0322148978246539
+      # M6-M4-M2:0.2:0.21: CAP2 = (5.43e-03 * 0.548780487804878 + 5.43e-03 * 0.548780487804878) / 0.185 = 0.0322148978246539
+      # CAP = (0.0765853658536585 + 0.0322148978246539) * 0.001 pF/fF = 1.0880e-04
+    CAPACITANCE CPERSQDIST 1.0880e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M5-M4-M3:0.2:0.21: ECAP1 = Cfb * M3 ratio + Cft * M5 ratio = 0.00810390243902439
+      # M5-M4-M3:0.2:0.21: ECAP1 = 8.82e-03 * 0.451219512195122 + 9.14e-03 * 0.451219512195122 = 0.00810390243902439
+      # M6-M4-M2:0.2:0.21: ECAP2 = Cfb * M2 ratio + Cft * M6 ratio = 0.00417621951219512
+      # M6-M4-M2:0.2:0.21: ECAP2 = 3.81e-03 * 0.548780487804878 + 3.80e-03 * 0.548780487804878 = 0.00417621951219512
+      # M6-M4-M2:0.2:0.21: Cc = 8.63e-02
+      # ECAP = (0.00810390243902439 + 0.00417621951219512 + 8.63e-02) * 0.001 pF/fF = 9.8580e-05
+    EDGECAPACITANCE        9.8580e-05 ;
+END METAL4
+
+LAYER VIA45
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA45
+
+LAYER METAL5
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION HORIZONTAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL5 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M6-M5-M4:0.2:0.21: CAP1 = (Cb_a * M4 ratio + Ct_a * M6 ratio) / M5 width = 0.0765853658536585
+      # M6-M5-M4:0.2:0.21: CAP1 = (1.57e-02 * 0.451219512195122 + 1.57e-02 * 0.451219512195122) / 0.185 = 0.0765853658536585
+      # M7-M5-M3:0.2:0.21: CAP2 = (Cb_a * M3 ratio + Ct_a * M7 ratio) / M5 width = 0.0322148978246539
+      # M7-M5-M3:0.2:0.21: CAP2 = (5.43e-03 * 0.548780487804878 + 5.43e-03 * 0.548780487804878) / 0.185 = 0.0322148978246539
+      # CAP = (0.0765853658536585 + 0.0322148978246539) * 0.001 pF/fF = 1.0880e-04
+    CAPACITANCE CPERSQDIST 1.0880e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M6-M5-M4:0.2:0.21: ECAP1 = Cfb * M4 ratio + Cft * M6 ratio = 0.00810390243902439
+      # M6-M5-M4:0.2:0.21: ECAP1 = 8.82e-03 * 0.451219512195122 + 9.14e-03 * 0.451219512195122 = 0.00810390243902439
+      # M7-M5-M3:0.2:0.21: ECAP2 = Cfb * M3 ratio + Cft * M7 ratio = 0.00418170731707317
+      # M7-M5-M3:0.2:0.21: ECAP2 = 3.81e-03 * 0.548780487804878 + 3.81e-03 * 0.548780487804878 = 0.00418170731707317
+      # M7-M5-M3:0.2:0.21: Cc = 8.63e-02
+      # ECAP = (0.00810390243902439 + 0.00418170731707317 + 8.63e-02) * 0.001 pF/fF = 9.8586e-05
+    EDGECAPACITANCE        9.8586e-05 ;
+END METAL5
+
+LAYER VIA56
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA56
+
+LAYER METAL6
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION VERTICAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL6 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M7-M6-M5:0.2:0.21: CAP1 = (Cb_a * M5 ratio + Ct_a * M7 ratio) / M6 width = 0.0765853658536585
+      # M7-M6-M5:0.2:0.21: CAP1 = (1.57e-02 * 0.451219512195122 + 1.57e-02 * 0.451219512195122) / 0.185 = 0.0765853658536585
+      # M8-M6-M4:0.2:0.21: CAP2 = (Cb_a * M4 ratio + Ct_a * M8 ratio) / M6 width = 0.0306427158866183
+      # M8-M6-M4:0.2:0.21: CAP2 = (5.43e-03 * 0.548780487804878 + 4.90e-03 * 0.548780487804878) / 0.185 = 0.0306427158866183
+      # CAP = (0.0765853658536585 + 0.0306427158866183) * 0.001 pF/fF = 1.0723e-04
+    CAPACITANCE CPERSQDIST 1.0723e-04 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M7-M6-M5:0.2:0.21: ECAP1 = Cfb * M5 ratio + Cft * M7 ratio = 0.00810390243902439
+      # M7-M6-M5:0.2:0.21: ECAP1 = 8.82e-03 * 0.451219512195122 + 9.14e-03 * 0.451219512195122 = 0.00810390243902439
+      # M8-M6-M4:0.2:0.21: ECAP2 = Cfb * M4 ratio + Cft * M8 ratio = 0.00404451219512195
+      # M8-M6-M4:0.2:0.21: ECAP2 = 3.86e-03 * 0.548780487804878 + 3.51e-03 * 0.548780487804878 = 0.00404451219512195
+      # M8-M6-M4:0.2:0.21: Cc = 8.64e-02
+      # ECAP = (0.00810390243902439 + 0.00404451219512195 + 8.64e-02) * 0.001 pF/fF = 9.8548e-05
+    EDGECAPACITANCE        9.8548e-05 ;
+END METAL6
+
+LAYER VIA67
+    TYPE CUT ;
+    SPACING 0.220 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA67
+
+LAYER METAL7
+    TYPE ROUTING ;
+    WIDTH 0.200 ;
+    SPACING 0.210 ;
+    SPACING 0.24 RANGE 0.39 10.0 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.410 ;
+    OFFSET 0.205 ;
+    DIRECTION HORIZONTAL ;
+    AREA 0.144 ;
+    MINIMUMCUT 2 WIDTH 1.40 ;
+    THICKNESS 0.481 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 43062 ) ( 1 43436 ) ) ;
+      # (Worst case resistance model for METAL7 = 0.077 ohm/sq) = 7.7000e-02
+    RESISTANCE RPERSQ      7.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M8-M7-M6:0.2:0.21: CAP1 = (Cb_a * M6 ratio + Ct_a * M8 ratio) / M7 width = 0.0707560975609756
+      # M8-M7-M6:0.2:0.21: CAP1 = (1.57e-02 * 0.451219512195122 + 1.21e-02 * 0.496341463414634) / 0.185 = 0.0707560975609756
+      # M7-M5:0.2:0.21: CAP2 = Ca * M5 ratio / M7 width = 0.016107448912327
+      # M7-M5:0.2:0.21: CAP2 = 5.43e-03 * 0.548780487804878 / 0.185 = 0.016107448912327
+      # CAP = (0.0707560975609756 + 0.016107448912327) * 0.001 pF/fF = 8.6864e-05
+    CAPACITANCE CPERSQDIST 8.6864e-05 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M8-M7-M6:0.2:0.21: ECAP1 = Cfb * M6 ratio + Cft * M8 ratio = 0.00753717073170732
+      # M8-M7-M6:0.2:0.21: ECAP1 = 8.85e-03 * 0.451219512195122 + 7.14e-03 * 0.496341463414634 = 0.00753717073170732
+      # M7-M5:0.2:0.21: ECAP2 = Cf * M5 ratio = 0.00339146341463415
+      # M7-M5:0.2:0.21: ECAP2 = 6.18e-03 * 0.548780487804878 = 0.00339146341463415
+      # M7-M5:0.2:0.21: Cc = 8.86e-02
+      # ECAP = (0.00753717073170732 + 0.00339146341463415 + 8.86e-02) * 0.001 pF/fF = 9.9529e-05
+    EDGECAPACITANCE        9.9529e-05 ;
+END METAL7
+
+LAYER VIA78
+    TYPE CUT ;
+    SPACING 0.350 ;
+    ANTENNAAREARATIO 50 ;
+    ANTENNADIFFAREARATIO PWL ( ( 0 50 ) ( 0.159 50 ) ( 0.16 933 ) ( 1 1110 ) ) ;
+END VIA78
+
+LAYER METAL8
+    TYPE ROUTING ;
+    WIDTH 0.400 ;
+    SPACING 0.420 ;
+    SPACING 0.60 RANGE 10.05 100000.0 ;
+    PITCH 0.820 ;
+    OFFSET 0.205 ;
+    DIRECTION VERTICAL ;
+    AREA 0.562 ;
+    MINIMUMCUT 2 WIDTH 1.80 ;
+    THICKNESS 1.17 ;
+    ANTENNACUMAREARATIO 5496 ;
+    ANTENNACUMDIFFAREARATIO PWL ( ( 0 5496 ) ( 0.159 5496 ) ( 0.16 51270 ) ( 1 57980 ) ) ;
+      # (Worst case resistance model for METAL8 = 0.027 ohm/sq) = 2.7000e-02
+    RESISTANCE RPERSQ      2.7000e-02 ;
+      # CAP = (CAP1 + CAP2) * 0.001 pF/fF
+      # M8-M7:0.44:0.414: CAP1 = Ca * M7 ratio / M8 width = 0.029490022172949
+      # M8-M7:0.44:0.414: CAP1 = 2.66e-02 * 0.451219512195122 / 0.407 = 0.029490022172949
+      # M8-M6:0.44:0.414: CAP2 = Ca * M6 ratio / M8 width = 0.0145622340744292
+      # M8-M6:0.44:0.414: CAP2 = 1.08e-02 * 0.548780487804878 / 0.407 = 0.0145622340744292
+      # CAP = (0.029490022172949 + 0.0145622340744292) * 0.001 pF/fF = 4.4052e-05
+    CAPACITANCE CPERSQDIST 4.4052e-05 ;
+      # ECAP = (ECAP1 + ECAP2 + Cc) * 0.001 pF/fF
+      # M8-M7:0.44:0.414: ECAP1 = Cf * M7 ratio = 0.00649756097560976
+      # M8-M7:0.44:0.414: ECAP1 = 1.44e-02 * 0.451219512195122 = 0.00649756097560976
+      # M8-M6:0.44:0.414: ECAP2 = Cf * M6 ratio = 0.00391280487804878
+      # M8-M6:0.44:0.414: ECAP2 = 7.13e-03 * 0.548780487804878 = 0.00391280487804878
+      # M8-M6:0.44:0.414: Cc = 1.04e-01
+      # ECAP = (0.00649756097560976 + 0.00391280487804878 + 1.04e-01) * 0.001 pF/fF = 1.1441e-04
+    EDGECAPACITANCE        1.1441e-04 ;
+END METAL8
+
+LAYER OVERLAP
+    TYPE OVERLAP ;
+END OVERLAP
+
+VIA VIA12_H DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL1 ;
+        RECT -0.145 -0.105 0.145 0.105 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA12_H
+
+VIA VIA12_V DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL1 ;
+        RECT -0.105 -0.145 0.105 0.145 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA12_V
+
+VIA VIA12_X DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL1 ;
+        RECT -0.145 -0.105 0.145 0.105 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA12_X
+
+VIA VIA12_XR DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL1 ;
+        RECT -0.105 -0.145 0.105 0.145 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA12_XR
+
+VIA VIA23_H DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA23_H
+
+VIA VIA23_V DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA23_V
+
+VIA VIA23_X DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA23_X
+
+VIA VIA23_XR DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA23_XR
+
+VIA VIA34_H DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA34_H
+
+VIA VIA34_V DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA34_V
+
+VIA VIA34_X DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA34_X
+
+VIA VIA34_XR DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA34_XR
+
+VIA VIA45_H DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA45_H
+
+VIA VIA45_V DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA45_V
+
+VIA VIA45_X DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA45_X
+
+VIA VIA45_XR DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA45_XR
+
+VIA VIA56_H DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA56_H
+
+VIA VIA56_V DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA56_V
+
+VIA VIA56_X DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA56_X
+
+VIA VIA56_XR DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA56_XR
+
+VIA VIA67_H DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA67_H
+
+VIA VIA67_V DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA67_V
+
+VIA VIA67_X DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA67_X
+
+VIA VIA67_XR DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA67_XR
+
+VIA VIA78_H DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 6.3000e-01
+    RESISTANCE 6.3000e-01 ;
+    LAYER METAL7 ;
+        RECT -0.23 -0.19 0.23 0.19 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.29 -0.2 0.29 0.2 ;
+END VIA78_H
+
+VIA VIA78_V DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 6.3000e-01
+    RESISTANCE 6.3000e-01 ;
+    LAYER METAL7 ;
+        RECT -0.19 -0.23 0.19 0.23 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.2 -0.29 0.2 0.29 ;
+END VIA78_V
+
+VIA VIA78_X DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 6.3000e-01
+    RESISTANCE 6.3000e-01 ;
+    LAYER METAL7 ;
+        RECT -0.23 -0.19 0.23 0.19 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.2 -0.29 0.2 0.29 ;
+END VIA78_X
+
+VIA VIA78_XR DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 6.3000e-01
+    RESISTANCE 6.3000e-01 ;
+    LAYER METAL7 ;
+        RECT -0.19 -0.23 0.19 0.23 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.29 -0.2 0.29 0.2 ;
+END VIA78_XR
+
+VIA VIA78S_H DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 6.3000e-01
+    RESISTANCE 6.3000e-01 ;
+    LAYER METAL7 ;
+        RECT -0.23 -0.19 0.23 0.19 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.27 -0.27 0.27 0.27 ;
+END VIA78S_H
+
+VIA VIA12_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL1 ;
+        RECT -0.145 -0.105 0.625 0.105 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA12_2CUT_E
+
+VIA VIA12_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL1 ;
+        RECT -0.625 -0.105 0.145 0.105 ;
+    LAYER VIA12 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA12_2CUT_W
+
+VIA VIA12_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL1 ;
+        RECT -0.105 -0.145 0.105 0.625 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA12_2CUT_N
+
+VIA VIA12_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA12 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL1 ;
+        RECT -0.105 -0.625 0.105 0.145 ;
+    LAYER VIA12 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA12_2CUT_S
+
+VIA VIA23_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL2 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA23_2CUT_E
+
+VIA VIA23_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL2 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+    LAYER VIA23 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA23_2CUT_W
+
+VIA VIA23_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA23_2CUT_N
+
+VIA VIA23_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA23_2CUT_S
+
+VIA VIA34_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA34_2CUT_E
+
+VIA VIA34_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL3 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA34_2CUT_W
+
+VIA VIA34_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA34_2CUT_N
+
+VIA VIA34_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL3 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA34_2CUT_S
+
+VIA VIA45_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL4 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA45_2CUT_E
+
+VIA VIA45_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL4 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+    LAYER VIA45 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA45_2CUT_W
+
+VIA VIA45_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA45_2CUT_N
+
+VIA VIA45_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA45_2CUT_S
+
+VIA VIA56_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA56_2CUT_E
+
+VIA VIA56_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL5 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA56_2CUT_W
+
+VIA VIA56_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA56_2CUT_N
+
+VIA VIA56_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL5 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA56_2CUT_S
+
+VIA VIA67_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL6 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT 0.385 -0.095 0.575 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.145 -0.1 0.625 0.1 ;
+END VIA67_2CUT_E
+
+VIA VIA67_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL6 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+    LAYER VIA67 ;
+        RECT -0.575 -0.095 -0.385 0.095 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.625 -0.1 0.145 0.1 ;
+END VIA67_2CUT_W
+
+VIA VIA67_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        RECT -0.095 0.385 0.095 0.575 ;
+    LAYER METAL7 ;
+        RECT -0.1 -0.145 0.1 0.625 ;
+END VIA67_2CUT_N
+
+VIA VIA67_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 5.1000e-01
+    RESISTANCE 5.1000e-01 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.575 0.095 -0.385 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.1 -0.625 0.1 0.145 ;
+END VIA67_2CUT_S
+
+VIA VIA78_2CUT_E DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 3.1500e-01
+    RESISTANCE 3.1500e-01 ;
+    LAYER METAL7 ;
+        RECT -0.23 -0.19 1.13 0.19 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+        RECT 0.72 -0.18 1.08 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.29 -0.2 1.19 0.2 ;
+END VIA78_2CUT_E
+
+VIA VIA78_2CUT_W DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 3.1500e-01
+    RESISTANCE 3.1500e-01 ;
+    LAYER METAL7 ;
+        RECT -1.13 -0.19 0.23 0.19 ;
+    LAYER VIA78 ;
+        RECT -1.08 -0.18 -0.72 0.18 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -1.19 -0.2 0.29 0.2 ;
+END VIA78_2CUT_W
+
+VIA VIA78_2CUT_N DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 3.1500e-01
+    RESISTANCE 3.1500e-01 ;
+    LAYER METAL7 ;
+        RECT -0.19 -0.23 0.19 1.13 ;
+    LAYER VIA78 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+        RECT -0.18 0.72 0.18 1.08 ;
+    LAYER METAL8 ;
+        RECT -0.2 -0.29 0.2 1.19 ;
+END VIA78_2CUT_N
+
+VIA VIA78_2CUT_S DEFAULT
+      # (Worst case resistance model for VIA78 = 0.63 ohm/ct) = 3.1500e-01
+    RESISTANCE 3.1500e-01 ;
+    LAYER METAL7 ;
+        RECT -0.19 -1.13 0.19 0.23 ;
+    LAYER VIA78 ;
+        RECT -0.18 -1.08 0.18 -0.72 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL8 ;
+        RECT -0.2 -1.19 0.2 0.29 ;
+END VIA78_2CUT_S
+
+VIA VIA23_TOS_N DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.145 0.1 0.580 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA23_TOS_N
+
+VIA VIA23_TOS_S DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA23 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL2 ;
+        RECT -0.1 -0.580 0.1 0.145 ;
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA23_TOS_S
+
+VIA VIA34_TOS_E DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.145 -0.1 0.580 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA34_TOS_E
+
+VIA VIA34_TOS_W DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA34 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL3 ;
+        RECT -0.580 -0.1 0.145 0.1 ;
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA34_TOS_W
+
+VIA VIA45_TOS_N DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.145 0.1 0.580 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA45_TOS_N
+
+VIA VIA45_TOS_S DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA45 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL4 ;
+        RECT -0.1 -0.580 0.1 0.145 ;
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA45_TOS_S
+
+VIA VIA56_TOS_E DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.145 -0.1 0.580 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA56_TOS_E
+
+VIA VIA56_TOS_W DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA56 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL5 ;
+        RECT -0.580 -0.1 0.145 0.1 ;
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.145 ;
+END VIA56_TOS_W
+
+VIA VIA67_TOS_N DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.145 0.1 0.580 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA67_TOS_N
+
+VIA VIA67_TOS_S DEFAULT TOPOFSTACKONLY
+      # (Worst case resistance model for VIA67 = 1.02 ohm/ct) = 1.0200e+00
+    RESISTANCE 1.0200e+00 ;
+    LAYER METAL6 ;
+        RECT -0.1 -0.580 0.1 0.145 ;
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+    LAYER METAL7 ;
+        RECT -0.145 -0.1 0.145 0.1 ;
+END VIA67_TOS_S
+
+VIARULE VIA1ARRAY GENERATE
+    LAYER METAL1 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.030 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL2 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.030 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA12 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA1ARRAY
+
+VIARULE VIA2ARRAY GENERATE
+    LAYER METAL2 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL3 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA23 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA2ARRAY
+
+VIARULE VIA3ARRAY GENERATE
+    LAYER METAL3 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL4 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA34 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA3ARRAY
+
+VIARULE VIA4ARRAY GENERATE
+    LAYER METAL4 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL5 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA45 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA4ARRAY
+
+VIARULE VIA5ARRAY GENERATE
+    LAYER METAL5 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL6 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA56 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA5ARRAY
+
+VIARULE VIA6ARRAY GENERATE
+    LAYER METAL6 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL7 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.050 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA67 ;
+        RECT -0.095 -0.095 0.095 0.095 ;
+        SPACING 0.480 BY 0.480 ;
+END VIA6ARRAY
+
+VIARULE VIA7ARRAY GENERATE
+    LAYER METAL7 ;
+        DIRECTION HORIZONTAL ;
+        OVERHANG 0.110 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER METAL8 ;
+        DIRECTION VERTICAL ;
+        OVERHANG 0.110 ;
+        METALOVERHANG 0.000 ;
+
+    LAYER VIA78 ;
+        RECT -0.180 -0.180 0.180 0.180 ;
+        SPACING 0.900 BY 0.900 ;
+END VIA7ARRAY
+
+VIARULE TURNM1 GENERATE
+    LAYER METAL1 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL1 ;
+        DIRECTION HORIZONTAL ;
+END TURNM1
+
+VIARULE TURNM2 GENERATE
+    LAYER METAL2 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL2 ;
+        DIRECTION HORIZONTAL ;
+END TURNM2
+
+VIARULE TURNM3 GENERATE
+    LAYER METAL3 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL3 ;
+        DIRECTION HORIZONTAL ;
+END TURNM3
+
+VIARULE TURNM4 GENERATE
+    LAYER METAL4 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL4 ;
+        DIRECTION HORIZONTAL ;
+END TURNM4
+
+VIARULE TURNM5 GENERATE
+    LAYER METAL5 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL5 ;
+        DIRECTION HORIZONTAL ;
+END TURNM5
+
+VIARULE TURNM6 GENERATE
+    LAYER METAL6 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL6 ;
+        DIRECTION HORIZONTAL ;
+END TURNM6
+
+VIARULE TURNM7 GENERATE
+    LAYER METAL7 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL7 ;
+        DIRECTION HORIZONTAL ;
+END TURNM7
+
+VIARULE TURNM8 GENERATE
+    LAYER METAL8 ;
+        DIRECTION VERTICAL ;
+
+    LAYER METAL8 ;
+        DIRECTION HORIZONTAL ;
+END TURNM8
+
+SPACING
+    SAMENET METAL1 METAL1 0.180  ;
+    SAMENET METAL2 METAL2 0.210  STACK ;
+    SAMENET METAL3 METAL3 0.210  STACK ;
+    SAMENET METAL4 METAL4 0.210  STACK ;
+    SAMENET METAL5 METAL5 0.210  STACK ;
+    SAMENET METAL6 METAL6 0.210  STACK ;
+    SAMENET METAL7 METAL7 0.210  STACK ;
+    SAMENET METAL8 METAL8 0.420  ;
+    SAMENET VIA12 VIA12 0.220  ;
+    SAMENET VIA23 VIA23 0.220  ;
+    SAMENET VIA34 VIA34 0.220  ;
+    SAMENET VIA45 VIA45 0.220  ;
+    SAMENET VIA56 VIA56 0.220  ;
+    SAMENET VIA67 VIA67 0.220  ;
+    SAMENET VIA78 VIA78 0.350  ;
+    SAMENET VIA12 VIA23 0.0 STACK ;
+    SAMENET VIA23 VIA34 0.0 STACK ;
+    SAMENET VIA34 VIA45 0.0 STACK ;
+    SAMENET VIA45 VIA56 0.0 STACK ;
+    SAMENET VIA56 VIA67 0.0 STACK ;
+    SAMENET VIA67 VIA78 0.0 STACK ;
+END SPACING
+
+END LIBRARY

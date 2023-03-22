@@ -1,0 +1,150 @@
+
+#******
+# Preview export LEF
+#    * Analog on top flow *
+#	 Preview sub-version 5.10.41.500.3.38
+#
+# TECH LIB NAME: tsmc18
+# TECH FILE NAME: techfile.cds
+#******
+
+VERSION 5.4 ;
+
+NAMESCASESENSITIVE ON ;
+
+DIVIDERCHAR "|" ;
+BUSBITCHARS "[]" ;
+
+UNITS
+    DATABASE MICRONS 100  ;
+END UNITS
+
+MACRO system_top
+    CLASS CORE ;
+    FOREIGN system_top 0 0 ;
+    ORIGIN 0.00 0.00 ;
+    SIZE 240.67 BY 160.0 ;
+    SYMMETRY X Y ;
+    SITE CoreSite ;
+    PIN SI[0]
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 108 0.2 108.2 ;
+        END
+    END SI[0]
+    PIN SI[1]
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 103 0.2 103.2 ;
+        END
+    END SI[1]
+    PIN SI[2]
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 98 0.2 98.2 ;
+        END
+    END SI[2]
+    PIN SE
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 93 0.2 93.2 ;
+        END
+    END SE
+    PIN test_mode
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 88 0.2 88.2 ;
+        END
+    END test_mode
+    PIN scan_clk
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 83 0.2 83.2 ;
+        END
+    END scan_clk
+    PIN scan_reset
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 78 0.2 78.2 ;
+        END
+    END scan_reset
+    PIN reset
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 73 0.2 73.2 ;
+        END
+    END reset
+    PIN UART_clk
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 68 0.2 68.2 ;
+        END
+    END UART_clk
+    PIN reference_clk
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 63 0.2 63.2 ;
+        END
+    END reference_clk
+    PIN serial_data_in
+        DIRECTION INPUT ;
+        PORT
+        LAYER METAL2 ;
+        RECT  0.00 58 0.2 58.2 ;
+        END
+    END serial_data_in
+    PIN SO[0]
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 108 240.67 108.2 ; 
+        END
+    END SO[0]
+    PIN SO[1]
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 103 240.67 103.2 ; 
+        END
+    END SO[1]
+    PIN SO[2]
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 98 240.67 98.2 ; 
+        END
+    END SO[2]
+    PIN serial_data_out
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 93 240.67 93.2 ; 
+        END
+    END serial_data_out
+    PIN parity_error
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 88 240.67 88.2 ; 
+        END
+    END parity_error
+    PIN frame_error
+        DIRECTION OUTPUT ;
+        PORT
+        LAYER METAL3 ;
+        RECT  240.47 83 240.67 83.2 ; 
+        END
+    END frame_error
+END system_top
+
+END LIBRARY

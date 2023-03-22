@@ -1,0 +1,58 @@
+Information: Updating design information... (UID-85)
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : UART_receiver
+Version: K-2015.06
+Date   : Fri Mar 10 02:32:44 2023
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+UART_receiver          tsmc13_wl30       scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+UART_receiver                          1.69e-02 4.91e-03 2.19e+06 2.40e-02 100.0
+  U_stop_bit_checker (stop_bit_checker_test_1)
+                                       1.27e-04 9.77e-05 4.77e+04 2.73e-04   1.1
+  U_parity_bit_checker (parity_bit_checker_test_1)
+                                       2.48e-04 1.43e-04 1.48e+05 5.38e-04   2.2
+  U_start_bit_checker (start_bit_checker_test_1)
+                                       9.57e-06 8.89e-05 2.12e+04 1.20e-04   0.5
+  U_edge_counter (edge_counter_test_1) 9.09e-04 6.25e-04 2.01e+05 1.74e-03   7.2
+  U_deserializer (deserializer_test_1) 3.30e-03 9.15e-04 4.13e+05 4.63e-03  19.3
+  U_data_sampler (data_sampler_test_1) 2.79e-03 1.34e-03 7.09e+05 4.84e-03  20.2
+  U_UART_receiver_FSM (UART_receiver_FSM_test_1)
+                                       3.03e-03 1.37e-03 5.64e+05 4.96e-03  20.7
+  U_reset_multiplexer (multiplexer_2x1_1)
+                                       2.77e-05 1.37e-05 1.26e+04 5.39e-05   0.2
+  U_clock_multiplexer (multiplexer_2x1_0)
+                                       5.29e-03 2.39e-04 1.99e+04 5.55e-03  23.1
+1

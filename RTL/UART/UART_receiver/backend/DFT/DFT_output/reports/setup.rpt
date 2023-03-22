@@ -1,0 +1,507 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : UART_receiver
+Version: K-2015.06
+Date   : Fri Mar 10 02:32:44 2023
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[2]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U42/Y (NAND2BX4M)                        0.64      26.81 f
+  U_deserializer/U37/Y (NAND2BX2M)                        0.92      27.72 f
+  U_deserializer/U45/Y (OAI21X2M)                         0.72      28.44 r
+  U_deserializer/parallel_data_reg[2]/D (SDFFRX1M)        0.00      28.44 r
+  data arrival time                                                 28.44
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[2]/CK (SDFFRX1M)       0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                       70.95
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[1]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U42/Y (NAND2BX4M)                        0.64      26.81 f
+  U_deserializer/U37/Y (NAND2BX2M)                        0.92      27.72 f
+  U_deserializer/U43/Y (OAI21X2M)                         0.72      28.44 r
+  U_deserializer/parallel_data_reg[1]/D (SDFFRX1M)        0.00      28.44 r
+  data arrival time                                                 28.44
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[1]/CK (SDFFRX1M)       0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                       70.95
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[3]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U42/Y (NAND2BX4M)                        0.64      26.81 f
+  U_deserializer/U37/Y (NAND2BX2M)                        0.92      27.72 f
+  U_deserializer/U47/Y (OAI21X2M)                         0.72      28.44 r
+  U_deserializer/parallel_data_reg[3]/D (SDFFRQX2M)       0.00      28.44 r
+  data arrival time                                                 28.44
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[3]/CK (SDFFRQX2M)      0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                       70.95
+
+
+  Startpoint: prescale[1]
+              (input port clocked by CLK)
+  Endpoint: U_UART_receiver_FSM/data_transmission_state_reg[2]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[1] (in)                                        0.18      20.18 r
+  U1/Y (BUFX6M)                                           0.91      21.09 r
+  U_UART_receiver_FSM/prescale[1] (UART_receiver_FSM_test_1)
+                                                          0.00      21.09 r
+  U_UART_receiver_FSM/U92/Y (OR2X1M)                      0.73      21.83 r
+  U_UART_receiver_FSM/U90/Y (OR2X1M)                      0.71      22.54 r
+  U_UART_receiver_FSM/U88/Y (OR2X1M)                      0.47      23.01 r
+  U_UART_receiver_FSM/U87/Y (XNOR2X1M)                    0.44      23.45 f
+  U_UART_receiver_FSM/U31/Y (NAND3BX2M)                   0.54      23.99 f
+  U_UART_receiver_FSM/U30/Y (NOR4X2M)                     0.62      24.61 r
+  U_UART_receiver_FSM/U54/Y (NAND3X4M)                    0.83      25.44 f
+  U_UART_receiver_FSM/U45/Y (NAND2X2M)                    0.69      26.13 r
+  U_UART_receiver_FSM/U60/Y (OA21X2M)                     0.57      26.69 r
+  U_UART_receiver_FSM/U55/Y (OAI21X2M)                    0.50      27.19 f
+  U_UART_receiver_FSM/U13/Y (AOI32X1M)                    0.79      27.99 r
+  U_UART_receiver_FSM/U61/Y (INVX2M)                      0.31      28.30 f
+  U_UART_receiver_FSM/data_transmission_state_reg[2]/D (SDFFRX1M)
+                                                          0.00      28.30 f
+  data arrival time                                                 28.30
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_UART_receiver_FSM/data_transmission_state_reg[2]/CK (SDFFRX1M)
+                                                          0.00      99.75 r
+  library setup time                                     -0.47      99.28
+  data required time                                                99.28
+  --------------------------------------------------------------------------
+  data required time                                                99.28
+  data arrival time                                                -28.30
+  --------------------------------------------------------------------------
+  slack (MET)                                                       70.98
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[0]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U42/Y (NAND2BX4M)                        0.64      26.81 f
+  U_deserializer/U37/Y (NAND2BX2M)                        0.92      27.72 f
+  U_deserializer/U58/Y (OAI21X2M)                         0.66      28.38 r
+  U_deserializer/parallel_data_reg[0]/D (SDFFRQX2M)       0.00      28.38 r
+  data arrival time                                                 28.38
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[0]/CK (SDFFRQX2M)      0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.38
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.01
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[7]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U49/Y (NAND2X4M)                         0.63      26.80 f
+  U_deserializer/U38/Y (NAND2BX2M)                        0.91      27.71 f
+  U_deserializer/U56/Y (OAI21X2M)                         0.66      28.38 r
+  U_deserializer/parallel_data_reg[7]/D (SDFFRX1M)        0.00      28.38 r
+  data arrival time                                                 28.38
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[7]/CK (SDFFRX1M)       0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.38
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.01
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[5]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U49/Y (NAND2X4M)                         0.63      26.80 f
+  U_deserializer/U38/Y (NAND2BX2M)                        0.91      27.71 f
+  U_deserializer/U52/Y (OAI21X2M)                         0.66      28.38 r
+  U_deserializer/parallel_data_reg[5]/D (SDFFRX1M)        0.00      28.38 r
+  data arrival time                                                 28.38
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[5]/CK (SDFFRX1M)       0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.38
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.01
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[6]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U49/Y (NAND2X4M)                         0.63      26.80 f
+  U_deserializer/U38/Y (NAND2BX2M)                        0.91      27.71 f
+  U_deserializer/U54/Y (OAI21X2M)                         0.66      28.38 r
+  U_deserializer/parallel_data_reg[6]/D (SDFFRQX2M)       0.00      28.38 r
+  data arrival time                                                 28.38
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[6]/CK (SDFFRQX2M)      0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.38
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.02
+
+
+  Startpoint: prescale[3]
+              (input port clocked by CLK)
+  Endpoint: U_deserializer/parallel_data_reg[4]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[3] (in)                                        0.18      20.18 r
+  U4/Y (BUFX4M)                                           0.87      21.04 r
+  U_UART_receiver_FSM/prescale[3] (UART_receiver_FSM_test_1)
+                                                          0.00      21.04 r
+  U_UART_receiver_FSM/U85/Y (AND2X1M)                     0.69      21.73 r
+  U_UART_receiver_FSM/U83/Y (AND2X1M)                     0.70      22.43 r
+  U_UART_receiver_FSM/U82/Y (CLKXOR2X2M)                  0.63      23.06 f
+  U_UART_receiver_FSM/U97/Y (CLKXOR2X2M)                  0.48      23.54 f
+  U_UART_receiver_FSM/U17/Y (NOR4X4M)                     0.77      24.31 r
+  U_UART_receiver_FSM/U42/Y (CLKINVX1M)                   0.93      25.23 f
+  U_UART_receiver_FSM/U51/Y (NOR3X4M)                     0.93      26.17 r
+  U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM_test_1)
+                                                          0.00      26.17 r
+  U_deserializer/enable (deserializer_test_1)             0.00      26.17 r
+  U_deserializer/U49/Y (NAND2X4M)                         0.63      26.80 f
+  U_deserializer/U38/Y (NAND2BX2M)                        0.91      27.71 f
+  U_deserializer/U50/Y (OAI21X2M)                         0.66      28.38 r
+  U_deserializer/parallel_data_reg[4]/D (SDFFRQX2M)       0.00      28.38 r
+  data arrival time                                                 28.38
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_deserializer/parallel_data_reg[4]/CK (SDFFRQX2M)      0.00      99.75 r
+  library setup time                                     -0.36      99.39
+  data required time                                                99.39
+  --------------------------------------------------------------------------
+  data required time                                                99.39
+  data arrival time                                                -28.38
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.02
+
+
+  Startpoint: prescale[1]
+              (input port clocked by CLK)
+  Endpoint: U_UART_receiver_FSM/data_transmission_state_reg[3]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  UART_receiver      tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   20.00      20.00 r
+  prescale[1] (in)                                        0.18      20.18 r
+  U1/Y (BUFX6M)                                           0.91      21.09 r
+  U_UART_receiver_FSM/prescale[1] (UART_receiver_FSM_test_1)
+                                                          0.00      21.09 r
+  U_UART_receiver_FSM/U92/Y (OR2X1M)                      0.73      21.83 r
+  U_UART_receiver_FSM/U90/Y (OR2X1M)                      0.71      22.54 r
+  U_UART_receiver_FSM/U88/Y (OR2X1M)                      0.47      23.01 r
+  U_UART_receiver_FSM/U87/Y (XNOR2X1M)                    0.44      23.45 f
+  U_UART_receiver_FSM/U31/Y (NAND3BX2M)                   0.54      23.99 f
+  U_UART_receiver_FSM/U30/Y (NOR4X2M)                     0.62      24.61 r
+  U_UART_receiver_FSM/U54/Y (NAND3X4M)                    0.83      25.44 f
+  U_UART_receiver_FSM/U45/Y (NAND2X2M)                    0.69      26.13 r
+  U_UART_receiver_FSM/U60/Y (OA21X2M)                     0.57      26.69 r
+  U_UART_receiver_FSM/U55/Y (OAI21X2M)                    0.50      27.19 f
+  U_UART_receiver_FSM/U59/Y (AOI2BB1X2M)                  0.55      27.74 r
+  U_UART_receiver_FSM/U57/Y (OAI21X2M)                    0.31      28.06 f
+  U_UART_receiver_FSM/data_transmission_state_reg[3]/D (SDFFRQX2M)
+                                                          0.00      28.06 f
+  data arrival time                                                 28.06
+
+  clock CLK (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -0.25      99.75
+  U_UART_receiver_FSM/data_transmission_state_reg[3]/CK (SDFFRQX2M)
+                                                          0.00      99.75 r
+  library setup time                                     -0.46      99.29
+  data required time                                                99.29
+  --------------------------------------------------------------------------
+  data required time                                                99.29
+  data arrival time                                                -28.06
+  --------------------------------------------------------------------------
+  slack (MET)                                                       71.23
+
+
+1

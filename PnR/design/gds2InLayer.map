@@ -1,0 +1,42 @@
+;Avanti!Layer GDS2Layer[:GDS2DataType]
+
+1:0    1:0       ; DNW        Converts GDS2 layer 01     to Apollo layer 01
+3:0    3:0       ; NWELL      Converts GDS2 layer 03     to Apollo layer 03
+6:0    6:0       ; DIFF       Converts GDS2 layer 06     to Apollo layer 06
+15:0  15:0       ; OD2        Converts GDS2 layer 15     to Apollo layer 15
+17:0  17:0       ; POLY1      Converts GDS2 layer 17     to Apollo layer 17
+25:0  25:0       ; PIMP       Converts GDS2 layer 25     to Apollo layer 25
+26:0  26:0       ; NIMP       Converts GDS2 layer 26     to Apollo layer 26
+30:0  30:0       ; CONT       Converts GDS2 layer 30     to Apollo layer 30
+31:0  31:0       ; METAL1     Converts GDS2 layer 31     to Apollo layer 31
+131:0 131:0      ; METAL1 txt Converts GDS2 layer 131    to Apollo layer 131
+51:0  51:0       ; VIA12      Converts GDS2 layer 51     to Apollo layer 51
+32:0  32:0       ; METAL2     Converts GDS2 layer 32     to Apollo layer 32
+132:0 132:0      ; METAL2 txt Converts GDS2 layer 132    to Apollo layer 132
+52:0  52:0       ; VIA23      Converts GDS2 layer 52     to Apollo layer 52
+33:0  33:0       ; METAL3     Converts GDS2 layer 33     to Apollo layer 33
+133:0 133:0      ; METAL3 txt Converts GDS2 layer 133    to Apollo layer 133
+53:0  53:0       ; VIA34      Converts GDS2 layer 53     to Apollo layer 53
+34:0  34:0       ; METAL4     Converts GDS2 layer 34     to Apollo layer 34
+134:0 134:0      ; METAL4 txt Converts GDS2 layer 134    to Apollo layer 134
+54:0  54:0       ; VIA45      Converts GDS2 layer 54     to Apollo layer 54
+35:0  35:0       ; METAL5     Converts GDS2 layer 35     to Apollo layer 35
+135:0 135:0      ; METAL5 txt Converts GDS2 layer 135    to Apollo layer 135
+55:0  55:0       ; VIA56      Converts GDS2 layer 55     to Apollo layer 55
+36:0  36:0       ; METAL6     Converts GDS2 layer 36     to Apollo layer 36
+136:0 136:0      ; METAL6 txt Converts GDS2 layer 136    to Apollo layer 136
+56:0  56:0       ; VIA67      Converts GDS2 layer 56     to Apollo layer 56
+37:0  37:0       ; METAL7     Converts GDS2 layer 37     to Apollo layer 37
+137:0 137:0      ; METAL7 txt Converts GDS2 layer 137    to Apollo layer 137
+57:0  57:0       ; VIA78      Converts GDS2 layer 57     to Apollo layer 57
+38:0  38:0       ; METAL8     Converts GDS2 layer 38     to Apollo layer 38
+138:0 138:0      ; METAL8 txt Converts GDS2 layer 138    to Apollo layer 138
+119:0 119:0      ; DIODE      Converts GDS2 layer 119    to Apollo layer 119
+108:0 108:0      ; prBoundary Converts GDS2 layer 108    to Apollo layer 108
+63:0  63:63      ; artiscanTEXT Converts GDS2 layer 63:63 to Apollo layer 63
+67:0  67:0       ; VTHN       Converts GDS2 layer 67     to Apollo layer 67
+68:0  68:0       ; VTHP       Converts GDS2 layer 68     to Apollo layer 68
+73:0  73:0       ; LVID       Converts GDS2 layer 73     to Apollo layer 73
+130:0  3:20      ; NWELL  txt Converts GDS2 layer 03:20  to Apollo layer 130 
+142:0  6:20      ; DIFF   txt Converts GDS2 layer 06:20  to Apollo layer 142 
+140:0 97:20      ; PWELL  txt Converts GDS2 layer 97:20  to Apollo layer 140 

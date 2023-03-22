@@ -1,0 +1,36 @@
+ 
+****************************************
+Report : port
+Design : system_top
+Version: K-2015.06
+Date   : Wed Mar 22 23:31:43 2023
+****************************************
+
+
+
+Attributes:
+    d - dont_touch_network
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+SE             in      0.0000   0.0000   --      --      --         
+SI[0]          in      0.0000   0.0000   --      --      --         
+SI[1]          in      0.0000   0.0000   --      --      --         
+SI[2]          in      0.0000   0.0000   --      --      --         
+UART_clk       in      0.0000   0.0000   --      --      --         d
+reference_clk  in      0.0000   0.0000   --      --      --         d
+reset          in      0.0000   0.0000   --      --      --         
+scan_clk       in      0.0000   0.0000   --      --      --         d
+scan_reset     in      0.0000   0.0000   --      --      --         
+serial_data_in in      0.0000   0.0000    1.50    0.18   --         
+test_mode      in      0.0000   0.0000   --      --      --         
+SO[0]          out     0.0000   0.0000   --      --      --         
+SO[1]          out     0.0000   0.0000   --      --      --         
+SO[2]          out     0.0000   0.0000   --      --      --         
+frame_error    out     0.5000   0.0000   --      --      --         
+parity_error   out     0.5000   0.0000   --      --      --         
+serial_data_out
+               out     0.5000   0.0000   --      --      --         
+
+1

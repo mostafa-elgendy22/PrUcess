@@ -1,0 +1,105 @@
+ 
+****************************************
+Report : area
+Design : system_top
+Version: K-2015.06
+Date   : Wed Mar 22 21:12:39 2023
+****************************************
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+Number of ports:                          566
+Number of nets:                          2029
+Number of cells:                         1463
+Number of combinational cells:           1161
+Number of sequential cells:               265
+Number of macros/black boxes:               0
+Number of buf/inv:                        175
+Number of references:                      13
+
+Combinational area:               8725.230646
+Buf/Inv area:                      630.711218
+Noncombinational area:            6762.494814
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 15487.725460
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------------
+system_top                        15487.7255    100.0     5.8835     0.0000  0.0000  system_top
+U_ALU                              4560.8892     29.4  4120.8034   440.0858  0.0000  ALU
+U_Q_pulse_generator_bit_synchronizer
+                                     51.7748      0.3     0.0000     0.0000  0.0000  bus_synchronizer_3
+U_Q_pulse_generator_bit_synchronizer/U0_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_6
+U_Q_pulse_generator_bit_synchronizer/register_instance[1].U_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_5
+U_UART                             2371.0505     15.3     0.0000     0.0000  0.0000  UART
+U_UART/U_UART_receiver             1809.7646     11.7    17.6505     0.0000  0.0000  UART_receiver
+U_UART/U_UART_receiver/U_UART_receiver_FSM
+                                    576.5830      3.7   395.3712   181.2118  0.0000  UART_receiver_FSM
+U_UART/U_UART_receiver/U_data_sampler
+                                    423.6120      2.7   320.0624   103.5496  0.0000  data_sampler
+U_UART/U_UART_receiver/U_deserializer
+                                    349.4799      2.3   142.3807   207.0992  0.0000  deserializer
+U_UART/U_UART_receiver/U_edge_counter
+                                    244.7536      1.6   115.3166   129.4370  0.0000  edge_counter
+U_UART/U_UART_receiver/U_parity_bit_checker
+                                    134.1438      0.9    98.8428    35.3010  0.0000  parity_bit_checker
+U_UART/U_UART_receiver/U_start_bit_checker
+                                     31.7709      0.2     5.8835    25.8874  0.0000  start_bit_checker
+U_UART/U_UART_receiver/U_stop_bit_checker
+                                     31.7709      0.2     5.8835    25.8874  0.0000  stop_bit_checker
+U_UART/U_UART_transmitter           561.2859      3.6     0.0000     0.0000  0.0000  UART_transmitter
+U_UART/U_UART_transmitter/U_UART_transmitter_FSM
+                                    316.5323      2.0   135.3205   181.2118  0.0000  UART_transmitter_FSM
+U_UART/U_UART_transmitter/U_output_multiplexer
+                                     27.0641      0.2    27.0641     0.0000  0.0000  output_multiplexer
+U_UART/U_UART_transmitter/U_parity_calculator
+                                    124.7302      0.8    98.8428    25.8874  0.0000  parity_calculator
+U_UART/U_UART_transmitter/U_serializer
+                                     92.9593      0.6    67.0719    25.8874  0.0000  serializer
+U_UART_receiver_data_synchronizer   395.3712      2.6    84.7224   258.8740  0.0000  data_synchronizer_0
+U_UART_receiver_data_synchronizer/U_bus_synchronizer
+                                     51.7748      0.3     0.0000     0.0000  0.0000  bus_synchronizer_2
+U_UART_receiver_data_synchronizer/U_bus_synchronizer/U0_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_4
+U_UART_receiver_data_synchronizer/U_bus_synchronizer/register_instance[1].U_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_3
+U_UART_reset_synchronizer            51.7748      0.3     0.0000    51.7748  0.0000  reset_synchronizer_1
+U_UART_transmitter_data_synchronizer
+                                    395.3712      2.6    84.7224   258.8740  0.0000  data_synchronizer_1
+U_UART_transmitter_data_synchronizer/U_bus_synchronizer
+                                     51.7748      0.3     0.0000     0.0000  0.0000  bus_synchronizer_1
+U_UART_transmitter_data_synchronizer/U_bus_synchronizer/U0_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_2
+U_UART_transmitter_data_synchronizer/U_bus_synchronizer/register_instance[1].U_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_1
+U_busy_bit_synchronizer              51.7748      0.3     0.0000     0.0000  0.0000  bus_synchronizer_0
+U_busy_bit_synchronizer/U0_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_0
+U_busy_bit_synchronizer/register_instance[1].U_register
+                                     25.8874      0.2     0.0000    25.8874  0.0000  register_7
+U_clock_divider                     422.4353      2.7   241.2235   181.2118  0.0000  clock_divider
+U_clock_gating_cell                  21.1806      0.1     0.0000    21.1806  0.0000  clock_gating_cell
+U_reference_reset_synchronizer       56.4816      0.4     3.5301    52.9515  0.0000  reset_synchronizer_0
+U_register_file                    5549.3172     35.8  2002.7435  3546.5738  0.0000  register_file
+U_system_controller                1554.4207     10.0     4.7068     0.0000  0.0000  system_controller
+U_system_controller/U_UART_receiver_controller
+                                    585.9966      3.8   353.0100   232.9866  0.0000  UART_receiver_controller
+U_system_controller/U_UART_transmitter_controller
+                                    963.7173      6.2   394.1945   569.5228  0.0000  UART_transmitter_controller
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------------
+Total                                                  8725.2306  6762.4948  0.0000
+
+1

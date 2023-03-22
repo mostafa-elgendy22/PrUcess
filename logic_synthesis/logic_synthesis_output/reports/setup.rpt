@@ -1,0 +1,2093 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : system_top
+Version: K-2015.06
+Date   : Wed Mar 22 21:12:39 2023
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: U_register_file/memory_reg[1][5]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[0]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][5]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][5]/Q (DFFRQX1M)           0.56      12.56 r
+  U_register_file/register1[5] (register_file)            0.00      12.56 r
+  U_ALU/B[5] (ALU)                                        0.00      12.56 r
+  U_ALU/U71/Y (CLKINVX1M)                                 0.30      12.85 f
+  U_ALU/U92/Y (NAND3XLM)                                  0.21      13.06 r
+  U_ALU/U93/Y (NOR2XLM)                                   0.10      13.16 f
+  U_ALU/U94/Y (NAND2XLM)                                  0.12      13.28 r
+  U_ALU/U95/Y (NOR2XLM)                                   0.10      13.38 f
+  U_ALU/U96/Y (AOI21BXLM)                                 0.21      13.58 f
+  U_ALU/U97/Y (OAI21XLM)                                  0.11      13.69 r
+  U_ALU/U136/Y (OAI21XLM)                                 0.20      13.89 f
+  U_ALU/U137/Y (AOI222XLM)                                0.50      14.39 r
+  U_ALU/U138/Y (OAI21XLM)                                 0.19      14.58 f
+  U_ALU/U141/Y (AOI221XLM)                                0.54      15.12 r
+  U_ALU/U142/Y (CLKINVX1M)                                0.17      15.30 f
+  U_ALU/U146/Y (AOI221XLM)                                0.31      15.60 r
+  U_ALU/U147/Y (XOR2XLM)                                  0.19      15.79 f
+  U_ALU/U149/Y (AOI222XLM)                                0.55      16.34 r
+  U_ALU/U150/Y (AO21XLM)                                  0.22      16.56 r
+  U_ALU/U24/Y (OAI211XLM)                                 0.32      16.88 f
+  U_ALU/U162/Y (OAI31XLM)                                 0.52      17.40 r
+  U_ALU/U164/Y (AOI22XLM)                                 0.27      17.67 f
+  U_ALU/U174/CO (ADDFX1M)                                 0.41      18.08 f
+  U_ALU/U19/Y (AOI222XLM)                                 0.45      18.52 r
+  U_ALU/U167/Y (OAI21XLM)                                 0.19      18.71 f
+  U_ALU/U169/Y (AOI221XLM)                                0.55      19.26 r
+  U_ALU/U170/Y (CLKINVX1M)                                0.26      19.52 f
+  U_ALU/U179/Y (OAI31XLM)                                 0.45      19.97 r
+  U_ALU/U181/Y (OAI2BB2XLM)                               0.20      20.16 f
+  U_ALU/U182/Y (NOR2XLM)                                  0.24      20.41 r
+  U_ALU/U187/Y (OAI21XLM)                                 0.16      20.56 f
+  U_ALU/U188/Y (NOR2XLM)                                  0.20      20.76 r
+  U_ALU/U190/Y (OAI21XLM)                                 0.21      20.97 f
+  U_ALU/U193/Y (AOI222XLM)                                0.47      21.43 r
+  U_ALU/U194/Y (AOI21XLM)                                 0.09      21.52 f
+  U_ALU/U195/Y (AOI211XLM)                                0.48      22.01 r
+  U_ALU/U201/Y (CLKINVX1M)                                0.24      22.25 f
+  U_ALU/U203/Y (OAI31XLM)                                 0.44      22.69 r
+  U_ALU/U204/Y (OAI2BB2XLM)                               0.20      22.89 f
+  U_ALU/U205/Y (NOR2XLM)                                  0.20      23.09 r
+  U_ALU/U210/Y (OAI21XLM)                                 0.15      23.23 f
+  U_ALU/U10/Y (NOR2XLM)                                   0.24      23.48 r
+  U_ALU/U215/Y (OAI21XLM)                                 0.21      23.68 f
+  U_ALU/U218/Y (AOI222XLM)                                0.62      24.30 r
+  U_ALU/U219/Y (AOI222XLM)                                0.32      24.62 f
+  U_ALU/U221/Y (OR2X1M)                                   0.29      24.91 f
+  U_ALU/U222/Y (AOI221XLM)                                0.58      25.49 r
+  U_ALU/U223/Y (CLKINVX1M)                                0.23      25.73 f
+  U_ALU/U377/Y (NOR2XLM)                                  0.21      25.94 r
+  U_ALU/U6/Y (AOI22XLM)                                   0.16      26.10 f
+  U_ALU/U7/Y (OAI21XLM)                                   0.12      26.21 r
+  U_ALU/U378/Y (OAI21XLM)                                 0.15      26.37 f
+  U_ALU/U379/Y (AOI222XLM)                                0.55      26.92 r
+  U_ALU/U380/Y (AOI222XLM)                                0.27      27.19 f
+  U_ALU/U381/Y (AOI222XLM)                                0.58      27.77 r
+  U_ALU/U387/Y (AOI222XLM)                                0.30      28.07 f
+  U_ALU/U388/Y (AOI222XLM)                                0.52      28.59 r
+  U_ALU/U389/Y (OAI31XLM)                                 0.17      28.76 f
+  U_ALU/U390/Y (OAI2BB1XLM)                               0.12      28.88 r
+  U_ALU/U427/Y (OAI211XLM)                                0.15      29.02 f
+  U_ALU/ALU_result_reg[0]/D (DFFRQX1M)                    0.00      29.02 f
+  data arrival time                                                 29.02
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[0]/CK (DFFRQX1M)                   0.00      36.80 r
+  library setup time                                     -0.14      36.66
+  data required time                                                36.66
+  --------------------------------------------------------------------------
+  data required time                                                36.66
+  data arrival time                                                -29.02
+  --------------------------------------------------------------------------
+  slack (MET)                                                        7.64
+
+
+  Startpoint: U_register_file/memory_reg[1][5]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[1]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][5]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][5]/Q (DFFRQX1M)           0.56      12.56 r
+  U_register_file/register1[5] (register_file)            0.00      12.56 r
+  U_ALU/B[5] (ALU)                                        0.00      12.56 r
+  U_ALU/U71/Y (CLKINVX1M)                                 0.30      12.85 f
+  U_ALU/U92/Y (NAND3XLM)                                  0.21      13.06 r
+  U_ALU/U93/Y (NOR2XLM)                                   0.10      13.16 f
+  U_ALU/U94/Y (NAND2XLM)                                  0.12      13.28 r
+  U_ALU/U95/Y (NOR2XLM)                                   0.10      13.38 f
+  U_ALU/U96/Y (AOI21BXLM)                                 0.21      13.58 f
+  U_ALU/U97/Y (OAI21XLM)                                  0.11      13.69 r
+  U_ALU/U136/Y (OAI21XLM)                                 0.20      13.89 f
+  U_ALU/U137/Y (AOI222XLM)                                0.50      14.39 r
+  U_ALU/U138/Y (OAI21XLM)                                 0.19      14.58 f
+  U_ALU/U141/Y (AOI221XLM)                                0.54      15.12 r
+  U_ALU/U142/Y (CLKINVX1M)                                0.17      15.30 f
+  U_ALU/U146/Y (AOI221XLM)                                0.31      15.60 r
+  U_ALU/U147/Y (XOR2XLM)                                  0.19      15.79 f
+  U_ALU/U149/Y (AOI222XLM)                                0.55      16.34 r
+  U_ALU/U150/Y (AO21XLM)                                  0.22      16.56 r
+  U_ALU/U24/Y (OAI211XLM)                                 0.32      16.88 f
+  U_ALU/U162/Y (OAI31XLM)                                 0.52      17.40 r
+  U_ALU/U164/Y (AOI22XLM)                                 0.27      17.67 f
+  U_ALU/U174/CO (ADDFX1M)                                 0.41      18.08 f
+  U_ALU/U19/Y (AOI222XLM)                                 0.45      18.52 r
+  U_ALU/U167/Y (OAI21XLM)                                 0.19      18.71 f
+  U_ALU/U169/Y (AOI221XLM)                                0.55      19.26 r
+  U_ALU/U170/Y (CLKINVX1M)                                0.26      19.52 f
+  U_ALU/U179/Y (OAI31XLM)                                 0.45      19.97 r
+  U_ALU/U181/Y (OAI2BB2XLM)                               0.20      20.16 f
+  U_ALU/U182/Y (NOR2XLM)                                  0.24      20.41 r
+  U_ALU/U187/Y (OAI21XLM)                                 0.16      20.56 f
+  U_ALU/U188/Y (NOR2XLM)                                  0.20      20.76 r
+  U_ALU/U190/Y (OAI21XLM)                                 0.21      20.97 f
+  U_ALU/U193/Y (AOI222XLM)                                0.47      21.43 r
+  U_ALU/U194/Y (AOI21XLM)                                 0.09      21.52 f
+  U_ALU/U195/Y (AOI211XLM)                                0.48      22.01 r
+  U_ALU/U201/Y (CLKINVX1M)                                0.24      22.25 f
+  U_ALU/U203/Y (OAI31XLM)                                 0.44      22.69 r
+  U_ALU/U204/Y (OAI2BB2XLM)                               0.20      22.89 f
+  U_ALU/U205/Y (NOR2XLM)                                  0.20      23.09 r
+  U_ALU/U210/Y (OAI21XLM)                                 0.15      23.23 f
+  U_ALU/U10/Y (NOR2XLM)                                   0.24      23.48 r
+  U_ALU/U215/Y (OAI21XLM)                                 0.21      23.68 f
+  U_ALU/U218/Y (AOI222XLM)                                0.62      24.30 r
+  U_ALU/U219/Y (AOI222XLM)                                0.32      24.62 f
+  U_ALU/U221/Y (OR2X1M)                                   0.29      24.91 f
+  U_ALU/U222/Y (AOI221XLM)                                0.58      25.49 r
+  U_ALU/U223/Y (CLKINVX1M)                                0.23      25.73 f
+  U_ALU/U224/Y (OAI22XLM)                                 0.27      26.00 r
+  U_ALU/U225/Y (AOI211XLM)                                0.11      26.11 f
+  U_ALU/U230/Y (NAND2XLM)                                 0.11      26.22 r
+  U_ALU/ALU_result_reg[1]/D (DFFRQX1M)                    0.00      26.22 r
+  data arrival time                                                 26.22
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[1]/CK (DFFRQX1M)                   0.00      36.80 r
+  library setup time                                     -0.31      36.49
+  data required time                                                36.49
+  --------------------------------------------------------------------------
+  data required time                                                36.49
+  data arrival time                                                -26.22
+  --------------------------------------------------------------------------
+  slack (MET)                                                       10.27
+
+
+  Startpoint: U_register_file/memory_reg[1][5]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[2]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][5]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][5]/Q (DFFRQX1M)           0.56      12.56 r
+  U_register_file/register1[5] (register_file)            0.00      12.56 r
+  U_ALU/B[5] (ALU)                                        0.00      12.56 r
+  U_ALU/U71/Y (CLKINVX1M)                                 0.30      12.85 f
+  U_ALU/U92/Y (NAND3XLM)                                  0.21      13.06 r
+  U_ALU/U93/Y (NOR2XLM)                                   0.10      13.16 f
+  U_ALU/U94/Y (NAND2XLM)                                  0.12      13.28 r
+  U_ALU/U95/Y (NOR2XLM)                                   0.10      13.38 f
+  U_ALU/U96/Y (AOI21BXLM)                                 0.21      13.58 f
+  U_ALU/U97/Y (OAI21XLM)                                  0.11      13.69 r
+  U_ALU/U136/Y (OAI21XLM)                                 0.20      13.89 f
+  U_ALU/U137/Y (AOI222XLM)                                0.50      14.39 r
+  U_ALU/U138/Y (OAI21XLM)                                 0.19      14.58 f
+  U_ALU/U141/Y (AOI221XLM)                                0.54      15.12 r
+  U_ALU/U142/Y (CLKINVX1M)                                0.17      15.30 f
+  U_ALU/U146/Y (AOI221XLM)                                0.31      15.60 r
+  U_ALU/U147/Y (XOR2XLM)                                  0.19      15.79 f
+  U_ALU/U149/Y (AOI222XLM)                                0.55      16.34 r
+  U_ALU/U150/Y (AO21XLM)                                  0.22      16.56 r
+  U_ALU/U24/Y (OAI211XLM)                                 0.32      16.88 f
+  U_ALU/U162/Y (OAI31XLM)                                 0.52      17.40 r
+  U_ALU/U164/Y (AOI22XLM)                                 0.27      17.67 f
+  U_ALU/U174/CO (ADDFX1M)                                 0.41      18.08 f
+  U_ALU/U19/Y (AOI222XLM)                                 0.45      18.52 r
+  U_ALU/U167/Y (OAI21XLM)                                 0.19      18.71 f
+  U_ALU/U169/Y (AOI221XLM)                                0.55      19.26 r
+  U_ALU/U170/Y (CLKINVX1M)                                0.26      19.52 f
+  U_ALU/U179/Y (OAI31XLM)                                 0.45      19.97 r
+  U_ALU/U181/Y (OAI2BB2XLM)                               0.20      20.16 f
+  U_ALU/U182/Y (NOR2XLM)                                  0.24      20.41 r
+  U_ALU/U187/Y (OAI21XLM)                                 0.16      20.56 f
+  U_ALU/U188/Y (NOR2XLM)                                  0.20      20.76 r
+  U_ALU/U190/Y (OAI21XLM)                                 0.21      20.97 f
+  U_ALU/U193/Y (AOI222XLM)                                0.47      21.43 r
+  U_ALU/U194/Y (AOI21XLM)                                 0.09      21.52 f
+  U_ALU/U195/Y (AOI211XLM)                                0.48      22.01 r
+  U_ALU/U357/Y (AOI211XLM)                                0.19      22.19 f
+  U_ALU/U359/Y (OAI2B11XLM)                               0.12      22.32 r
+  U_ALU/ALU_result_reg[2]/D (DFFRQX1M)                    0.00      22.32 r
+  data arrival time                                                 22.32
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[2]/CK (DFFRQX1M)                   0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -22.32
+  --------------------------------------------------------------------------
+  slack (MET)                                                       14.14
+
+
+  Startpoint: U_register_file/memory_reg[1][5]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[3]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][5]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][5]/Q (DFFRQX1M)           0.56      12.56 r
+  U_register_file/register1[5] (register_file)            0.00      12.56 r
+  U_ALU/B[5] (ALU)                                        0.00      12.56 r
+  U_ALU/U71/Y (CLKINVX1M)                                 0.30      12.85 f
+  U_ALU/U92/Y (NAND3XLM)                                  0.21      13.06 r
+  U_ALU/U93/Y (NOR2XLM)                                   0.10      13.16 f
+  U_ALU/U94/Y (NAND2XLM)                                  0.12      13.28 r
+  U_ALU/U95/Y (NOR2XLM)                                   0.10      13.38 f
+  U_ALU/U96/Y (AOI21BXLM)                                 0.21      13.58 f
+  U_ALU/U97/Y (OAI21XLM)                                  0.11      13.69 r
+  U_ALU/U136/Y (OAI21XLM)                                 0.20      13.89 f
+  U_ALU/U137/Y (AOI222XLM)                                0.50      14.39 r
+  U_ALU/U138/Y (OAI21XLM)                                 0.19      14.58 f
+  U_ALU/U141/Y (AOI221XLM)                                0.54      15.12 r
+  U_ALU/U142/Y (CLKINVX1M)                                0.17      15.30 f
+  U_ALU/U146/Y (AOI221XLM)                                0.31      15.60 r
+  U_ALU/U147/Y (XOR2XLM)                                  0.19      15.79 f
+  U_ALU/U149/Y (AOI222XLM)                                0.55      16.34 r
+  U_ALU/U150/Y (AO21XLM)                                  0.22      16.56 r
+  U_ALU/U24/Y (OAI211XLM)                                 0.32      16.88 f
+  U_ALU/U162/Y (OAI31XLM)                                 0.52      17.40 r
+  U_ALU/U164/Y (AOI22XLM)                                 0.27      17.67 f
+  U_ALU/U174/CO (ADDFX1M)                                 0.41      18.08 f
+  U_ALU/U19/Y (AOI222XLM)                                 0.45      18.52 r
+  U_ALU/U167/Y (OAI21XLM)                                 0.19      18.71 f
+  U_ALU/U169/Y (AOI221XLM)                                0.55      19.26 r
+  U_ALU/U345/Y (AOI211XLM)                                0.18      19.44 f
+  U_ALU/U347/Y (OAI2B11XLM)                               0.12      19.57 r
+  U_ALU/ALU_result_reg[3]/D (DFFRQX1M)                    0.00      19.57 r
+  data arrival time                                                 19.57
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[3]/CK (DFFRQX1M)                   0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -19.57
+  --------------------------------------------------------------------------
+  slack (MET)                                                       16.90
+
+
+  Startpoint: U_register_file/memory_reg[1][0]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[14]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][0]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][0]/Q (DFFRQX1M)           0.66      12.66 f
+  U_register_file/register1[0] (register_file)            0.00      12.66 f
+  U_ALU/B[0] (ALU)                                        0.00      12.66 f
+  U_ALU/U135/Y (CLKINVX1M)                                0.54      13.21 r
+  U_ALU/U302/Y (NOR4XLM)                                  0.25      13.46 f
+  U_ALU/U305/Y (AOI221XLM)                                0.38      13.84 r
+  U_ALU/U307/CO (ADDFX1M)                                 0.63      14.47 r
+  U_ALU/intadd_1/U5/S (ADDFX1M)                           0.51      14.98 f
+  U_ALU/U441/S (ADDFX1M)                                  0.54      15.52 f
+  U_ALU/intadd_6/U2/CO (ADDFX1M)                          0.51      16.03 f
+  U_ALU/U295/Y (OAI21XLM)                                 0.21      16.24 r
+  U_ALU/U296/Y (OAI21XLM)                                 0.16      16.40 f
+  U_ALU/intadd_1/U3/CO (ADDFX1M)                          0.47      16.87 f
+  U_ALU/intadd_1/U2/CO (ADDFX1M)                          0.34      17.21 f
+  U_ALU/U288/Y (OAI21XLM)                                 0.21      17.41 r
+  U_ALU/U289/Y (OAI21XLM)                                 0.16      17.57 f
+  U_ALU/intadd_0/U2/CO (ADDFX1M)                          0.48      18.05 f
+  U_ALU/U275/Y (OAI21XLM)                                 0.21      18.26 r
+  U_ALU/U276/Y (OAI21XLM)                                 0.16      18.42 f
+  U_ALU/intadd_2/U2/CO (ADDFX1M)                          0.48      18.90 f
+  U_ALU/U85/Y (AOI21XLM)                                  0.17      19.07 r
+  U_ALU/U86/Y (OAI21XLM)                                  0.12      19.19 f
+  U_ALU/U87/Y (OAI2B11XLM)                                0.10      19.28 r
+  U_ALU/ALU_result_reg[14]/D (DFFRQX1M)                   0.00      19.28 r
+  data arrival time                                                 19.28
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[14]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -19.28
+  --------------------------------------------------------------------------
+  slack (MET)                                                       17.18
+
+
+  Startpoint: U_register_file/memory_reg[1][1]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[15]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][1]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][1]/Q (DFFRQX1M)           0.77      12.77 r
+  U_register_file/register1[1] (register_file)            0.00      12.77 r
+  U_ALU/B[1] (ALU)                                        0.00      12.77 r
+  U_ALU/U90/Y (CLKINVX1M)                                 0.47      13.24 f
+  U_ALU/U302/Y (NOR4XLM)                                  0.55      13.79 r
+  U_ALU/U305/Y (AOI221XLM)                                0.17      13.96 f
+  U_ALU/U307/S (ADDFX1M)                                  0.59      14.55 f
+  U_ALU/intadd_6/U3/S (ADDFX1M)                           0.43      14.98 r
+  U_ALU/U239/Y (CLKINVX1M)                                0.09      15.07 f
+  U_ALU/U298/Y (AOI222XLM)                                0.52      15.59 r
+  U_ALU/intadd_6/U2/CO (ADDFX1M)                          0.56      16.15 r
+  U_ALU/U267/Y (CLKINVX1M)                                0.08      16.23 f
+  U_ALU/U296/Y (OAI21XLM)                                 0.24      16.47 r
+  U_ALU/intadd_1/U3/CO (ADDFX1M)                          0.52      16.99 r
+  U_ALU/intadd_1/U2/CO (ADDFX1M)                          0.26      17.25 r
+  U_ALU/U50/Y (CLKINVX1M)                                 0.08      17.34 f
+  U_ALU/U289/Y (OAI21XLM)                                 0.24      17.58 r
+  U_ALU/intadd_0/U2/CO (ADDFX1M)                          0.53      18.11 r
+  U_ALU/U65/Y (CLKINVX1M)                                 0.08      18.19 f
+  U_ALU/U276/Y (OAI21XLM)                                 0.24      18.43 r
+  U_ALU/intadd_2/U2/CO (ADDFX1M)                          0.53      18.96 r
+  U_ALU/U82/Y (OAI211XLM)                                 0.16      19.12 f
+  U_ALU/U83/Y (OAI2B11XLM)                                0.14      19.25 r
+  U_ALU/ALU_result_reg[15]/D (DFFRQX1M)                   0.00      19.25 r
+  data arrival time                                                 19.25
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[15]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -19.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                       17.21
+
+
+  Startpoint: U_register_file/memory_reg[1][1]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[13]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][1]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][1]/Q (DFFRQX1M)           0.77      12.77 r
+  U_register_file/register1[1] (register_file)            0.00      12.77 r
+  U_ALU/B[1] (ALU)                                        0.00      12.77 r
+  U_ALU/U90/Y (CLKINVX1M)                                 0.47      13.24 f
+  U_ALU/U302/Y (NOR4XLM)                                  0.55      13.79 r
+  U_ALU/U305/Y (AOI221XLM)                                0.17      13.96 f
+  U_ALU/U307/S (ADDFX1M)                                  0.59      14.55 f
+  U_ALU/intadd_6/U3/S (ADDFX1M)                           0.43      14.98 r
+  U_ALU/U239/Y (CLKINVX1M)                                0.09      15.07 f
+  U_ALU/U298/Y (AOI222XLM)                                0.52      15.59 r
+  U_ALU/intadd_6/U2/CO (ADDFX1M)                          0.56      16.15 r
+  U_ALU/U267/Y (CLKINVX1M)                                0.08      16.23 f
+  U_ALU/U296/Y (OAI21XLM)                                 0.24      16.47 r
+  U_ALU/intadd_1/U3/CO (ADDFX1M)                          0.52      16.99 r
+  U_ALU/intadd_1/U2/CO (ADDFX1M)                          0.26      17.25 r
+  U_ALU/U50/Y (CLKINVX1M)                                 0.08      17.34 f
+  U_ALU/U289/Y (OAI21XLM)                                 0.24      17.58 r
+  U_ALU/intadd_0/U2/CO (ADDFX1M)                          0.53      18.11 r
+  U_ALU/U65/Y (CLKINVX1M)                                 0.08      18.19 f
+  U_ALU/U276/Y (OAI21XLM)                                 0.24      18.43 r
+  U_ALU/intadd_2/U2/S (ADDFX1M)                           0.51      18.94 f
+  U_ALU/U119/Y (OAI2BB1XLM)                               0.18      19.13 f
+  U_ALU/ALU_result_reg[13]/D (DFFRQX1M)                   0.00      19.13 f
+  data arrival time                                                 19.13
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[13]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.12      36.68
+  data required time                                                36.68
+  --------------------------------------------------------------------------
+  data required time                                                36.68
+  data arrival time                                                -19.13
+  --------------------------------------------------------------------------
+  slack (MET)                                                       17.56
+
+
+  Startpoint: U_register_file/memory_reg[1][0]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[12]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_register_file/memory_reg[1][0]/CK (DFFRQX1M)          0.00      12.00 r
+  U_register_file/memory_reg[1][0]/Q (DFFRQX1M)           0.66      12.66 f
+  U_register_file/register1[0] (register_file)            0.00      12.66 f
+  U_ALU/B[0] (ALU)                                        0.00      12.66 f
+  U_ALU/U135/Y (CLKINVX1M)                                0.54      13.21 r
+  U_ALU/U302/Y (NOR4XLM)                                  0.25      13.46 f
+  U_ALU/U305/Y (AOI221XLM)                                0.38      13.84 r
+  U_ALU/U307/CO (ADDFX1M)                                 0.63      14.47 r
+  U_ALU/intadd_1/U5/S (ADDFX1M)                           0.51      14.98 f
+  U_ALU/U441/S (ADDFX1M)                                  0.54      15.52 f
+  U_ALU/intadd_6/U2/CO (ADDFX1M)                          0.51      16.03 f
+  U_ALU/U295/Y (OAI21XLM)                                 0.21      16.24 r
+  U_ALU/U296/Y (OAI21XLM)                                 0.16      16.40 f
+  U_ALU/intadd_1/U3/CO (ADDFX1M)                          0.47      16.87 f
+  U_ALU/intadd_1/U2/CO (ADDFX1M)                          0.34      17.21 f
+  U_ALU/U288/Y (OAI21XLM)                                 0.21      17.41 r
+  U_ALU/U289/Y (OAI21XLM)                                 0.16      17.57 f
+  U_ALU/intadd_0/U2/CO (ADDFX1M)                          0.48      18.05 f
+  U_ALU/U65/Y (CLKINVX1M)                                 0.09      18.14 r
+  U_ALU/U66/Y (AOI22XLM)                                  0.14      18.28 f
+  U_ALU/U67/Y (AOI21XLM)                                  0.20      18.48 r
+  U_ALU/U68/Y (OAI21XLM)                                  0.12      18.60 f
+  U_ALU/U69/Y (OAI2B11XLM)                                0.10      18.70 r
+  U_ALU/ALU_result_reg[12]/D (DFFRQX1M)                   0.00      18.70 r
+  data arrival time                                                 18.70
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[12]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -18.70
+  --------------------------------------------------------------------------
+  slack (MET)                                                       17.77
+
+
+  Startpoint: U_system_controller/U_UART_receiver_controller/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[10]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_system_controller/U_UART_receiver_controller/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_system_controller/U_UART_receiver_controller/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50      12.50 r
+  U_system_controller/U_UART_receiver_controller/U21/Y (CLKINVX1M)
+                                                          0.13      12.63 f
+  U_system_controller/U_UART_receiver_controller/U27/Y (NOR2XLM)
+                                                          0.18      12.82 r
+  U_system_controller/U_UART_receiver_controller/U28/Y (CLKINVX1M)
+                                                          0.14      12.95 f
+  U_system_controller/U_UART_receiver_controller/U29/Y (NOR2XLM)
+                                                          0.32      13.27 r
+  U_system_controller/U_UART_receiver_controller/U30/Y (CLKINVX1M)
+                                                          0.18      13.45 f
+  U_system_controller/U_UART_receiver_controller/U6/Y (NOR2XLM)
+                                                          0.38      13.82 r
+  U_system_controller/U_UART_receiver_controller/ALU_function[0] (UART_receiver_controller)
+                                                          0.00      13.82 r
+  U_system_controller/ALU_function[0] (system_controller)
+                                                          0.00      13.82 r
+  U_ALU/ALU_function[0] (ALU)                             0.00      13.82 r
+  U_ALU/U42/Y (NOR2BXLM)                                  0.28      14.10 r
+  U_ALU/U43/Y (NOR3BX1M)                                  0.74      14.84 r
+  U_ALU/U433/Y (XOR2XLM)                                  0.17      15.02 f
+  U_ALU/DP_OP_29J1_122_2578/U21/CO (ADDFX1M)              0.39      15.40 f
+  U_ALU/DP_OP_29J1_122_2578/U20/CO (ADDFX1M)              0.33      15.73 f
+  U_ALU/DP_OP_29J1_122_2578/U19/CO (ADDFX1M)              0.33      16.06 f
+  U_ALU/DP_OP_29J1_122_2578/U18/CO (ADDFX1M)              0.33      16.39 f
+  U_ALU/DP_OP_29J1_122_2578/U17/CO (ADDFX1M)              0.33      16.73 f
+  U_ALU/DP_OP_29J1_122_2578/U16/CO (ADDFX1M)              0.33      17.06 f
+  U_ALU/DP_OP_29J1_122_2578/U15/CO (ADDFX1M)              0.33      17.39 f
+  U_ALU/DP_OP_29J1_122_2578/U14/CO (ADDFX1M)              0.33      17.71 f
+  U_ALU/U45/Y (NOR2XLM)                                   0.30      18.01 r
+  U_ALU/U64/Y (OAI2B11XLM)                                0.28      18.29 r
+  U_ALU/ALU_result_reg[10]/D (DFFRQX1M)                   0.00      18.29 r
+  data arrival time                                                 18.29
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[10]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.34      36.46
+  data required time                                                36.46
+  --------------------------------------------------------------------------
+  data required time                                                36.46
+  data arrival time                                                -18.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.17
+
+
+  Startpoint: U_system_controller/U_UART_receiver_controller/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_ALU/ALU_result_reg[11]
+            (rising edge-triggered flip-flop clocked by ALU_CLK)
+  Path Group: ALU_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_system_controller/U_UART_receiver_controller/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_system_controller/U_UART_receiver_controller/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50      12.50 r
+  U_system_controller/U_UART_receiver_controller/U21/Y (CLKINVX1M)
+                                                          0.13      12.63 f
+  U_system_controller/U_UART_receiver_controller/U27/Y (NOR2XLM)
+                                                          0.18      12.82 r
+  U_system_controller/U_UART_receiver_controller/U28/Y (CLKINVX1M)
+                                                          0.14      12.95 f
+  U_system_controller/U_UART_receiver_controller/U29/Y (NOR2XLM)
+                                                          0.32      13.27 r
+  U_system_controller/U_UART_receiver_controller/U30/Y (CLKINVX1M)
+                                                          0.18      13.45 f
+  U_system_controller/U_UART_receiver_controller/U6/Y (NOR2XLM)
+                                                          0.38      13.82 r
+  U_system_controller/U_UART_receiver_controller/ALU_function[0] (UART_receiver_controller)
+                                                          0.00      13.82 r
+  U_system_controller/ALU_function[0] (system_controller)
+                                                          0.00      13.82 r
+  U_ALU/ALU_function[0] (ALU)                             0.00      13.82 r
+  U_ALU/U42/Y (NOR2BXLM)                                  0.28      14.10 r
+  U_ALU/U43/Y (NOR3BX1M)                                  0.74      14.84 r
+  U_ALU/U433/Y (XOR2XLM)                                  0.17      15.02 f
+  U_ALU/DP_OP_29J1_122_2578/U21/CO (ADDFX1M)              0.39      15.40 f
+  U_ALU/DP_OP_29J1_122_2578/U20/CO (ADDFX1M)              0.33      15.73 f
+  U_ALU/DP_OP_29J1_122_2578/U19/CO (ADDFX1M)              0.33      16.06 f
+  U_ALU/DP_OP_29J1_122_2578/U18/CO (ADDFX1M)              0.33      16.39 f
+  U_ALU/DP_OP_29J1_122_2578/U17/CO (ADDFX1M)              0.33      16.73 f
+  U_ALU/DP_OP_29J1_122_2578/U16/CO (ADDFX1M)              0.33      17.06 f
+  U_ALU/DP_OP_29J1_122_2578/U15/CO (ADDFX1M)              0.33      17.39 f
+  U_ALU/DP_OP_29J1_122_2578/U14/CO (ADDFX1M)              0.33      17.71 f
+  U_ALU/U45/Y (NOR2XLM)                                   0.30      18.01 r
+  U_ALU/U117/Y (AOI21XLM)                                 0.17      18.19 f
+  U_ALU/U118/Y (OAI2BB1XLM)                               0.11      18.30 r
+  U_ALU/ALU_result_reg[11]/D (DFFRQX1M)                   0.00      18.30 r
+  data arrival time                                                 18.30
+
+  clock ALU_CLK (rise edge)                              37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_ALU/ALU_result_reg[11]/CK (DFFRQX1M)                  0.00      36.80 r
+  library setup time                                     -0.31      36.49
+  data required time                                                36.49
+  --------------------------------------------------------------------------
+  data required time                                                36.49
+  data arrival time                                                -18.30
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.20
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][5]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U143/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][5]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][5]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][4]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U145/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][4]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][4]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][3]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U147/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][3]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][3]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][2]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U149/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][2]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][2]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][1]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U151/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][1]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][1]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[0][0]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U136/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U137/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U153/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[0][0]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[0][0]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[1][3]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U154/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U155/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U160/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[1][3]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[1][3]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[1][2]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U154/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U155/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U161/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[1][2]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[1][2]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[1][1]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U154/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U155/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U162/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[1][1]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[1][1]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART_receiver_data_synchronizer/synchronous_data_valid_reg
+              (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Endpoint: U_register_file/memory_reg[1][0]
+            (rising edge-triggered flip-flop clocked by REFERENCE_CLK)
+  Path Group: REFERENCE_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock REFERENCE_CLK (rise edge)                        12.00      12.00
+  clock network delay (ideal)                             0.00      12.00
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/CK (DFFRQX1M)
+                                                          0.00      12.00 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid_reg/Q (DFFRQX1M)
+                                                          0.48      12.48 r
+  U_UART_receiver_data_synchronizer/synchronous_data_valid (data_synchronizer_0)
+                                                          0.00      12.48 r
+  U_system_controller/receiver_parallel_data_valid_synchronized (system_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/parallel_data_valid_synchronized (UART_receiver_controller)
+                                                          0.00      12.48 r
+  U_system_controller/U_UART_receiver_controller/U8/Y (CLKINVX1M)
+                                                          0.11      12.59 f
+  U_system_controller/U_UART_receiver_controller/U9/Y (NOR3XLM)
+                                                          0.38      12.98 r
+  U_system_controller/U_UART_receiver_controller/U12/Y (CLKINVX1M)
+                                                          0.16      13.13 f
+  U_system_controller/U_UART_receiver_controller/U13/Y (NOR4XLM)
+                                                          0.59      13.72 r
+  U_system_controller/U_UART_receiver_controller/U3/Y (NOR2BXLM)
+                                                          0.28      14.00 f
+  U_system_controller/U_UART_receiver_controller/U26/Y (CLKINVX1M)
+                                                          0.16      14.16 r
+  U_system_controller/U_UART_receiver_controller/write_enable (UART_receiver_controller)
+                                                          0.00      14.16 r
+  U_system_controller/register_file_write_enable (system_controller)
+                                                          0.00      14.16 r
+  U_register_file/write_enable (register_file)            0.00      14.16 r
+  U_register_file/U135/Y (NOR2BXLM)                       0.29      14.46 r
+  U_register_file/U154/Y (NAND2XLM)                       0.18      14.64 f
+  U_register_file/U155/Y (NOR2XLM)                        0.75      15.39 r
+  U_register_file/U163/Y (AOI2BB2XLM)                     0.27      15.66 r
+  U_register_file/memory_reg[1][0]/D (DFFRQX1M)           0.00      15.66 r
+  data arrival time                                                 15.66
+
+  clock REFERENCE_CLK (rise edge)                        37.00      37.00
+  clock network delay (ideal)                             0.00      37.00
+  clock uncertainty                                      -0.20      36.80
+  U_register_file/memory_reg[1][0]/CK (DFFRQX1M)          0.00      36.80 r
+  library setup time                                     -0.32      36.48
+  data required time                                                36.48
+  --------------------------------------------------------------------------
+  data required time                                                36.48
+  data arrival time                                                -15.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                       20.83
+
+
+  Startpoint: U_UART/U_UART_receiver/U_stop_bit_checker/stop_bit_error_reg
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: frame_error
+            (output port clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_stop_bit_checker/stop_bit_error_reg/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_stop_bit_checker/stop_bit_error_reg/Q (DFFRQX1M)
+                                                          0.50       0.50 r
+  U_UART/U_UART_receiver/U_stop_bit_checker/stop_bit_error (stop_bit_checker)
+                                                          0.00       0.50 r
+  U_UART/U_UART_receiver/U2/Y (OR2X8M)                    0.81       1.31 r
+  U_UART/U_UART_receiver/frame_error (UART_receiver)      0.00       1.31 r
+  U_UART/frame_error_receiver (UART)                      0.00       1.31 r
+  frame_error (out)                                       0.00       1.31 r
+  data arrival time                                                  1.31
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  output external delay                                 -54.20     216.60
+  data required time                                               216.60
+  --------------------------------------------------------------------------
+  data required time                                               216.60
+  data arrival time                                                 -1.31
+  --------------------------------------------------------------------------
+  slack (MET)                                                      215.29
+
+
+  Startpoint: U_UART/U_UART_receiver/U_parity_bit_checker/parity_bit_error_reg
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: parity_error
+            (output port clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_parity_bit_checker/parity_bit_error_reg/CK (DFFRHQX8M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_parity_bit_checker/parity_bit_error_reg/Q (DFFRHQX8M)
+                                                          1.07       1.07 r
+  U_UART/U_UART_receiver/U_parity_bit_checker/parity_bit_error (parity_bit_checker)
+                                                          0.00       1.07 r
+  U_UART/U_UART_receiver/parity_error (UART_receiver)     0.00       1.07 r
+  U_UART/parity_error_receiver (UART)                     0.00       1.07 r
+  parity_error (out)                                      0.00       1.07 r
+  data arrival time                                                  1.07
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  output external delay                                 -54.20     216.60
+  data required time                                               216.60
+  --------------------------------------------------------------------------
+  data required time                                               216.60
+  data arrival time                                                 -1.07
+  --------------------------------------------------------------------------
+  slack (MET)                                                      215.53
+
+
+  Startpoint: serial_data_in
+              (input port clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[0]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   54.20      54.20 f
+  serial_data_in (in)                                     0.03      54.23 f
+  U_UART/serial_data_receiver (UART)                      0.00      54.23 f
+  U_UART/U_UART_receiver/serial_data (UART_receiver)      0.00      54.23 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/serial_data (UART_receiver_FSM)
+                                                          0.00      54.23 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U6/Y (OAI22XLM)
+                                                          0.22      54.44 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U51/Y (AO21XLM)
+                                                          0.16      54.60 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[0]/D (DFFRQX1M)
+                                                          0.00      54.60 r
+  data arrival time                                                 54.60
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[0]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.31     270.49
+  data required time                                               270.49
+  --------------------------------------------------------------------------
+  data required time                                               270.49
+  data arrival time                                                -54.60
+  --------------------------------------------------------------------------
+  slack (MET)                                                      215.89
+
+
+  Startpoint: serial_data_in
+              (input port clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_data_sampler/samples_reg[0]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   54.20      54.20 r
+  serial_data_in (in)                                     0.03      54.23 r
+  U_UART/serial_data_receiver (UART)                      0.00      54.23 r
+  U_UART/U_UART_receiver/serial_data (UART_receiver)      0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/serial_data (data_sampler)
+                                                          0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/U40/Y (MX2XLM)
+                                                          0.19      54.42 r
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[0]/D (DFFRQX1M)
+                                                          0.00      54.42 r
+  data arrival time                                                 54.42
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[0]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.30     270.50
+  data required time                                               270.50
+  --------------------------------------------------------------------------
+  data required time                                               270.50
+  data arrival time                                                -54.42
+  --------------------------------------------------------------------------
+  slack (MET)                                                      216.07
+
+
+  Startpoint: serial_data_in
+              (input port clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_data_sampler/samples_reg[1]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   54.20      54.20 r
+  serial_data_in (in)                                     0.03      54.23 r
+  U_UART/serial_data_receiver (UART)                      0.00      54.23 r
+  U_UART/U_UART_receiver/serial_data (UART_receiver)      0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/serial_data (data_sampler)
+                                                          0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/U30/Y (MX2XLM)
+                                                          0.19      54.42 r
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[1]/D (DFFRQX1M)
+                                                          0.00      54.42 r
+  data arrival time                                                 54.42
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[1]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.30     270.50
+  data required time                                               270.50
+  --------------------------------------------------------------------------
+  data required time                                               270.50
+  data arrival time                                                -54.42
+  --------------------------------------------------------------------------
+  slack (MET)                                                      216.08
+
+
+  Startpoint: serial_data_in
+              (input port clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_data_sampler/samples_reg[2]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   54.20      54.20 r
+  serial_data_in (in)                                     0.03      54.23 r
+  U_UART/serial_data_receiver (UART)                      0.00      54.23 r
+  U_UART/U_UART_receiver/serial_data (UART_receiver)      0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/serial_data (data_sampler)
+                                                          0.00      54.23 r
+  U_UART/U_UART_receiver/U_data_sampler/U37/Y (MX2XLM)
+                                                          0.19      54.42 r
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[2]/D (DFFRQX1M)
+                                                          0.00      54.42 r
+  data arrival time                                                 54.42
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_data_sampler/samples_reg[2]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.30     270.50
+  data required time                                               270.50
+  --------------------------------------------------------------------------
+  data required time                                               270.50
+  data arrival time                                                -54.42
+  --------------------------------------------------------------------------
+  slack (MET)                                                      216.08
+
+
+  Startpoint: U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[3]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/Q (DFFRQX1M)
+                                                          0.56       0.56 f
+  U_UART/U_UART_receiver/U_edge_counter/edge_count[2] (edge_counter)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/edge_count[2] (UART_receiver_FSM)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U12/Y (MXI2XLM)
+                                                          0.21       0.78 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U37/Y (AOI221XLM)
+                                                          0.39       1.17 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U38/Y (OAI211XLM)
+                                                          0.19       1.35 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U39/Y (AOI21XLM)
+                                                          0.17       1.52 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U40/Y (OAI21XLM)
+                                                          0.12       1.64 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U41/Y (AOI211XLM)
+                                                          0.60       2.24 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U42/Y (NAND2XLM)
+                                                          0.27       2.51 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U52/Y (NAND2BXLM)
+                                                          0.32       2.84 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U55/Y (OAI31XLM)
+                                                          0.29       3.12 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[3]/D (DFFRQX1M)
+                                                          0.00       3.12 r
+  data arrival time                                                  3.12
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[3]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.35     270.45
+  data required time                                               270.45
+  --------------------------------------------------------------------------
+  data required time                                               270.45
+  data arrival time                                                 -3.12
+  --------------------------------------------------------------------------
+  slack (MET)                                                      267.33
+
+
+  Startpoint: U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[1]
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[2]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[1]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[1]/Q (DFFRQX1M)
+                                                          0.55       0.55 r
+  U_UART/U_UART_receiver/U_edge_counter/U7/Y (CLKINVX1M)
+                                                          0.10       0.65 f
+  U_UART/U_UART_receiver/U_edge_counter/U9/Y (NOR3XLM)
+                                                          0.50       1.15 r
+  U_UART/U_UART_receiver/U_edge_counter/U11/Y (OAI211XLM)
+                                                          0.24       1.38 f
+  U_UART/U_UART_receiver/U_edge_counter/U12/Y (NOR4XLM)
+                                                          0.69       2.07 r
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_done (edge_counter)
+                                                          0.00       2.07 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/edge_count_done (UART_receiver_FSM)
+                                                          0.00       2.07 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U56/Y (CLKINVX1M)
+                                                          0.12       2.20 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U57/Y (AOI221XLM)
+                                                          0.35       2.54 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U58/Y (OAI2B11XLM)
+                                                          0.24       2.78 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U59/Y (AOI32XLM)
+                                                          0.28       3.06 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[2]/D (DFFRQX1M)
+                                                          0.00       3.06 r
+  data arrival time                                                  3.06
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.33     270.47
+  data required time                                               270.47
+  --------------------------------------------------------------------------
+  data required time                                               270.47
+  data arrival time                                                 -3.06
+  --------------------------------------------------------------------------
+  slack (MET)                                                      267.42
+
+
+  Startpoint: U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[2]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/Q (DFFRQX1M)
+                                                          0.56       0.56 f
+  U_UART/U_UART_receiver/U_edge_counter/edge_count[2] (edge_counter)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/edge_count[2] (UART_receiver_FSM)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U12/Y (MXI2XLM)
+                                                          0.21       0.78 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U37/Y (AOI221XLM)
+                                                          0.39       1.17 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U38/Y (OAI211XLM)
+                                                          0.19       1.35 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U39/Y (AOI21XLM)
+                                                          0.17       1.52 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U40/Y (OAI21XLM)
+                                                          0.12       1.64 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U41/Y (AOI211XLM)
+                                                          0.60       2.24 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U42/Y (NAND2XLM)
+                                                          0.27       2.51 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U52/Y (NAND2BXLM)
+                                                          0.32       2.84 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U65/Y (OAI21XLM)
+                                                          0.21       3.05 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[2]/D (DFFRQX1M)
+                                                          0.00       3.05 r
+  data arrival time                                                  3.05
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.33     270.47
+  data required time                                               270.47
+  --------------------------------------------------------------------------
+  data required time                                               270.47
+  data arrival time                                                 -3.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                      267.42
+
+
+  Startpoint: U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_CLK)
+  Endpoint: U_UART/U_UART_receiver/U_deserializer/parallel_data_reg[1]
+            (rising edge-triggered flip-flop clocked by UART_CLK)
+  Path Group: UART_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_receiver/U_edge_counter/edge_count_reg[2]/Q (DFFRQX1M)
+                                                          0.56       0.56 f
+  U_UART/U_UART_receiver/U_edge_counter/edge_count[2] (edge_counter)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/edge_count[2] (UART_receiver_FSM)
+                                                          0.00       0.56 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U12/Y (MXI2XLM)
+                                                          0.22       0.78 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U13/Y (OAI22XLM)
+                                                          0.17       0.95 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U14/Y (AOI221XLM)
+                                                          0.27       1.22 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U17/Y (OAI211XLM)
+                                                          0.20       1.42 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U18/Y (AOI221XLM)
+                                                          0.28       1.70 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U19/Y (OAI21XLM)
+                                                          0.23       1.93 f
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/U4/Y (NOR2BXLM)
+                                                          0.21       2.14 r
+  U_UART/U_UART_receiver/U_UART_receiver_FSM/deserializer_enable (UART_receiver_FSM)
+                                                          0.00       2.14 r
+  U_UART/U_UART_receiver/U_deserializer/enable (deserializer)
+                                                          0.00       2.14 r
+  U_UART/U_UART_receiver/U_deserializer/U5/Y (NAND2XLM)
+                                                          0.20       2.34 f
+  U_UART/U_UART_receiver/U_deserializer/U6/Y (NAND2BXLM)
+                                                          0.31       2.64 f
+  U_UART/U_UART_receiver/U_deserializer/U18/Y (OAI21XLM)
+                                                          0.22       2.86 r
+  U_UART/U_UART_receiver/U_deserializer/parallel_data_reg[1]/D (DFFRQX1M)
+                                                          0.00       2.86 r
+  data arrival time                                                  2.86
+
+  clock UART_CLK (rise edge)                            271.00     271.00
+  clock network delay (ideal)                             0.00     271.00
+  clock uncertainty                                      -0.20     270.80
+  U_UART/U_UART_receiver/U_deserializer/parallel_data_reg[1]/CK (DFFRQX1M)
+                                                          0.00     270.80 r
+  library setup time                                     -0.33     270.47
+  data required time                                               270.47
+  --------------------------------------------------------------------------
+  data required time                                               270.47
+  data arrival time                                                 -2.86
+  --------------------------------------------------------------------------
+  slack (MET)                                                      267.61
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: serial_data_out
+            (output port clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]/Q (DFFRQX1M)
+                                                          0.56       0.56 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.29       0.86 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U22/Y (AO21XLM)
+                                                          0.19       1.05 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/bit_select[0] (UART_transmitter_FSM)
+                                                          0.00       1.05 r
+  U_UART/U_UART_transmitter/U_output_multiplexer/bit_select[0] (output_multiplexer)
+                                                          0.00       1.05 r
+  U_UART/U_UART_transmitter/U_output_multiplexer/U7/Y (AOI21XLM)
+                                                          0.07       1.11 f
+  U_UART/U_UART_transmitter/U_output_multiplexer/U5/Y (AOI31XLM)
+                                                          0.16       1.28 r
+  U_UART/U_UART_transmitter/U_output_multiplexer/U3/Y (CLKINVX1M)
+                                                          0.19       1.46 f
+  U_UART/U_UART_transmitter/U_output_multiplexer/U4/Y (INVX8M)
+                                                          0.75       2.22 r
+  U_UART/U_UART_transmitter/U_output_multiplexer/mux_out (output_multiplexer)
+                                                          0.00       2.22 r
+  U_UART/U_UART_transmitter/TX_out (UART_transmitter)     0.00       2.22 r
+  U_UART/serial_data_transmitter (UART)                   0.00       2.22 r
+  serial_data_out (out)                                   0.00       2.22 r
+  data arrival time                                                  2.22
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  output external delay                               -1734.40    6937.40
+  data required time                                              6937.40
+  --------------------------------------------------------------------------
+  data required time                                              6937.40
+  data arrival time                                                 -2.22
+  --------------------------------------------------------------------------
+  slack (MET)                                                     6935.18
+
+
+  Startpoint: U_UART_transmitter_data_synchronizer/synchronous_data_reg[5]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_parity_calculator/parity_bit_reg
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[5]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[5]/Q (DFFRQX1M)
+                                                          0.53       0.53 f
+  U_UART_transmitter_data_synchronizer/synchronous_data[5] (data_synchronizer_1)
+                                                          0.00       0.53 f
+  U_UART/transmitter_parallel_data[5] (UART)              0.00       0.53 f
+  U_UART/U_UART_transmitter/parallel_data[5] (UART_transmitter)
+                                                          0.00       0.53 f
+  U_UART/U_UART_transmitter/U_parity_calculator/parallel_data[5] (parity_calculator)
+                                                          0.00       0.53 f
+  U_UART/U_UART_transmitter/U_parity_calculator/U4/Y (XOR2XLM)
+                                                          0.26       0.79 f
+  U_UART/U_UART_transmitter/U_parity_calculator/U5/Y (XOR3XLM)
+                                                          0.29       1.08 f
+  U_UART/U_UART_transmitter/U_parity_calculator/U6/Y (XOR3XLM)
+                                                          0.28       1.35 r
+  U_UART/U_UART_transmitter/U_parity_calculator/U7/Y (NOR2XLM)
+                                                          0.07       1.42 f
+  U_UART/U_UART_transmitter/U_parity_calculator/U8/Y (AOI211XLM)
+                                                          0.26       1.68 r
+  U_UART/U_UART_transmitter/U_parity_calculator/U9/Y (AO21XLM)
+                                                          0.16       1.84 r
+  U_UART/U_UART_transmitter/U_parity_calculator/parity_bit_reg/D (DFFRQX1M)
+                                                          0.00       1.84 r
+  data arrival time                                                  1.84
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_parity_calculator/parity_bit_reg/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.30    8671.50
+  data required time                                              8671.50
+  --------------------------------------------------------------------------
+  data required time                                              8671.50
+  data arrival time                                                 -1.84
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.65
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[1]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U14/Y (CLKINVX1M)
+                                                          0.23       1.45 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U25/Y (AOI221XLM)
+                                                          0.29       1.73 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[1]/D (DFFRQX1M)
+                                                          0.00       1.73 r
+  data arrival time                                                  1.73
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[1]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.35    8671.45
+  data required time                                              8671.45
+  --------------------------------------------------------------------------
+  data required time                                              8671.45
+  data arrival time                                                 -1.73
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.72
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[3]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U14/Y (CLKINVX1M)
+                                                          0.23       1.45 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U27/Y (AOI221XLM)
+                                                          0.29       1.73 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[3]/D (DFFRQX1M)
+                                                          0.00       1.73 r
+  data arrival time                                                  1.73
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[3]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.35    8671.45
+  data required time                                              8671.45
+  --------------------------------------------------------------------------
+  data required time                                              8671.45
+  data arrival time                                                 -1.73
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.72
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[2]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U14/Y (CLKINVX1M)
+                                                          0.23       1.45 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U21/Y (AOI211XLM)
+                                                          0.29       1.74 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[2]/D (DFFRQX1M)
+                                                          0.00       1.74 r
+  data arrival time                                                  1.74
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.34    8671.46
+  data required time                                              8671.46
+  --------------------------------------------------------------------------
+  data required time                                              8671.46
+  data arrival time                                                 -1.74
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.72
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_serializer/serial_data_reg
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_enable (UART_transmitter_FSM)
+                                                          0.00       1.22 r
+  U_UART/U_UART_transmitter/U_serializer/serial_enable (serializer)
+                                                          0.00       1.22 r
+  U_UART/U_UART_transmitter/U_serializer/U11/Y (AOI32XLM)
+                                                          0.27       1.49 f
+  U_UART/U_UART_transmitter/U_serializer/U4/Y (OAI2B1XLM)
+                                                          0.14       1.62 r
+  U_UART/U_UART_transmitter/U_serializer/serial_data_reg/D (DFFRQX1M)
+                                                          0.00       1.62 r
+  data arrival time                                                  1.62
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_serializer/serial_data_reg/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.33    8671.47
+  data required time                                              8671.47
+  --------------------------------------------------------------------------
+  data required time                                              8671.47
+  data arrival time                                                 -1.62
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.85
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[0]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U14/Y (CLKINVX1M)
+                                                          0.23       1.45 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U15/Y (NOR2XLM)
+                                                          0.16       1.61 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[0]/D (DFFRQX1M)
+                                                          0.00       1.61 r
+  data arrival time                                                  1.61
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/serial_data_transmission_state_reg[0]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.31    8671.49
+  data required time                                              8671.49
+  --------------------------------------------------------------------------
+  data required time                                              8671.49
+  data arrival time                                                 -1.61
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.88
+
+
+  Startpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[2]/Q (DFFRQX1M)
+                                                          0.50       0.50 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U4/Y (CLKINVX1M)
+                                                          0.09       0.60 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U5/Y (OAI21XLM)
+                                                          0.15       0.74 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U13/Y (AOI221XLM)
+                                                          0.47       1.22 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U14/Y (CLKINVX1M)
+                                                          0.23       1.45 f
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/U16/Y (NAND2XLM)
+                                                          0.12       1.56 r
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]/D (DFFRQX1M)
+                                                          0.00       1.56 r
+  data arrival time                                                  1.56
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART/U_UART_transmitter/U_UART_transmitter_FSM/current_state_reg[1]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.31    8671.49
+  data required time                                              8671.49
+  --------------------------------------------------------------------------
+  data required time                                              8671.49
+  data arrival time                                                 -1.56
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8669.93
+
+
+  Startpoint: U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART_transmitter_data_synchronizer/synchronous_data_reg[1]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg/Q (DFFRQX1M)
+                                                          0.51       0.51 f
+  U_UART_transmitter_data_synchronizer/U3/Y (NOR2BXLM)
+                                                          0.47       0.98 r
+  U_UART_transmitter_data_synchronizer/U4/Y (CLKINVX1M)
+                                                          0.28       1.26 f
+  U_UART_transmitter_data_synchronizer/U12/Y (AO22XLM)
+                                                          0.38       1.64 f
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[1]/D (DFFRQX1M)
+                                                          0.00       1.64 f
+  data arrival time                                                  1.64
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[1]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.12    8671.68
+  data required time                                              8671.68
+  --------------------------------------------------------------------------
+  data required time                                              8671.68
+  data arrival time                                                 -1.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8670.04
+
+
+  Startpoint: U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg
+              (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Endpoint: U_UART_transmitter_data_synchronizer/synchronous_data_reg[0]
+            (rising edge-triggered flip-flop clocked by UART_TRANSMITTER_CLK)
+  Path Group: UART_TRANSMITTER_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_TRANSMITTER_CLK (rise edge)                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg/CK (DFFRQX1M)
+                                                          0.00       0.00 r
+  U_UART_transmitter_data_synchronizer/Q_pulse_generator_reg/Q (DFFRQX1M)
+                                                          0.51       0.51 f
+  U_UART_transmitter_data_synchronizer/U3/Y (NOR2BXLM)
+                                                          0.47       0.98 r
+  U_UART_transmitter_data_synchronizer/U4/Y (CLKINVX1M)
+                                                          0.28       1.26 f
+  U_UART_transmitter_data_synchronizer/U6/Y (AO22XLM)     0.38       1.64 f
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[0]/D (DFFRQX1M)
+                                                          0.00       1.64 f
+  data arrival time                                                  1.64
+
+  clock UART_TRANSMITTER_CLK (rise edge)               8672.00    8672.00
+  clock network delay (ideal)                             0.00    8672.00
+  clock uncertainty                                      -0.20    8671.80
+  U_UART_transmitter_data_synchronizer/synchronous_data_reg[0]/CK (DFFRQX1M)
+                                                          0.00    8671.80 r
+  library setup time                                     -0.12    8671.68
+  data required time                                              8671.68
+  --------------------------------------------------------------------------
+  data required time                                              8671.68
+  data arrival time                                                 -1.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                     8670.04
+
+
+1

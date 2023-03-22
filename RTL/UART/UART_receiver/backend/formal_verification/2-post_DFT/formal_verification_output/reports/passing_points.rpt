@@ -1,0 +1,150 @@
+**************************************************
+Report         : passing_points
+
+Reference      : reference:/WORK/UART_receiver
+Implementation : implementation:/WORK/UART_receiver
+Version        : L-2016.03-SP1
+Date           : Fri Mar 10 02:51:09 2023
+**************************************************
+
+38 Passing compare points:
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[0]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[0]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[1]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[1]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[2]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/current_state_reg[2]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[0]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[0]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[1]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[1]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[2]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[2]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[3]
+  Impl DFF        implementation:/WORK/UART_receiver/U_UART_receiver_FSM/data_transmission_state_reg[3]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_data_sampler/sample_enable_reg
+  Impl DFF        implementation:/WORK/UART_receiver/U_data_sampler/sample_enable_reg
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_data_sampler/samples_reg[0]
+  Impl DFF        implementation:/WORK/UART_receiver/U_data_sampler/samples_reg[0]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_data_sampler/samples_reg[1]
+  Impl DFF        implementation:/WORK/UART_receiver/U_data_sampler/samples_reg[1]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_data_sampler/samples_reg[2]
+  Impl DFF        implementation:/WORK/UART_receiver/U_data_sampler/samples_reg[2]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[0]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[0]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[1]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[1]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[2]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[2]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[3]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[3]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[4]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[4]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[5]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[5]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[6]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[6]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_deserializer/parallel_data_reg[7]
+  Impl DFF        implementation:/WORK/UART_receiver/U_deserializer/parallel_data_reg[7]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_edge_counter/edge_count_reg[0]
+  Impl DFF        implementation:/WORK/UART_receiver/U_edge_counter/edge_count_reg[0]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_edge_counter/edge_count_reg[1]
+  Impl DFF        implementation:/WORK/UART_receiver/U_edge_counter/edge_count_reg[1]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_edge_counter/edge_count_reg[2]
+  Impl DFF        implementation:/WORK/UART_receiver/U_edge_counter/edge_count_reg[2]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_edge_counter/edge_count_reg[3]
+  Impl DFF        implementation:/WORK/UART_receiver/U_edge_counter/edge_count_reg[3]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_edge_counter/edge_count_reg[4]
+  Impl DFF        implementation:/WORK/UART_receiver/U_edge_counter/edge_count_reg[4]
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_parity_bit_checker/parity_bit_error_reg
+  Impl DFF        implementation:/WORK/UART_receiver/U_parity_bit_checker/parity_bit_error_reg
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_start_bit_checker/start_bit_error_reg
+  Impl DFF        implementation:/WORK/UART_receiver/U_start_bit_checker/start_bit_error_reg
+
+  Ref  DFF        reference:/WORK/UART_receiver/U_stop_bit_checker/stop_bit_error_reg
+  Impl DFF        implementation:/WORK/UART_receiver/U_stop_bit_checker/stop_bit_error_reg
+
+  Ref  Port       reference:/WORK/UART_receiver/data_valid
+  Impl Port       implementation:/WORK/UART_receiver/data_valid
+
+  Ref  Port       reference:/WORK/UART_receiver/frame_error
+  Impl Port       implementation:/WORK/UART_receiver/frame_error
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[0]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[0]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[1]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[1]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[2]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[2]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[3]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[3]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[4]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[4]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[5]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[5]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[6]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[6]
+
+  Ref  Port       reference:/WORK/UART_receiver/parallel_data[7]
+  Impl Port       implementation:/WORK/UART_receiver/parallel_data[7]
+
+  Ref  Port       reference:/WORK/UART_receiver/parity_error
+  Impl Port       implementation:/WORK/UART_receiver/parity_error
+
+ [BBNet: multiply-driven net
+  BBPin: black-box pin
+  Cut:   cut-point
+  DFF:   non-constant DFF register
+  DFF0:  constant 0 DFF register
+  DFF1:  constant 1 DFF register
+  DFFX:  constant X DFF register
+  DFF0X: constrained 0X DFF register
+  DFF1X: constrained 1X DFF register
+  LAT:   non-constant latch register
+  LAT0:  constant 0 latch register
+  LAT1:  constant 1 latch register
+  LATX:  constant X latch register
+  LAT0X: constrained 0X latch register
+  LAT1X: constrained 1X latch register
+  LATCG: clock-gating latch register
+  TLA:   transparent latch register
+  TLA0X: transparent constrained 0X latch register
+  TLA1X: transparent constrained 1X latch register
+  Loop:  cycle break point
+  Port:  primary (top-level) port
+  Und:   undriven signal cut-point
+  Unk:   unknown signal cut-point]
+
+1

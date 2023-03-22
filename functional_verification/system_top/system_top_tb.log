@@ -1,0 +1,35 @@
+Start time: 18:42:54 on Mar 22,2023
+vlog system_top_tb.v 
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module UART_transmitter_FSM
+-- Compiling module serializer
+-- Compiling module parity_calculator
+-- Compiling module output_multiplexer
+-- Compiling module UART_transmitter
+-- Compiling module UART_receiver_FSM
+-- Compiling module data_sampler
+-- Compiling module deserializer
+-- Compiling module edge_counter
+-- Compiling module start_bit_checker
+-- Compiling module parity_bit_checker
+-- Compiling module stop_bit_checker
+-- Compiling module UART_receiver
+-- Compiling module UART
+-- Compiling module register_file
+-- Compiling module clock_divider
+-- Compiling module reset_synchronizer
+-- Compiling module UART_receiver_controller
+-- Compiling module UART_transmitter_controller
+-- Compiling module system_controller
+-- Compiling module ALU
+-- Compiling module clock_gating_cell
+-- Compiling module register
+-- Compiling module bus_synchronizer
+-- Compiling module data_synchronizer
+-- Compiling module system_top
+-- Compiling module system_top_tb
+
+Top level modules:
+	system_top_tb
+End time: 18:42:55 on Mar 22,2023, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

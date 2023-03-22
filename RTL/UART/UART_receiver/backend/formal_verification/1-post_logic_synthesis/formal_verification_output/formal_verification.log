@@ -1,0 +1,276 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Fri Mar 10 02:03:02 2023
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+# Add the path of the std cells, RTL files, and the synthesis files to the search path variable
+lappend search_path "../../../../../../../lib/std_cells"
+../../../../../../../lib/std_cells
+lappend search_path "../../../../"
+../../../../../../../lib/std_cells ../../../../
+lappend search_path "../../../logic_synthesis/logic_synthesis_output"
+../../../../../../../lib/std_cells ../../../../ ../../../logic_synthesis/logic_synthesis_output
+lappend search_path "../../../logic_synthesis/logic_synthesis_output/netlist"
+../../../../../../../lib/std_cells ../../../../ ../../../logic_synthesis/logic_synthesis_output ../../../logic_synthesis/logic_synthesis_output/netlist
+# Standard cells libraries
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+# The assumptions made in the synthesis will also be made in formality
+set synopsys_auto_setup true
+true
+# Formal verification setup file
+set_svf "UART_receiver.svf"
+SVF set to '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/backend/logic_synthesis/logic_synthesis_output/UART_receiver.svf'.
+1
+#-------------------------- Reference Design --------------------------#
+# Load standard cells library
+read_db -container reference [list $SSLIB]
+Loading db file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'reference'
+Current container set to 'reference'
+1
+# Read reference design files (golden RTL files)
+read_verilog -container reference "data_sampler.v"
+No target library specified, default is WORK
+Initializing DesignWare ...
+Initialization Complete
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/data_sampler.v'
+1
+read_verilog -container reference "deserializer.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/deserializer.v'
+1
+read_verilog -container reference "edge_counter.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/edge_counter.v'
+1
+read_verilog -container reference "UART_receiver_FSM.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/UART_receiver_FSM.v'
+1
+read_verilog -container reference "start_bit_checker.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/start_bit_checker.v'
+1
+read_verilog -container reference "parity_bit_checker.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/parity_bit_checker.v'
+1
+read_verilog -container reference "stop_bit_checker.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/stop_bit_checker.v'
+1
+read_verilog -container reference "UART_receiver.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/UART_receiver.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/UART_receiver_FSM.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/data_sampler.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/deserializer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/edge_counter.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/start_bit_checker.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/parity_bit_checker.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/stop_bit_checker.v'
+Information: Loading new version of design '/WORK/stop_bit_checker' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/parity_bit_checker' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/start_bit_checker' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/edge_counter' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/deserializer' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/data_sampler' into container 'reference' (FM-548)
+Information: Loading new version of design '/WORK/UART_receiver_FSM' into container 'reference' (FM-548)
+1
+# Set the reference design
+set_reference_design "UART_receiver"
+Reference design set to 'reference:/WORK/UART_receiver'
+1
+# Set the top module for the reference container
+set_top "UART_receiver"
+Setting top design to 'reference:/WORK/UART_receiver'
+Status:   Elaborating design UART_receiver   ...  
+Status:   Elaborating design UART_receiver_FSM  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_receiver_FSM_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design data_sampler   ...  
+Status:   Elaborating design deserializer  DATA_WIDTH=8 ...  
+Information: Created design named 'deserializer_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design edge_counter   ...  
+Status:   Elaborating design start_bit_checker   ...  
+Status:   Elaborating design parity_bit_checker  DATA_WIDTH=8 ...  
+Information: Created design named 'parity_bit_checker_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design stop_bit_checker   ...  
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'reference:/WORK/UART_receiver'
+Reference design set to 'reference:/WORK/UART_receiver'
+1
+#----------------------------------------------------------------------#
+#-------------------------- Implementation Design --------------------------#
+# Load standard cells library
+read_db -container implementation [list $SSLIB]
+Loading db file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'implementation'
+Current container set to 'implementation'
+1
+# Read implementation design files (i.e. netlist generated the synthesis)
+read_verilog -container implementation "UART_receiver_netlist.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/backend/logic_synthesis/logic_synthesis_output/netlist/UART_receiver_netlist.v'
+1
+# Set the implementation design
+set_implementation_design "UART_receiver"
+Implementation design set to 'implementation:/WORK/UART_receiver'
+1
+# Set the top module for the implementation container
+set_top "UART_receiver"
+Setting top design to 'implementation:/WORK/UART_receiver'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'implementation:/WORK/UART_receiver'
+Implementation design set to 'implementation:/WORK/UART_receiver'
+1
+#----------------------------------------------------------------------------#
+# Match compare points
+match
+Reference design is 'reference:/WORK/UART_receiver'
+Implementation design is 'implementation:/WORK/UART_receiver'
+Status:  Checking designs...
+Status:  Building verification models...
+Status:  Processing Guide Commands...
+
+***************************** Guidance Summary *****************************
+                                         Status
+Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
+----------------------------------------------------------------------------
+environment         :          3          0          0          0          3
+mark                :          6          0          0          0          6
+transformation
+   map              :         15          0          0          0         15
+   share            :          0          2          0          0          2
+   tree             :          0          1          0          0          1
+
+Note: If verification succeeds you can safely ignore unaccepted guidance commands.
+
+SVF files read:
+      /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/backend/logic_synthesis/logic_synthesis_output/UART_receiver.svf
+
+SVF files produced:
+  /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/backend/formal_verification/1-post_logic_synthesis/scripts/formality_svf/
+    svf.txt
+****************************************************************************
+
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 38 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 11 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+# Verify the equivalence of the compare points
+set successful [verify]
+Reference design is 'reference:/WORK/UART_receiver'
+Implementation design is 'implementation:/WORK/UART_receiver'
+    
+*********************************** Matching Results ***********************************    
+ 38 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 11 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+***************************** Synopsys Auto Setup Summary ******************************
+
+!!! Synopsys Auto Setup Mode was enabled. !!!
+!!! Verification results are valid assuming the following setup constraints: !!!
+
+### RTL Interpretation Setup
+   set hdlin_ignore_parallel_case false
+   set hdlin_ignore_full_case false
+   set hdlin_error_on_mismatch_message false
+   set hdlin_ignore_embedded_configuration true
+
+### Undriven Signal Handling Setup
+   set verification_set_undriven_signals synthesis
+
+### Test Logic Setup
+   set verification_verify_directly_undriven_output false
+   For details see report_dont_verify_points and report_constants
+
+
+For further details on Synopsys Auto Setup Mode: Type man synopsys_auto_setup
+****************************************************************************************
+
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+   ATTENTION: synopsys_auto_setup mode was enabled.
+              See Synopsys Auto Setup Summary for details.
+----------------------------------------------------------
+ Reference design: reference:/WORK/UART_receiver
+ Implementation design: implementation:/WORK/UART_receiver
+ 38 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0      11      27       0      38
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+****************************************************************************************
+1
+if {!$successful} {
+    diagnose
+    analyze_points -failing
+}
+# Generate reports
+report_passing_points > "../formal_verification_output/reports/passing_points.rpt"
+report_failing_points > "../formal_verification_output/reports/failing_points.rpt"
+report_aborted_points > "../formal_verification_output/reports/aborted_points.rpt"
+report_unverified_points > "../formal_verification_output/reports/unverified_points.rpt"
+start_gui
+     1  source -echo -verbose formal_verification_script.tcl
+1
+exit
+Maximum memory usage for this session: 431372 KB
+CPU usage for this session: 1.97 seconds
+Current time: Fri Mar 10 02:03:20 2023
+Elapsed time: 28 seconds
+
+Thank you for using Formality (R)!

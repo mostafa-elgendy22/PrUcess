@@ -1,0 +1,98 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+        -verbose
+Design : system_top
+Version: K-2015.06
+Date   : Wed Mar 22 21:12:39 2023
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+system_top                             3.36e-03    0.123 7.25e+06    0.133 100.0
+  U_UART_transmitter_data_synchronizer (data_synchronizer_1)
+                                          0.000 3.59e-05 1.41e+05 1.76e-04   0.1
+    U_bus_synchronizer (bus_synchronizer_1)
+                                          0.000 5.98e-06 1.64e+04 2.24e-05   0.0
+      register_instance[1].U_register (register_1)
+                                          0.000 2.99e-06 8.20e+03 1.12e-05   0.0
+      U0_register (register_2)            0.000 2.99e-06 8.20e+03 1.12e-05   0.0
+  U_clock_divider (clock_divider)      2.06e-05 4.74e-04 1.68e+05 6.62e-04   0.5
+  U_UART (UART)                        9.38e-05 1.66e-03 1.05e+06 2.81e-03   2.1
+    U_UART_receiver (UART_receiver)    9.38e-05 1.63e-03 7.87e+05 2.51e-03   1.9
+      U_stop_bit_checker (stop_bit_checker)
+                                          0.000 5.43e-05 1.16e+04 6.59e-05   0.0
+      U_parity_bit_checker (parity_bit_checker)
+                                          0.000 9.64e-05 1.10e+05 2.07e-04   0.2
+      U_start_bit_checker (start_bit_checker)
+                                          0.000 5.43e-05 1.03e+04 6.46e-05   0.0
+      U_edge_counter (edge_counter)    6.79e-06 2.89e-04 8.13e+04 3.77e-04   0.3
+      U_deserializer (deserializer)       0.000 4.34e-04 1.18e+05 5.52e-04   0.4
+      U_data_sampler (data_sampler)    3.73e-06 2.26e-04 2.03e+05 4.33e-04   0.3
+      U_UART_receiver_FSM (UART_receiver_FSM)
+                                       1.72e-05 4.70e-04 2.22e+05 7.09e-04   0.5
+    U_UART_transmitter (UART_transmitter)
+                                          0.000 2.69e-05 2.68e+05 2.95e-04   0.2
+      U_output_multiplexer (output_multiplexer)
+                                          0.000    0.000 2.65e+04 2.65e-05   0.0
+      U_parity_calculator (parity_calculator)
+                                          0.000 2.99e-06 1.03e+05 1.06e-04   0.1
+      U_serializer (serializer)           0.000 2.99e-06 3.76e+04 4.06e-05   0.0
+      U_UART_transmitter_FSM (UART_transmitter_FSM)
+                                          0.000 2.09e-05 1.01e+05 1.22e-04   0.1
+  U_UART_reset_synchronizer (reset_synchronizer_1)
+                                       7.09e-05 2.12e-04 2.29e+04 3.06e-04   0.2
+  U_UART_receiver_data_synchronizer (data_synchronizer_0)
+                                          0.000 6.95e-03 1.56e+05 7.11e-03   5.3
+    U_bus_synchronizer (bus_synchronizer_2)
+                                          0.000 1.16e-03 1.89e+04 1.18e-03   0.9
+      register_instance[1].U_register (register_3)
+                                          0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+      U0_register (register_4)            0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+  U_Q_pulse_generator_bit_synchronizer (bus_synchronizer_3)
+                                          0.000 1.16e-03 1.89e+04 1.18e-03   0.9
+    register_instance[1].U_register (register_5)
+                                          0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+    U0_register (register_6)              0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+  U_busy_bit_synchronizer (bus_synchronizer_0)
+                                          0.000 1.16e-03 1.89e+04 1.18e-03   0.9
+    register_instance[1].U_register (register_7)
+                                          0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+    U0_register (register_0)              0.000 5.79e-04 9.47e+03 5.89e-04   0.4
+  U_register_file (register_file)      1.28e-03 7.95e-02 2.48e+06 8.33e-02  62.5
+  U_ALU (ALU)                             0.000 9.87e-03 2.54e+06 1.24e-02   9.3
+  U_clock_gating_cell (clock_gating_cell)
+                                       1.18e-03 1.63e-03 1.49e+04 2.82e-03   2.1
+  U_system_controller (system_controller)
+                                       3.02e-04 1.80e-02 6.03e+05 1.89e-02  14.2
+    U_UART_receiver_controller (UART_receiver_controller)
+                                          0.000 5.21e-03 2.04e+05 5.42e-03   4.1
+    U_UART_transmitter_controller (UART_transmitter_controller)
+                                          0.000 1.28e-02 3.95e+05 1.32e-02   9.9
+  U_reference_reset_synchronizer (reset_synchronizer_0)
+                                       1.18e-05 1.91e-03 2.78e+04 1.95e-03   1.5
+1

@@ -1,0 +1,317 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Wed Mar 22 21:15:31 2023
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+# Add the path of the std cells, RTL files, and the synthesis files to the search path variable
+lappend search_path "../../../lib/std_cells"
+../../../lib/std_cells
+lappend search_path "../../../RTL/system_top" "../../../RTL/UART/UART_transmitter"                     "../../../RTL/UART/UART_receiver" "../../../RTL/UART/UART"                     "../../../RTL/ALU" "../../../RTL/bus_synchronizer"                     "../../../RTL/clock_divider" "../../../RTL/clock_gating_cell"                     "../../../RTL/data_synchronizer" "../../../RTL/register_file"                     "../../../RTL/reset_synchronizer" "../../../RTL/system_controller"
+../../../lib/std_cells ../../../RTL/system_top ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller
+lappend search_path "../../../logic_synthesis/logic_synthesis_output"
+../../../lib/std_cells ../../../RTL/system_top ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../logic_synthesis/logic_synthesis_output
+lappend search_path "../../../logic_synthesis/logic_synthesis_output/netlist"
+../../../lib/std_cells ../../../RTL/system_top ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../logic_synthesis/logic_synthesis_output ../../../logic_synthesis/logic_synthesis_output/netlist
+# Place the ICG cell
+cd "../../../RTL/clock_gating_cell"
+exec tclsh place_ICG_cell.tcl -p
+cd "../../formal_verification/1-post_logic_synthesis/scripts"
+# Standard cells libraries
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+# The assumptions made in the synthesis will also be made in formality
+# After using this command, setting dont verify SO port is not necessary because
+# it ignores any undrived port
+set synopsys_auto_setup true
+true
+# Formal verification setup file
+set_svf "system_top.svf"
+SVF set to '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/logic_synthesis/logic_synthesis_output/system_top.svf'.
+1
+# -------------------------- Reference Design --------------------------
+# Load standard cells library
+read_db -container reference [list $SSLIB]
+Loading db file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'reference'
+Current container set to 'reference'
+1
+# Read reference design files (golden RTL files)
+read_verilog -container reference "system_top.v"
+No target library specified, default is WORK
+Initializing DesignWare ...
+Initialization Complete
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/system_top/system_top.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART/UART.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_transmitter/UART_transmitter.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_transmitter/UART_transmitter_FSM.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_transmitter/serializer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_transmitter/parity_calculator.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_transmitter/output_multiplexer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/UART_receiver.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/UART_receiver_FSM.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/data_sampler.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/deserializer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/edge_counter.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/start_bit_checker.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/parity_bit_checker.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/UART/UART_receiver/stop_bit_checker.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/register_file/register_file.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/clock_divider/clock_divider.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/reset_synchronizer/reset_synchronizer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/system_controller/system_controller.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/system_controller/UART_receiver_controller.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/system_controller/UART_transmitter_controller.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/ALU/ALU.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/clock_gating_cell/clock_gating_cell.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/data_synchronizer/data_synchronizer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/bus_synchronizer/bus_synchronizer.v'
+Loading include file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/RTL/bus_synchronizer/register.v'
+1
+# Set the reference design
+set_reference_design "system_top"
+Reference design set to 'reference:/WORK/system_top'
+1
+# Set the top module for the reference container
+set_top "system_top"
+Setting top design to 'reference:/WORK/system_top'
+Status:   Elaborating design system_top   ...  
+Status:   Elaborating design reset_synchronizer  STAGE_COUNT=2 ...  
+Information: Created design named 'reset_synchronizer_STAGE_COUNT2'. (FE-LINK-13)
+Status:   Elaborating design system_controller  DATA_WIDTH=8, REGISTER_FILE_DEPTH=16 ...  
+Information: Created design named 'system_controller_DATA_WIDTH8_REGISTER_FILE_DEPTH16'. (FE-LINK-13)
+Status:   Elaborating design UART_transmitter_controller  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_transmitter_controller_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design UART_receiver_controller  DATA_WIDTH=8, REGISTER_FILE_DEPTH=16 ...  
+Information: Created design named 'UART_receiver_controller_DATA_WIDTH8_REGISTER_FILE_DEPTH16'. (FE-LINK-13)
+Status:   Elaborating design clock_gating_cell   ...  
+Status:   Elaborating design ALU  DATA_WIDTH=8 ...  
+Information: Created design named 'ALU_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design register_file  DATA_WIDTH=8, REGISTER_FILE_DEPTH=16 ...  
+Information: Created design named 'register_file_DATA_WIDTH8_REGISTER_FILE_DEPTH16'. (FE-LINK-13)
+Status:   Elaborating design bus_synchronizer  STAGE_COUNT=2, BUS_WIDTH=1 ...  
+Information: Created design named 'bus_synchronizer_STAGE_COUNT2_BUS_WIDTH1'. (FE-LINK-13)
+Status:   Elaborating design register  BUS_WIDTH=1 ...  
+Information: Created design named 'register_BUS_WIDTH1'. (FE-LINK-13)
+Status:   Elaborating design data_synchronizer  STAGE_COUNT=2, BUS_WIDTH=8 ...  
+Information: Created design named 'data_synchronizer_STAGE_COUNT2_BUS_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design UART  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design UART_transmitter  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_transmitter_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design UART_transmitter_FSM  DATA_WIDTH=8, START_BIT_SELECT=2'd0, STOP_BIT_SELECT=2'd1, SERIAL_DATA_BIT_SELECT=2'd2, PARITY_BIT_SELECT=2'd3 ...  
+Information: Created design named 'UART_transmitter_FSM_8_0_1_2_3'. (FE-LINK-13)
+Status:   Elaborating design serializer  DATA_WIDTH=8 ...  
+Information: Created design named 'serializer_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design parity_calculator  DATA_WIDTH=8 ...  
+Information: Created design named 'parity_calculator_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design output_multiplexer  START_BIT_SELECT=2'd0, STOP_BIT_SELECT=2'd1, SERIAL_DATA_BIT_SELECT=2'd2, PARITY_BIT_SELECT=2'd3 ...  
+Information: Created design named 'output_multiplexer_0_1_2_3'. (FE-LINK-13)
+Status:   Elaborating design UART_receiver  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_receiver_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design UART_receiver_FSM  DATA_WIDTH=8 ...  
+Information: Created design named 'UART_receiver_FSM_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design data_sampler   ...  
+Status:   Elaborating design deserializer  DATA_WIDTH=8 ...  
+Information: Created design named 'deserializer_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design edge_counter   ...  
+Status:   Elaborating design start_bit_checker   ...  
+Status:   Elaborating design parity_bit_checker  DATA_WIDTH=8 ...  
+Information: Created design named 'parity_bit_checker_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design stop_bit_checker   ...  
+Status:   Elaborating design clock_divider   ...  
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'reference:/WORK/system_top'
+Reference design set to 'reference:/WORK/system_top'
+1
+# ----------------------------------------------------------------------
+#-------------------------- Implementation Design --------------------------
+# Load standard cells library
+read_db -container implementation [list $SSLIB]
+Loading db file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/lib/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'implementation'
+Current container set to 'implementation'
+1
+# Read implementation design files (i.e. netlist generated the synthesis)
+read_verilog -container implementation "system_top_netlist.v"
+No target library specified, default is WORK
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/logic_synthesis/logic_synthesis_output/netlist/system_top_netlist.v'
+1
+# Set the implementation design
+set_implementation_design "system_top"
+Implementation design set to 'implementation:/WORK/system_top'
+1
+# Set the top module for the implementation container
+set_top "system_top"
+Setting top design to 'implementation:/WORK/system_top'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'implementation:/WORK/system_top'
+Implementation design set to 'implementation:/WORK/system_top'
+1
+#----------------------------------------------------------------------------
+# Match compare points
+match
+Reference design is 'reference:/WORK/system_top'
+Implementation design is 'implementation:/WORK/system_top'
+Status:  Checking designs...
+    Warning: 0 (9) undriven nets found in reference (implementation) design; see formality.log for list (FM-399)
+Status:  Building verification models...
+Status:  Processing Guide Commands...
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "bus_synchronizer_0" to design "FM_uniq_19".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "data_synchronizer_0" to design "FM_uniq_26".
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "FM_uniq_19" to design "bus_synchronizer_0".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "FM_uniq_26" to design "data_synchronizer_0".
+
+***************************** Guidance Summary *****************************
+                                         Status
+Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
+----------------------------------------------------------------------------
+architecture_netlist:          5          0          0          0          5
+boundary            :          5          0          0          0          5
+boundary_netlist    :          4          0          0          0          4
+change_names        :          3         10          0          0         13
+datapath            :          1          4          0          0          5
+environment         :          3          0          0          0          3
+instance_map        :          0          1          0          0          1
+inv_push            :          2          0          0          0          2
+mark                :         18          0          0          0         18
+merge               :          1          5          0          0          6
+multiplier          :          0          2          0          0          2
+replace             :          7         12          0          0         19
+ungroup             :          0          2          0          0          2
+uniquify            :          3          5          0          0          8
+
+Note: If verification succeeds you can safely ignore unaccepted guidance commands.
+
+SVF files read:
+      /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/logic_synthesis/logic_synthesis_output/system_top.svf
+
+SVF files produced:
+  /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/formal_verification/1-post_logic_synthesis/scripts/formality_svf/
+    svf.txt
+****************************************************************************
+
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 264 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 4 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+# Verify the equivalence of the compare points
+set successful [verify]
+Reference design is 'reference:/WORK/system_top'
+Implementation design is 'implementation:/WORK/system_top'
+    
+*********************************** Matching Results ***********************************    
+ 264 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 4 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+***************************** Synopsys Auto Setup Summary ******************************
+
+!!! Synopsys Auto Setup Mode was enabled. !!!
+!!! Verification results are valid assuming the following setup constraints: !!!
+
+### RTL Interpretation Setup
+   set hdlin_ignore_parallel_case false
+   set hdlin_ignore_full_case false
+   set hdlin_error_on_mismatch_message false
+   set hdlin_ignore_embedded_configuration true
+
+### Undriven Signal Handling Setup
+   set verification_set_undriven_signals synthesis
+
+### Test Logic Setup
+   set verification_verify_directly_undriven_output false
+   For details see report_dont_verify_points and report_constants
+
+
+For further details on Synopsys Auto Setup Mode: Type man synopsys_auto_setup
+****************************************************************************************
+
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+   ATTENTION: synopsys_auto_setup mode was enabled.
+              See Synopsys Auto Setup Summary for details.
+----------------------------------------------------------
+ Reference design: reference:/WORK/system_top
+ Implementation design: implementation:/WORK/system_top
+ 264 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0       3     260       1     264
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+****************************************************************************************
+1
+if {!$successful} {
+    diagnose
+    analyze_points -failing
+}
+# Generate reports
+report_passing_points > "../formal_verification_output/reports/passing_points.rpt"
+report_failing_points > "../formal_verification_output/reports/failing_points.rpt"
+report_aborted_points > "../formal_verification_output/reports/aborted_points.rpt"
+report_unverified_points > "../formal_verification_output/reports/unverified_points.rpt"
+# Remove the ICG cell
+cd "../../../RTL/clock_gating_cell"
+exec tclsh place_ICG_cell.tcl -r
+cd "../../formal_verification/1-post_logic_synthesis/scripts"
+start_gui
+     1  source -echo -verbose formal_verification_script.tcl
+1
+exit
+
+Maximum memory usage for this session: 492408 KB
+CPU usage for this session: 10.13 seconds
+Current time: Wed Mar 22 21:15:54 2023
+Elapsed time: 34 seconds
+
+Thank you for using Formality (R)!
