@@ -29,14 +29,14 @@ lappend search_path "../../../RTL/system_top_DFT" "../../../RTL/UART/UART_transm
 ../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller
 lappend search_path "../../../DFT/DFT_output"
 ../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../DFT/DFT_output
-lappend search_path "../../../PnR/PnR_output"
-../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../DFT/DFT_output ../../../PnR/PnR_output
-lappend search_path "../../../PnR/PnR_output/netlist"
-../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../DFT/DFT_output ../../../PnR/PnR_output ../../../PnR/PnR_output/netlist
+lappend search_path "../../../physical_design/physical_design_output"
+../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../DFT/DFT_output ../../../physical_design/physical_design_output
+lappend search_path "../../../physical_design/physical_design_output/netlist"
+../../../lib/std_cells ../../../RTL/system_top_DFT ../../../RTL/UART/UART_transmitter ../../../RTL/UART/UART_receiver ../../../RTL/UART/UART ../../../RTL/ALU ../../../RTL/bus_synchronizer ../../../RTL/clock_divider ../../../RTL/clock_gating_cell ../../../RTL/data_synchronizer ../../../RTL/register_file ../../../RTL/reset_synchronizer ../../../RTL/system_controller ../../../DFT/DFT_output ../../../physical_design/physical_design_output ../../../physical_design/physical_design_output/netlist
 # Place the ICG cell
 cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -p
-cd "../../formal_verification/3-post_PnR/scripts"
+cd "../../formal_verification/3-post_physical_design/scripts"
 # Standard cells libraries
 set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
 scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
@@ -166,7 +166,7 @@ Current container set to 'implementation'
 # Read implementation design files (i.e. netlist generated after the logic synthesis)
 read_verilog -container implementation "system_top_netlist.v"
 No target library specified, default is WORK
-Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/PnR/PnR_output/netlist/system_top_netlist.v'
+Loading verilog file '/mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/physical_design/physical_design_output/netlist/system_top_netlist.v'
 1
 # Set the implementation design
 set_implementation_design "system_top"
@@ -252,7 +252,7 @@ SVF files read:
       /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/DFT/DFT_output/system_top.svf
 
 SVF files produced:
-  /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/formal_verification/3-post_PnR/scripts/formality_svf/
+  /mnt/hgfs/D/Education/Digital_IC_Design_Diploma/Project/PrUcess/formal_verification/3-post_physical_design/scripts/formality_svf/
     svf.txt
 ****************************************************************************
 
@@ -319,7 +319,7 @@ report_unverified_points > "../formal_verification_output/reports/unverified_poi
 # Remove the ICG cell
 cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -r
-cd "../../formal_verification/3-post_PnR/scripts"
+cd "../../formal_verification/3-post_physical_design/scripts"
 start_gui
      1  source -echo -verbose formal_verification_script.tcl
 1

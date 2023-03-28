@@ -310,15 +310,15 @@ I@6fHIINCKmYM[;FzOY@Si2
 R2
 R0
 Z13 w1679502992
-Z14 8../../PnR/PnR_output/netlist/system_top_netlist.v
-Z15 F../../PnR/PnR_output/netlist/system_top_netlist.v
+Z14 8../../physical_design/physical_design_output/netlist/system_top_netlist.v
+Z15 F../../physical_design/physical_design_output/netlist/system_top_netlist.v
 L0 1380
 R6
 r1
 !s85 0
 31
 Z16 !s108 1679601425.000000
-Z17 !s107 ../../PnR/PnR_output/netlist/system_top_netlist.v|system_top_tb.v|
+Z17 !s107 ../../physical_design/physical_design_output/netlist/system_top_netlist.v|system_top_tb.v|
 Z18 !s90 system_top_tb.v|
 !i113 1
 R10

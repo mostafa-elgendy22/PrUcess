@@ -4,7 +4,7 @@
 #  OS:                Linux x86_64(Host ID IC)
 #  Generated on:      Thu Mar 23 00:36:31 2023
 #  Design:            system_top
-#  Command:           saveNetlist ../PnR_output/netlist/system_top_netlist_PG.v -includePowerGround
+#  Command:           saveNetlist ../physical_design_output/netlist/system_top_netlist_PG.v -includePowerGround
 ###############################################################
 */
 module DLY4X1M (

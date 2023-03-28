@@ -2,7 +2,7 @@ set total_test_cases [exec python test_cases_generator.py]
 
 exec cmd.exe /c "vlib work"
 exec cmd.exe /c "vlog ../../lib/std_cells/tsmc13_m_neg.v"
-exec cmd.exe /c "vlog +define+SDF_FILE=../../PnR/PnR_output/system_top.sdf ../../PnR/PnR_output/netlist/system_top_netlist.v > system_top.log"
+exec cmd.exe /c "vlog +define+SDF_FILE=../../physical_design/physical_design_output/system_top.sdf ../../physical_design/physical_design_output/netlist/system_top_netlist.v > system_top.log"
 exec cmd.exe /c "vlog system_top_tb.v > system_top_tb.log"
 exec {*}[auto_execok start] vmap -c
 

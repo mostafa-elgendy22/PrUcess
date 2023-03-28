@@ -36,7 +36,7 @@
 *
 *	Time Units = 1e-09 secs 
 *
-*       report_power -outfile ../PnR_output/reports/power.rpt
+*       report_power -outfile ../physical_design_output/reports/power.rpt
 *
 -----------------------------------------------------------------------------------------
 

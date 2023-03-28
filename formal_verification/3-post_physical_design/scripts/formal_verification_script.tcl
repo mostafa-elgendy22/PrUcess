@@ -7,13 +7,13 @@ lappend search_path "../../../RTL/system_top_DFT" "../../../RTL/UART/UART_transm
                     "../../../RTL/data_synchronizer" "../../../RTL/register_file" \
                     "../../../RTL/reset_synchronizer" "../../../RTL/system_controller"
 lappend search_path "../../../DFT/DFT_output"
-lappend search_path "../../../PnR/PnR_output"
-lappend search_path "../../../PnR/PnR_output/netlist"
+lappend search_path "../../../physical_design/physical_design_output"
+lappend search_path "../../../physical_design/physical_design_output/netlist"
 
 # Place the ICG cell
 cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -p
-cd "../../formal_verification/3-post_PnR/scripts"
+cd "../../formal_verification/3-post_physical_design/scripts"
 
 # Standard cells libraries
 set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
@@ -96,7 +96,7 @@ report_unverified_points > "../formal_verification_output/reports/unverified_poi
 # Remove the ICG cell
 cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -r
-cd "../../formal_verification/3-post_PnR/scripts"
+cd "../../formal_verification/3-post_physical_design/scripts"
 
 start_gui
 

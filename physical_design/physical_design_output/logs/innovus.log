@@ -398,8 +398,8 @@ WARNING   IMPCTE-290          12  Could not locate cell %s in any library ...
 **WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
 <CMD> globalNetConnect VDD -type pgpin -pin VDD -inst *
 <CMD> globalNetConnect GND -type pgpin -pin VSS -inst *
-<CMD> loadFPlan ../PnR_output/checkpoints/power_plan2.fp
-Reading floorplan file - ../PnR_output/checkpoints/power_plan2.fp (mem = 852.6M).
+<CMD> loadFPlan ../physical_design_output/checkpoints/power_plan2.fp
+Reading floorplan file - ../physical_design_output/checkpoints/power_plan2.fp (mem = 852.6M).
 *info: reset 1523 existing net BottomPreferredLayer and AvoidDetour
 Deleting old partition specification.
  ... processed partition successfully.
@@ -7117,16 +7117,16 @@ as 'FIXED'. If this was not intended, use deleteFiller command to undo.
 *INFO:   Added 742 filler insts (cell FILL1M / prefix FILLER).
 *INFO: Total 3159 filler insts added - prefix FILLER (CPU: 0:00:00.0).
 For 3159 new insts, *** Applied 2 GNC rules (cpu = 0:00:00.0)
-<CMD> saveNetlist ../PnR_output/netlist/system_top_netlist.v
-Writing Netlist "../PnR_output/netlist/system_top_netlist.v" ...
-<CMD> saveNetlist ../PnR_output/netlist/system_top_netlist_PG.v -includePowerGround
-Writing Netlist "../PnR_output/netlist/system_top_netlist_PG.v" ...
+<CMD> saveNetlist ../physical_design_output/netlist/system_top_netlist.v
+Writing Netlist "../physical_design_output/netlist/system_top_netlist.v" ...
+<CMD> saveNetlist ../physical_design_output/netlist/system_top_netlist_PG.v -includePowerGround
+Writing Netlist "../physical_design_output/netlist/system_top_netlist_PG.v" ...
 Pwr name (VDD).
 Gnd name (GND).
 1 Pwr names and 1 Gnd names.
 Creating all pg connections for top cell (system_top).
 **WARN: (IMPSYC-1290):	delayCal is obsolete. Use write_sdf or report_timing in its place.
-delayCal Option :  -sdf ../PnR_output/system_top.sdf -version 3.0 
+delayCal Option :  -sdf ../physical_design_output/system_top.sdf -version 3.0 
 delayCal Mode   : 'setDelayCalMode -engine aae -signOff true -ecsmType ecsmOnDemand'
 **WARN: (IMPDC-2614):	Cannot invoke the command -siAware true option of set_delay_cal_mode command with Encounter_Digital_Impl_Sys_L license. This feature requires an Encounter_Digital_Impl_Sys_XL or equivalent license. Update the license file or remove the option from the command. Skipped -siAware true option.
 **WARN: (IMPESI-617):	Multithread is not support in command delayCal. Single thread is used instead. To use multithread delay calculation, run command write_sdf.
@@ -7147,8 +7147,8 @@ Delay Calculation Summary:
    Number of nets using set_resistance             : 0
    Number of nets using default delay              : 0
    CPU Time (0:00:00.2)
-<CMD> report_area > ../PnR_output/reports/area.rpt
-<CMD> report_power -outfile ../PnR_output/reports/power.rpt
+<CMD> report_area > ../physical_design_output/reports/area.rpt
+<CMD> report_power -outfile ../physical_design_output/reports/power.rpt
 
 Power Net Detected:
     Voltage	    Name
@@ -7296,8 +7296,8 @@ Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
 mem(process/total)=1083.89MB/1083.89MB)
 
 
-Output file is ../PnR_output/reports/power.rpt.
-<CMD> streamOut ../PnR_output/system_top.gds -mapFile ../design/gds2InLayer.map -libName DesignLib -stripes 1 -units 2000 -mode ALL
+Output file is ../physical_design_output/reports/power.rpt.
+<CMD> streamOut ../physical_design_output/system_top.gds -mapFile ../design/gds2InLayer.map -libName DesignLib -stripes 1 -units 2000 -mode ALL
 Parse map file...
 **ERROR: (IMPOGDS-1556):	 Line 1: Incorrect map ;Avanti!Layer GDS2Layer[:GDS2DataType]
 ....Check the number of fields on this line

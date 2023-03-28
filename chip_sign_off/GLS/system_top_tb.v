@@ -1,4 +1,4 @@
-`include "../../PnR/PnR_output/netlist/system_top_netlist.v"
+`include "../../physical_design/physical_design_output/netlist/system_top_netlist.v"
 `timescale 1ns/1ps
 
 module system_top_tb;

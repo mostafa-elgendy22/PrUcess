@@ -138,7 +138,7 @@
 # Loading work.register_1
 # Loading work.DFFSRX1M
 # ** Warning: (vsim-3017) system_top_tb.v(175): [TFMPC] - Too few port connections. Expected 13, found 7.
-#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top File: ../../PnR/PnR_output/netlist/system_top_netlist.v
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top File: ../../physical_design/physical_design_output/netlist/system_top_netlist.v
 # ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'scan_clk'.
 # ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'scan_reset'.
 # ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'test_mode'.
@@ -149,15 +149,15 @@
 # Loading work.udp_dff
 # Loading work.udp_mux
 # Loading work.udp_tlat
-# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(305): [TFMPC] - Too few port connections. Expected 13, found 12.
-#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_UART_receiver_data_synchronizer File: ../../PnR/PnR_output/netlist/system_top_netlist.v
-# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(305): [TFMPC] - Missing connection for port 'Q_pulse_generator'.
-# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(359): [TFMPC] - Too few port connections. Expected 11, found 10.
-#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_clock_divider File: ../../PnR/PnR_output/netlist/system_top_netlist.v
-# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(359): [TFMPC] - Missing connection for port 'clk_divider_enable'.
-# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(8995): [TFMPC] - Too few port connections. Expected 6, found 5.
+# ** Warning: (vsim-3017) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(305): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_UART_receiver_data_synchronizer File: ../../physical_design/physical_design_output/netlist/system_top_netlist.v
+# ** Warning: (vsim-3722) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(305): [TFMPC] - Missing connection for port 'Q_pulse_generator'.
+# ** Warning: (vsim-3017) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(359): [TFMPC] - Too few port connections. Expected 11, found 10.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_clock_divider File: ../../physical_design/physical_design_output/netlist/system_top_netlist.v
+# ** Warning: (vsim-3722) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(359): [TFMPC] - Missing connection for port 'clk_divider_enable'.
+# ** Warning: (vsim-3017) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(8995): [TFMPC] - Too few port connections. Expected 6, found 5.
 #    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_UART_transmitter_data_synchronizer/U_bus_synchronizer/\register_instance[1].U_register /\Q_reg[0]  File: ../../lib/std_cells/tsmc13_m_neg.v
-# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(8995): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3722) ../../physical_design/physical_design_output/netlist/system_top_netlist.v(8995): [TFMPC] - Missing connection for port 'QN'.
 # add wave -position insertpoint   sim:/system_top_tb/UART_clk_tb  sim:/system_top_tb/U_system_top/UART_transmitter_clk  sim:/system_top_tb/reference_clk_tb  sim:/system_top_tb/serial_data_in_tb  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_valid_synchronized  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_synchronized  sim:/system_top_tb/U_system_top/U_register_file/write_enable  sim:/system_top_tb/U_system_top/U_register_file/write_data  sim:/system_top_tb/U_system_top/U_register_file/read_enable  sim:/system_top_tb/U_system_top/U_register_file/address  sim:/system_top_tb/U_system_top/U_register_file/read_data_valid  sim:/system_top_tb/U_system_top/U_register_file/read_data  sim:/system_top_tb/U_system_top/U_system_controller/U_UART_receiver_controller/ALU_clk_enable  sim:/system_top_tb/U_system_top/U_ALU/clk  sim:/system_top_tb/U_system_top/U_ALU/enable  sim:/system_top_tb/U_system_top/U_ALU/ALU_result_valid  sim:/system_top_tb/U_system_top/U_ALU/ALU_result  sim:/system_top_tb/U_system_top/U_system_controller/receiver_controller_enable  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_busy  sim:/system_top_tb/serial_data_out_tb
 #   radix signal sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data Hexadecimal
 # hexadecimal

@@ -28,7 +28,7 @@ init_design
 floorPlan -d 240.67 160.0 0.0 0.0 0.0 0.0
 globalNetConnect VDD -type pgpin -pin VDD -inst *
 globalNetConnect GND -type pgpin -pin VSS -inst *
-loadFPlan ../PnR_output/checkpoints/power_plan2.fp
+loadFPlan ../physical_design_output/checkpoints/power_plan2.fp
 setDrawView place
 fit
 placeDesign -inPlaceOpt -prePlaceOpt
@@ -56,11 +56,11 @@ timeDesign -postRoute -pathReports -slackReports -numPaths 50 -prefix system_top
 redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
 timeDesign -postRoute -hold -pathReports -slackReports -numPaths 50 -prefix system_top_postRoute -outDir timingReports
 addFiller -cell {FILL1M FILL2M FILL4M FILL8M FILL16M FILL32M FILL64M} -prefix FILLER -markFixed
-saveNetlist ../PnR_output/netlist/system_top_netlist.v
-saveNetlist ../PnR_output/netlist/system_top_netlist_PG.v -includePowerGround
-report_area > ../PnR_output/reports/area.rpt
-report_power -outfile ../PnR_output/reports/power.rpt
-streamOut ../PnR_output/system_top.gds -mapFile ../design/gds2InLayer.map -libName DesignLib -stripes 1 -units 2000 -mode ALL
+saveNetlist ../physical_design_output/netlist/system_top_netlist.v
+saveNetlist ../physical_design_output/netlist/system_top_netlist_PG.v -includePowerGround
+report_area > ../physical_design_output/reports/area.rpt
+report_power -outfile ../physical_design_output/reports/power.rpt
+streamOut ../physical_design_output/system_top.gds -mapFile ../design/gds2InLayer.map -libName DesignLib -stripes 1 -units 2000 -mode ALL
 setLayerPreference text -isVisible 0
 verifyConnectivity -type all -error 1000 -warning 50
 setVerifyGeometryMode -area { 0 0 0 0 } -minWidth true -minSpacing true -minArea false -sameNet true -short true -overlap true -offRGrid false -offMGrid true -mergedMGridCheck true -minHole true -implantCheck true -minimumCut true -minStep true -viaEnclosure true -antenna false -insuffMetalOverlap true -pinInBlkg false -diffCellViol true -sameCellViol false -padFillerCellsOverlap true -routingBlkgPinOverlap true -routingCellBlkgOverlap true -regRoutingOnly false -stackedViasOnRegNet false -wireExt true -useNonDefaultSpacing false -maxWidth true -maxNonPrefLength -1 -error 1000
