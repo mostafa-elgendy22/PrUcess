@@ -6,17 +6,17 @@ module system_top_tb;
     parameter REGISTER_FILE_DEPTH = 16;
     parameter SYNCHRONIZER_STAGE_COUNT = 2;
 
-    localparam PRESCALE = 8;
+    localparam PRESCALE = 32;
 
-	localparam TEST_CASES_DEPTH = 59;
+	localparam TEST_CASES_DEPTH = 56;
 
 	localparam TEST_CASES_WIDTH = 11;
 
-    // Reference clock frequency = 50 MHz, clock period = 20 ns
+    // Reference clock frequency = 40 MHz, clock period = 25 ns
     parameter REFERENCE_CLK_PERIOD = 20;
 
-    // UART clock frequency = 9.6 KHz, clock period = 104167 ns
-    parameter UART_CLK_PERIOD = 10416;
+    // UART clock frequency = 115.2 KHz * 32 = 3686.4, clock period = 271 ns
+    parameter UART_CLK_PERIOD = 271;
 
     // Input signals' declaration
     reg reference_clk_tb;

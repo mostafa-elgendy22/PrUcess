@@ -6,11 +6,11 @@ module UART_receiver_controller_tb;
     parameter DATA_WIDTH = 8;
     parameter REGISTER_FILE_DEPTH = 16;
 
-    // The frequency of the reference clock is 50 MHz, period = 20 ns
-    localparam REFERENCE_CLK_PERIOD = 20;
+    // The frequency of the reference clock is 40 MHz, period = 25 ns
+    localparam REFERENCE_CLK_PERIOD = 25;
 
-    // The frequency of the UART receiver clock is 9.6 KHz, period = 104166.667 ns
-    localparam RECEIVER_CLK_PERIOD = 120;
+    // The frequency of the UART receiver clock is 3686.4 KHz, period = 271 ns
+    localparam RECEIVER_CLK_PERIOD = 271;
 
     // Supported commands encoding
     localparam [DATA_WIDTH - 1:0] REGISTER_FILE_WRITE_COMMAND = 'hAA;

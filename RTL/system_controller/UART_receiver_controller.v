@@ -10,9 +10,6 @@ module UART_receiver_controller #(
     input parallel_data_valid_synchronized,
     input [DATA_WIDTH - 1:0] parallel_data_synchronized,
 
-    // This input signal is used to correctly control the clock gating cell
-    // input ALU_result_valid,
-
     // ALU control signals
     output reg [3:0] ALU_function,
     output reg ALU_enable,

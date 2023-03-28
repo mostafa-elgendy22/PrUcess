@@ -1,0 +1,182 @@
+# vsim work.system_top_tb -do "add wave -position insertpoint   sim:/system_top_tb/UART_clk_tb  sim:/system_top_tb/U_system_top/UART_transmitter_clk  sim:/system_top_tb/reference_clk_tb  sim:/system_top_tb/serial_data_in_tb  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_valid_synchronized  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_synchronized  sim:/system_top_tb/U_system_top/U_register_file/write_enable  sim:/system_top_tb/U_system_top/U_register_file/write_data  sim:/system_top_tb/U_system_top/U_register_file/read_enable  sim:/system_top_tb/U_system_top/U_register_file/address  sim:/system_top_tb/U_system_top/U_register_file/read_data_valid  sim:/system_top_tb/U_system_top/U_register_file/read_data  sim:/system_top_tb/U_system_top/U_system_controller/U_UART_receiver_controller/ALU_clk_enable  sim:/system_top_tb/U_system_top/U_ALU/clk  sim:/system_top_tb/U_system_top/U_ALU/enable  sim:/system_top_tb/U_system_top/U_ALU/ALU_result_valid  sim:/system_top_tb/U_system_top/U_ALU/ALU_result  sim:/system_top_tb/U_system_top/U_system_controller/receiver_controller_enable  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_busy  sim:/system_top_tb/serial_data_out_tb;  radix signal sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_synchronized Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_register_file/write_data Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_register_file/address Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_register_file/read_data Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_ALU/ALU_result Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data Hexadecimal;  radix signal sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data Hexadecimal;  run -all; mem save -o register_file_verilog.mem -f binary -wordsperline 1 /system_top_tb/U_system_top/U_register_file/memory;" 
+# Start time: 21:57:09 on Mar 23,2023
+# Loading work.system_top_tb
+# Loading work.system_top
+# Loading work.DLY4X1M
+# Loading work.CLKINVX40M
+# Loading work.CLKBUFX20M
+# Loading work.CLKINVX32M
+# Loading work.CLKBUFX24M
+# Loading work.CLKBUFX32M
+# Loading work.BUFX2M
+# Loading work.BUFX8M
+# Loading work.BUFX32M
+# Loading work.BUFX10M
+# Loading work.CLKBUFX6M
+# Loading work.OR2X1M
+# Loading work.multiplexer_2x1_1
+# Loading work.MX2X4M
+# Loading work.multiplexer_2x1_0
+# Loading work.MX2XLM
+# Loading work.reset_synchronizer_test_1
+# Loading work.TIEHIM
+# Loading work.SDFFRQX1M
+# Loading work.multiplexer_2x1_3
+# Loading work.MX2X8M
+# Loading work.system_controller_test_1
+# Loading work.UART_transmitter_controller_test_1
+# Loading work.NAND2BXLM
+# Loading work.INVXLM
+# Loading work.NOR3BXLM
+# Loading work.NOR2XLM
+# Loading work.NOR2BXLM
+# Loading work.NAND2XLM
+# Loading work.NAND3BXLM
+# Loading work.OAI22XLM
+# Loading work.NOR2X2M
+# Loading work.CLKINVX2M
+# Loading work.AOI222XLM
+# Loading work.AOI211X2M
+# Loading work.AO22XLM
+# Loading work.OAI2B1XLM
+# Loading work.AOI221XLM
+# Loading work.OAI21XLM
+# Loading work.NAND3XLM
+# Loading work.AOI21XLM
+# Loading work.SDFFRQX2M
+# Loading work.SDFFSQX1M
+# Loading work.UART_receiver_controller_test_1
+# Loading work.NOR3XLM
+# Loading work.NOR4X1M
+# Loading work.OAI2BB2XLM
+# Loading work.AND2X1M
+# Loading work.AOI33XLM
+# Loading work.NOR4XLM
+# Loading work.AND4XLM
+# Loading work.NAND4XLM
+# Loading work.OR4X1M
+# Loading work.OAI211XLM
+# Loading work.AOI22XLM
+# Loading work.OAI31XLM
+# Loading work.NAND4BXLM
+# Loading work.OAI222XLM
+# Loading work.AOI2BB2XLM
+# Loading work.clock_gating_cell
+# Loading work.TLATNCAX20M
+# Loading work.ALU_test_1
+# Loading work.ADDFX1M
+# Loading work.NAND3X2M
+# Loading work.AOI31XLM
+# Loading work.OAI211X2M
+# Loading work.AOI211XLM
+# Loading work.OAI2BB1XLM
+# Loading work.NOR3BX4M
+# Loading work.AOI221X1M
+# Loading work.OAI2B11XLM
+# Loading work.INVX2M
+# Loading work.AOI21BXLM
+# Loading work.NOR3X2M
+# Loading work.XOR2XLM
+# Loading work.AO21XLM
+# Loading work.AOI32XLM
+# Loading work.MXI2XLM
+# Loading work.OAI32XLM
+# Loading work.XNOR2XLM
+# Loading work.NOR4BXLM
+# Loading work.AOI2B1XLM
+# Loading work.OAI2B2XLM
+# Loading work.ADDFXLM
+# Loading work.register_file_test_1
+# Loading work.SDFFRHQX4M
+# Loading work.NAND2X12M
+# Loading work.bus_synchronizer_test_1
+# Loading work.register_test_1
+# Loading work.register_test_2
+# Loading work.bus_synchronizer_3
+# Loading work.register_6
+# Loading work.DFFRQX1M
+# Loading work.register_5
+# Loading work.data_synchronizer_test_0
+# Loading work.NOR2BX2M
+# Loading work.bus_synchronizer_test_0
+# Loading work.register_test_0
+# Loading work.register_3
+# Loading work.multiplexer_2x1_5
+# Loading work.multiplexer_2x1_4
+# Loading work.reset_synchronizer_test_0
+# Loading work.multiplexer_2x1_2
+# Loading work.MX2X6M
+# Loading work.UART_test_1
+# Loading work.UART_transmitter_test_1
+# Loading work.UART_transmitter_FSM_test_1
+# Loading work.SDFFRX1M
+# Loading work.serializer_test_1
+# Loading work.parity_calculator_test_1
+# Loading work.XOR3XLM
+# Loading work.output_multiplexer
+# Loading work.AOI31X2M
+# Loading work.UART_receiver_test_1
+# Loading work.OR2X12M
+# Loading work.UART_receiver_FSM_test_1
+# Loading work.OAI221XLM
+# Loading work.data_sampler_test_1
+# Loading work.AOI2BB1XLM
+# Loading work.OAI21BXLM
+# Loading work.deserializer_test_1
+# Loading work.edge_counter_test_1
+# Loading work.start_bit_checker_test_1
+# Loading work.parity_bit_checker_test_1
+# Loading work.stop_bit_checker_test_1
+# Loading work.clock_divider_test_1
+# Loading work.CLKBUFX40M
+# Loading work.SDFFRHQX8M
+# Loading work.MX2X3M
+# Loading work.AOI222X2M
+# Loading work.data_synchronizer_test_1
+# Loading work.bus_synchronizer_test_2
+# Loading work.register_test_3
+# Loading work.register_1
+# Loading work.DFFSRX1M
+# ** Warning: (vsim-3017) system_top_tb.v(175): [TFMPC] - Too few port connections. Expected 13, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top File: ../../PnR/PnR_output/netlist/system_top_netlist.v
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'scan_clk'.
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'scan_reset'.
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'test_mode'.
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'SE'.
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'SI'.
+# ** Warning: (vsim-3722) system_top_tb.v(175): [TFMPC] - Missing connection for port 'SO'.
+# Loading work.udp_mux2
+# Loading work.udp_dff
+# Loading work.udp_mux
+# Loading work.udp_tlat
+# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(305): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_UART_receiver_data_synchronizer File: ../../PnR/PnR_output/netlist/system_top_netlist.v
+# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(305): [TFMPC] - Missing connection for port 'Q_pulse_generator'.
+# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(359): [TFMPC] - Too few port connections. Expected 11, found 10.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_clock_divider File: ../../PnR/PnR_output/netlist/system_top_netlist.v
+# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(359): [TFMPC] - Missing connection for port 'clk_divider_enable'.
+# ** Warning: (vsim-3017) ../../PnR/PnR_output/netlist/system_top_netlist.v(8995): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /system_top_tb/U_system_top/U_UART_transmitter_data_synchronizer/U_bus_synchronizer/\register_instance[1].U_register /\Q_reg[0]  File: ../../lib/std_cells/tsmc13_m_neg.v
+# ** Warning: (vsim-3722) ../../PnR/PnR_output/netlist/system_top_netlist.v(8995): [TFMPC] - Missing connection for port 'QN'.
+# add wave -position insertpoint   sim:/system_top_tb/UART_clk_tb  sim:/system_top_tb/U_system_top/UART_transmitter_clk  sim:/system_top_tb/reference_clk_tb  sim:/system_top_tb/serial_data_in_tb  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_valid_synchronized  sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_synchronized  sim:/system_top_tb/U_system_top/U_register_file/write_enable  sim:/system_top_tb/U_system_top/U_register_file/write_data  sim:/system_top_tb/U_system_top/U_register_file/read_enable  sim:/system_top_tb/U_system_top/U_register_file/address  sim:/system_top_tb/U_system_top/U_register_file/read_data_valid  sim:/system_top_tb/U_system_top/U_register_file/read_data  sim:/system_top_tb/U_system_top/U_system_controller/U_UART_receiver_controller/ALU_clk_enable  sim:/system_top_tb/U_system_top/U_ALU/clk  sim:/system_top_tb/U_system_top/U_ALU/enable  sim:/system_top_tb/U_system_top/U_ALU/ALU_result_valid  sim:/system_top_tb/U_system_top/U_ALU/ALU_result  sim:/system_top_tb/U_system_top/U_system_controller/receiver_controller_enable  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data_valid  sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data  sim:/system_top_tb/U_system_top/U_UART/transmitter_busy  sim:/system_top_tb/serial_data_out_tb
+#   radix signal sim:/system_top_tb/U_system_top/U_UART/receiver_parallel_data Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_system_controller/receiver_parallel_data_synchronized Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_register_file/write_data Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_register_file/address Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_register_file/read_data Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_ALU/ALU_result Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_system_controller/transmitter_parallel_data Hexadecimal
+# hexadecimal
+#   radix signal sim:/system_top_tb/U_system_top/U_UART/transmitter_parallel_data Hexadecimal
+# hexadecimal
+#   run -all
+# Break key hit
+# Break in Module system_top_tb at system_top_tb.v line 166
+# End time: 21:57:37 on Mar 23,2023, Elapsed time: 0:00:28
+# Errors: 0, Warnings: 13

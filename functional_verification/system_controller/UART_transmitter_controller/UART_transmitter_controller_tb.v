@@ -5,11 +5,11 @@ module UART_transmitter_controller_tb;
     
     parameter DATA_WIDTH = 8;
 
-    // The frequency of the reference clock is 50 MHz, period = 20 ns
-    localparam REFERENCE_CLK_PERIOD = 20;
+    // The frequency of the reference clock is 40 MHz, period = 25 ns
+    localparam REFERENCE_CLK_PERIOD = 25;
 
-    // The frequency of the UART transmitter clock is 1.2 KHz, period = 833333.333 ns
-    localparam TRANSMITTER_CLK_PERIOD = 833333.333;
+    // The clock period of the UART transmitter is = (271 ns) * 32 = 8672 ns
+    localparam TRANSMITTER_CLK_PERIOD = 8680;
 
     // Input signals' declaration
     reg reference_clk_tb;

@@ -27,8 +27,8 @@ module register_file_tb ();
     integer passed_test_cases;
     integer total_test_cases;
 
-    // Clock frequency = 200 MHz, clock period = 5 ns
-    localparam CLK_PERIOD = 5;
+    // Clock frequency = 40 MHz, clock period = 25 ns
+    localparam CLK_PERIOD = 25;
 
 
 

@@ -1,0 +1,53 @@
+Start time: 21:57:05 on Mar 23,2023
+vlog system_top_tb.v 
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module system_top
+-- Compiling module multiplexer_2x1_1
+-- Compiling module multiplexer_2x1_0
+-- Compiling module reset_synchronizer_test_1
+-- Compiling module multiplexer_2x1_3
+-- Compiling module UART_transmitter_controller_test_1
+-- Compiling module UART_receiver_controller_test_1
+-- Compiling module system_controller_test_1
+-- Compiling module clock_gating_cell
+-- Compiling module ALU_test_1
+-- Compiling module register_file_test_1
+-- Compiling module register_test_1
+-- Compiling module register_test_2
+-- Compiling module bus_synchronizer_test_1
+-- Compiling module register_6
+-- Compiling module register_5
+-- Compiling module bus_synchronizer_3
+-- Compiling module register_test_0
+-- Compiling module register_3
+-- Compiling module bus_synchronizer_test_0
+-- Compiling module data_synchronizer_test_0
+-- Compiling module multiplexer_2x1_5
+-- Compiling module multiplexer_2x1_4
+-- Compiling module reset_synchronizer_test_0
+-- Compiling module multiplexer_2x1_2
+-- Compiling module UART_transmitter_FSM_test_1
+-- Compiling module serializer_test_1
+-- Compiling module parity_calculator_test_1
+-- Compiling module output_multiplexer
+-- Compiling module UART_transmitter_test_1
+-- Compiling module UART_receiver_FSM_test_1
+-- Compiling module data_sampler_test_1
+-- Compiling module deserializer_test_1
+-- Compiling module edge_counter_test_1
+-- Compiling module start_bit_checker_test_1
+-- Compiling module parity_bit_checker_test_1
+-- Compiling module stop_bit_checker_test_1
+-- Compiling module UART_receiver_test_1
+-- Compiling module UART_test_1
+-- Compiling module clock_divider_test_1
+-- Compiling module register_test_3
+-- Compiling module register_1
+-- Compiling module bus_synchronizer_test_2
+-- Compiling module data_synchronizer_test_1
+-- Compiling module system_top_tb
+
+Top level modules:
+	system_top_tb
+End time: 21:57:05 on Mar 23,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

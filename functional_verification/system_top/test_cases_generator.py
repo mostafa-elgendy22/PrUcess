@@ -343,7 +343,6 @@ total_test_cases = [0]
 register_file_write(0, 10)
 register_file_read(3)
 ALU_operation_with_operands(20, 18, '&')
-register_file_write(0, 15)
 register_file_read(0)
 ALU_operation_with_operands(10, 9, '+')
 ALU_operation_without_operands('<<')
