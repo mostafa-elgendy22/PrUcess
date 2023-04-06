@@ -31,7 +31,6 @@ module register_file_tb ();
     localparam CLK_PERIOD = 25;
 
 
-
     initial begin
         $timeformat(-9, 2, " ns", 20);
         file = $fopen("output.txt", "w");

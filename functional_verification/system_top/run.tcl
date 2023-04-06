@@ -5,7 +5,7 @@ exec cmd.exe /c "vlog system_top_tb.v > system_top_tb.log"
 exec {*}[auto_execok start] vmap -c
 
 if {$argc == 0} {
-    exec {*}[auto_execok start] vsim -c work.system_top_tb -do "run -all; mem save -o register_file_verilog.mem -f binary -wordsperline 1 /system_top_tb/U_system_top/U_register_file/memory; quit -f"
+    exec {*}[auto_execok start] vsim -c work.system_top_tb -do "run -all; mem save -o output_files/register_file_verilog.mem -f binary -wordsperline 1 /system_top_tb/U_system_top/U_register_file/memory; quit -f"
 
 } elseif {$argc == 1 && [lindex $argv 0] == "-w"} {
     exec {*}[auto_execok start] vsim work.system_top_tb -do "add wave -position insertpoint  \
@@ -52,4 +52,8 @@ if {$argc == 0} {
 set output [exec python evaluate.py $total_test_cases]
 puts $output
 
+# Clean the directory from temporary files
 exec python clean.py
+
+# Change prescale value to the default value (8)
+exec python change_prescale.py

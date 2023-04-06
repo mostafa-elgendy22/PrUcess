@@ -1,5 +1,33 @@
 import re
 from bitarray import bitarray
+from change_prescale import write_prescale
+
+prescale = 16
+
+def main():
+    # -------------------------------- Write test cases here ------------------------------
+    register_file_write(0, 10)
+    register_file_read(3)
+    ALU_operation_with_operands(20, 18, '&')
+    register_file_read(0)
+    ALU_operation_with_operands(10, 9, '+')
+    ALU_operation_without_operands('<<')
+    ALU_operation_with_operands(128, 127, '+')
+    ALU_operation_without_operands('-')
+    ALU_operation_without_operands('~&')
+    ALU_operation_without_operands('~|')
+    ALU_operation_without_operands('~^')
+    ALU_operation_without_operands('>>')
+    ALU_operation_with_operands(255, 66, '-')
+    ALU_operation_with_operands(2, 9, '-')
+    ALU_operation_without_operands('-')
+    ALU_operation_without_operands('<<')
+    ALU_operation_without_operands('&')
+    ALU_operation_without_operands('|')
+    ALU_operation_without_operands('^')
+    ALU_operation_without_operands('*')
+    register_file_write(7, 20)
+    register_file_read(7)
 
 
 def read_parameters():
@@ -8,8 +36,6 @@ def read_parameters():
     code = register_file.read()
     parity_enable = int(re.search(parity_configuration_pattern, code, re.MULTILINE).group(0).split('<=')[-1].strip().replace(';', '').strip()[-1])
     parity_type = int(re.search(parity_configuration_pattern, code, re.MULTILINE).group(0).split('<=')[-1].strip().replace(';', '').strip()[-3])
-    prescale_pattern = r'^\s*memory\[i\]\s*<=\s*\'b[01]{2}_[01]{6}\s*;\s*$'
-    prescale = re.search(prescale_pattern, code, re.MULTILINE).group(0).split('<=')[-1].strip().replace(';', '').strip().replace('\'b', '').replace('_', '')
     register_file.close()
 
     data_width_pattern = r'^\s*parameter\s+DATA_WIDTH\s*=\s*\d+\s*;\s*$'
@@ -21,9 +47,7 @@ def read_parameters():
     register_file_depth = int(re.search(register_file_depth_pattern, code, re.MULTILINE).group(0).split('=')[-1].strip().replace(';', ''))
     tb_file.close()
 
-    return parity_enable, parity_type, prescale, data_width, register_file_depth
-
-
+    return parity_enable, parity_type, data_width, register_file_depth
 
 
 def write_test_cases_configuration():
@@ -38,7 +62,6 @@ def write_test_cases_configuration():
 
     tb_file = open('system_top_tb.v', 'w')
     tb_file.write(code)
-
     tb_file.close()
 
 
@@ -52,7 +75,7 @@ def calculate_parity(parity_type, message):
     return parity_bit
 
 def write_register_file_memory():
-    register_file_memory_file = open('register_file_python.mem', 'w')
+    register_file_memory_file = open('output_files/register_file_python.mem', 'w')
     for i in range(register_file_depth):
         register_file_memory_file.write(register_file_memory[i] + '\n')
     register_file_memory_file.close()
@@ -231,8 +254,6 @@ def ALU_operation_without_operands(ALU_function_symbol):
     total_test_cases[0] += 1
     test_cases_depth[0] += 2
     results_file_depth[0] += 2
-    
-
 
     operand_A_binary = bitarray(register_file_memory[0])
     operand_A_binary = bitarray('0' * data_width) + operand_A_binary
@@ -307,10 +328,10 @@ def ALU_operation_without_operands(ALU_function_symbol):
                         '>': to_binary(11, data_width),
                         '<': to_binary(12, data_width),
                         '>>': to_binary(13, data_width),
-                        '<<': to_binary(14, data_width)}
+                        '<<': to_binary(14, data_width)
+                        }
     ALU_function = ALU_function_map[ALU_function_symbol]
-    
-    
+       
     if parity_enable:
         parity_bit = calculate_parity(parity_type, ALU_function)
         ALU_function = bitarray('1' + str(parity_bit) + ALU_function.to01() + '0')
@@ -324,48 +345,27 @@ def ALU_operation_without_operands(ALU_function_symbol):
 
 
 
-test_cases_file = open('test_cases.txt', 'w')
-test_cases_results_file = open('system_outputs_python.txt', 'w')
-parity_enable, parity_type, prescale, data_width, register_file_depth = read_parameters()
-register_file_memory = ['0' * data_width] * register_file_depth
+if __name__ == '__main__':
+    write_prescale(prescale)
 
-# initial register file values
-register_file_memory[2] = f'000000{parity_type}{parity_enable}'
-register_file_memory[3] = prescale
+    test_cases_file = open('test_cases.txt', 'w')
+    test_cases_results_file = open('output_files/system_outputs_python.txt', 'w')
+    parity_enable, parity_type, data_width, register_file_depth = read_parameters()
+    register_file_memory = ['0' * data_width] * register_file_depth
 
-results_file_depth = [0]
-test_cases_depth = [0]
-test_cases_width = data_width + parity_enable + 2
-total_test_cases = [0]
+    # initial register file values
+    register_file_memory[2] = f'000000{parity_type}{parity_enable}'
+    register_file_memory[3] = to_binary(prescale, data_width).to01()
 
+    results_file_depth = [0]
+    test_cases_depth = [0]
+    test_cases_width = data_width + parity_enable + 2
+    total_test_cases = [0]
 
-# -------------------------------- Write test cases here ------------------------------
-register_file_write(0, 10)
-register_file_read(3)
-ALU_operation_with_operands(20, 18, '&')
-register_file_read(0)
-ALU_operation_with_operands(10, 9, '+')
-ALU_operation_without_operands('<<')
-ALU_operation_with_operands(128, 127, '+')
-ALU_operation_without_operands('-')
-ALU_operation_without_operands('~&')
-ALU_operation_without_operands('~|')
-ALU_operation_without_operands('~^')
-ALU_operation_without_operands('>>')
-ALU_operation_with_operands(255, 66, '-')
-ALU_operation_with_operands(2, 9, '-')
-ALU_operation_without_operands('-')
-ALU_operation_without_operands('<<')
-ALU_operation_without_operands('&')
-ALU_operation_without_operands('|')
-ALU_operation_without_operands('^')
-ALU_operation_without_operands('*')
-register_file_write(7, 20)
-register_file_read(7)
-# -------------------------------------------------------------------------------------
+    main()
 
-write_test_cases_configuration()
-write_register_file_memory()
+    write_test_cases_configuration()
+    write_register_file_memory()
 
-# Return the number of test cases to report them to the user
-print(total_test_cases[0])
+    # Return the number of test cases to report them to the user
+    print(total_test_cases[0])

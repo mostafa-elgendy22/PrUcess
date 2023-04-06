@@ -33,7 +33,7 @@ module register_file #(
                 end
                 else if (i == 3) begin
                     // not used - division_ratio (same as oversampling prescale)
-                    memory[i] <= 'b00_100000;
+					memory[i] <= 'b00_001000;
                 end
                 else begin
                     memory[i] <= 'b0;

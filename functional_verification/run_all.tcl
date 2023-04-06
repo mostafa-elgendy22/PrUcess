@@ -1,5 +1,11 @@
+# This script runs all the test cases for the system modules including the system top module
+
+puts "---------------------------- ALU test cases ---------------------------"
+cd ALU
+source run.tcl
+puts "-----------------------------------------------------------------------"
 puts "--------------------- Data synchronizer test cases --------------------"
-cd data_synchronizer
+cd ../data_synchronizer
 source run.tcl
 puts "-----------------------------------------------------------------------"
 

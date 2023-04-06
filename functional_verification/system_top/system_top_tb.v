@@ -6,14 +6,14 @@ module system_top_tb;
     parameter REGISTER_FILE_DEPTH = 16;
     parameter SYNCHRONIZER_STAGE_COUNT = 2;
 
-    localparam PRESCALE = 32;
+	localparam PRESCALE = 8;
 
 	localparam TEST_CASES_DEPTH = 56;
 
 	localparam TEST_CASES_WIDTH = 11;
 
     // Reference clock frequency = 40 MHz, clock period = 25 ns
-    parameter REFERENCE_CLK_PERIOD = 20;
+    parameter REFERENCE_CLK_PERIOD = 25;
 
     // UART clock frequency = 115.2 KHz * 32 = 3686.4, clock period = 271 ns
     parameter UART_CLK_PERIOD = 271;
@@ -43,7 +43,7 @@ module system_top_tb;
 
     initial begin
         $timeformat(-9, 2, " ns", 20);
-        output_file = $fopen("system_outputs_verilog.txt", "w");
+        output_file = $fopen("output_files/system_outputs_verilog.txt", "w");
         $readmemb("test_cases.txt", test_cases);
         initialize();
         reset();

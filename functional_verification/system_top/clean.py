@@ -22,3 +22,6 @@ if os.path.exists('*.vstf'):
 
 if os.path.exists('work'):
     shutil.rmtree('work', ignore_errors=True)
+
+if os.path.exists('__pycache__'):
+    shutil.rmtree('__pycache__', ignore_errors=True)

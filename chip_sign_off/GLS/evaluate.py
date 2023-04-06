@@ -2,7 +2,7 @@ import re
 import sys
 
 def parse_verilog_memory_file():
-    memory_file = open('register_file_verilog.mem', 'r')
+    memory_file = open('output_files/register_file_verilog.mem', 'r')
     pattern = r'^@[0-9a-fA-F]+\s[01]+$'
     memory = re.findall(pattern, memory_file.read(), re.MULTILINE)
     register_file_data = []
@@ -17,7 +17,7 @@ def parse_verilog_memory_file():
 verilog_memory_file = parse_verilog_memory_file()
 
 
-memory_file = open('register_file_python.mem', 'r')
+memory_file = open('output_files/register_file_python.mem', 'r')
 python_memory_file = memory_file.read().splitlines()
 memory_file.close()
 
@@ -31,10 +31,10 @@ if memory_failed_test_cases == 0:
     print('Memory files match.\n')
 
 
-system_outputs_python = open('system_outputs_python.txt', 'r')
+system_outputs_python = open('output_files/system_outputs_python.txt', 'r')
 system_outputs_python = system_outputs_python.read().splitlines()
 
-system_outputs_verilog = open('system_outputs_verilog.txt', 'r')
+system_outputs_verilog = open('output_files/system_outputs_verilog.txt', 'r')
 system_outputs_verilog = system_outputs_verilog.read().splitlines()
 
 results_failed_test_cases = 0

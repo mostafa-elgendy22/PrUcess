@@ -19,7 +19,7 @@
 
 Build: 4031317
 Hostname: IC (RHEL64)
-Current time: Thu Mar 23 00:39:14 2023
+Current time: Tue Mar 28 21:39:16 2023
 
 Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
 # Add the path of the std cells, RTL files, and the synthesis files to the search path variable
@@ -321,12 +321,3 @@ cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -r
 cd "../../formal_verification/3-post_physical_design/scripts"
 start_gui
-     1  source -echo -verbose formal_verification_script.tcl
-1
-exit
-Maximum memory usage for this session: 445672 KB
-CPU usage for this session: 16.89 seconds
-Current time: Thu Mar 23 00:39:52 2023
-Elapsed time: 48 seconds
-
-Thank you for using Formality (R)!

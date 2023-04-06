@@ -41,5 +41,4 @@ module clock_divider (
     assign ratio_divided_by_two = (division_ratio >> 1);
     assign output_clk = clk_divider_enable ? divided_clk : reference_clk;
 
-
 endmodule
