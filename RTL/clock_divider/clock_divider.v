@@ -1,3 +1,15 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* reference_clk:      The source clock (UART clock).
+* reset:              Global active low asynchronous reset after synchronization.
+* clk_divider_enable: An enable signal for the clock divider.
+* division_ratio:     The division ratio of the clock divider (prescale), it is connected to
+*                     register_file[3].
+* 
+* ----------------------------- Outputs -----------------------------
+* output_clk:         The output divided clock (UART_transmitter_clk).
+*/
 module clock_divider (
     input reference_clk,
     input reset,

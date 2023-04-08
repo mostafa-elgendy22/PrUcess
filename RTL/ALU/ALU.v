@@ -1,3 +1,17 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:              The ALU result is synchronized to this clock (reference clock).
+* reset:            Global active low asynchronous reset after synchronization.
+* A:                ALU's first operand (it is connected to register_file[0]).
+* B:                ALU's second operand (it is connected to register_file[1]).
+* ALU_funtion:      A binary code to determine the function of the ALU.
+* enable:           ALU enable signal.
+* 
+* ----------------------------- Outputs -----------------------------
+* ALU_result_valid: A signal to indicate the ALU result is valid.
+* ALU_result:       The result of the ALU.
+*/
 module ALU #(
     parameter DATA_WIDTH = 8
 )

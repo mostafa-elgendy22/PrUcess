@@ -1,0 +1,1 @@
+vcs -full64 -PP +lint=all +v2k -timescale=1ns/1ps ../../lib/std_cells/tsmc13_m_neg.v ../../physical_design/physical_design_output/netlist/system_top_netlist.v system_top_tb.v | tee system_top_tb.log

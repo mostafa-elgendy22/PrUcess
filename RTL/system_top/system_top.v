@@ -1,3 +1,20 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* reference_clk:   The main clock of the system.
+* UART_clk:        UART clock (the clock of the UART receiver).
+* reset:           Unsynchronized global active low asynchronous reset.
+* serial_data_in:  The data which is received serially by the UART receiver. 
+* 
+* ----------------------------- Outputs -----------------------------
+* serial_data_out: The output of the UART transmitter (It is also the output of the
+*                  mux that select between start, serial data, parity, or stop bits
+*                  according to the state of the transmission).
+* parity_error:    A signal to indicate that there is parity mismatch between the received parity bit
+*                  and the calculated parity bit.
+* frame_error:     A signal to indicate that the start bit or the stop bit was incorrect.
+*/
+
 `include "../UART/UART/UART.v"
 `include "../register_file/register_file.v"
 `include "../clock_divider/clock_divider.v"
@@ -227,7 +244,7 @@ module system_top #(
         .reset(UART_reset_synchronized),
         .parity_type(UART_parity_configuration[1]),
         .parity_enable(UART_parity_configuration[0]),
-        .prescale(UART_prescale_configuration[DATA_WIDTH - 3:0]),
+        .prescale(UART_prescale_configuration[5:0]),
         .transmitter_parallel_data_valid(transmitter_parallel_data_valid_synchronized),
         .transmitter_parallel_data(transmitter_parallel_data_synchronized),
         .serial_data_receiver(serial_data_in),

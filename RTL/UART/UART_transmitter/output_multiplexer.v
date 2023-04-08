@@ -2,13 +2,14 @@
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
 * bit_select:  The output mux selection bits that selects the output 
-*              bit (start bit, serial data bit, parity bit, stop bit).
-* serial_data: The bit that is serially transmitted from the UART transmitter.
+*              bit (start bit, serial data bit, parity bit, or stop bit).
+* serial_data: The bit that is serially transmitted from the UART transmitter 
+*              (i.e. the output bit from the serializer).
 * parity_bit:  The parity bit of the parallel data to be transmitted.
 * 
 * ----------------------------- Outputs -----------------------------
 * mux_out:     The output of the mux that selects between start, serial data, parity, 
-*              or stop bits according to the state of the transmission).
+*              or stop bits according to the state of the transmission.
 */
 
 module output_multiplexer # (

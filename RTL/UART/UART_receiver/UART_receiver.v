@@ -1,20 +1,20 @@
 /*
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
-* clk:           UART clock.
-* reset:         Global active low asynchronous reset after synchronization.
-* parity_type:   Signal to indicate the parity type (1 for odd, 0 for even).
-* parity_enable: Signal to enable the transmission of the parity bit in the frame.
-* prescale:      The ratio between the frequency of the receiver and the frequecy of the 
-*                transmitter (The avaialable prescale values are: 8, 16, 32).
-* serial_data_in:   The data which is received serially. 
+* clk:            UART clock.
+* reset:          Global active low asynchronous reset after synchronization.
+* parity_type:    A signal to indicate the parity type (1 for odd, 0 for even).
+* parity_enable:  A signal to enable the transmission of the parity bit in the frame.
+* prescale:       The ratio between the frequency of the receiver and the frequecy of the 
+*                 transmitter (The avaialable prescale values are: 8, 16, 32).
+* serial_data_in: The data which is received serially.
 * 
 * ----------------------------- Outputs -----------------------------
-* data_valid:    Signal to indicate that the transmission was free of errors.
-* parallel_data: The data which was transmitted serially bit by bit.
-* parity_error:  Signal to indicate that there is parity mismatch between the received parity bit
-*                and the calculated parity bit.
-* frame_error:   Signal to indicate that the stop bit was not correct (i.e. it was '0' instead of '1').
+* data_valid:     A signal to indicate that the received data was free of errors.
+* parallel_data:  The data which is received serially bit by bit.
+* parity_error:   A signal to indicate that there is parity mismatch between the received parity bit
+*                 and the calculated parity bit.
+* frame_error:    A signal to indicate that the start bit or the stop bit was incorrect.
 */
 
 `include "UART_receiver_FSM.v"

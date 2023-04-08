@@ -1,3 +1,13 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:                The clock of the destination domain.
+* reset:              Unsynchronized global active low reset.
+* 
+* ----------------------------- Outputs -----------------------------
+* reset_synchronized: The reset signal after synchronization to the destination domain.
+*/
+
 module reset_synchronizer #(
     parameter STAGE_COUNT = 2
 )

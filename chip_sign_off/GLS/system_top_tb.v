@@ -1,4 +1,4 @@
-`include "../../physical_design/physical_design_output/netlist/system_top_netlist.v"
+// `include "../../physical_design/physical_design_output/netlist/system_top_netlist.v"
 `timescale 1ns/1ps
 
 module system_top_tb;
@@ -42,9 +42,9 @@ module system_top_tb;
     integer internal_index;
 
     initial begin
-        $sdf_annotate("../../physical_design/physical_design_output/system_top.sdf", U_system_top);
+        // $sdf_annotate("../../physical_design/physical_design_output/system_top.sdf", U_system_top);
         $timeformat(-9, 2, " ns", 20);
-        output_file = $fopen("system_outputs_verilog.txt", "w");
+        output_file = $fopen("output_files/system_outputs_verilog.txt", "w");
         $readmemb("test_cases.txt", test_cases);
         initialize();
         reset();

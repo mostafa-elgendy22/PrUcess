@@ -1,4 +1,13 @@
-set CG_cell {module clock_gating_cell (
+set CG_cell {/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:        The source clock to be gated (reference clock).
+* clk_enable: Clock gating enable.
+* 
+* ----------------------------- Outputs -----------------------------
+* gated_clk:  The output gated clock (ALU clock).
+*/
+module clock_gating_cell (
     input clk,
     input clk_enable,
 
@@ -17,7 +26,16 @@ set CG_cell {module clock_gating_cell (
 
 endmodule}
 
-set ICG_cell {module clock_gating_cell (
+set ICG_cell {/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:        The source clock to be gated (reference clock).
+* clk_enable: Clock gating enable.
+* 
+* ----------------------------- Outputs -----------------------------
+* gated_clk:  The output gated clock (ALU clock).
+*/
+module clock_gating_cell (
     input clk,
     input clk_enable,
 

@@ -4,7 +4,8 @@
 * clk:               Generated clock produced from the clock divider whose source clock is
 *                    UART clock.
 * reset:             Global active low asynchronous reset after synchronization.
-* parallel_data:     The data to be transmitted by the UART transmitter, and its size is 1-byte.
+* parallel_data:     The data to be transmitted by the UART transmitter.
+* serial_enable:     A signal to enable the operation of the serializer.
 * serial_data_index: A number between 0 and 7 that indicates the index of the bit to be 
 *                    transmitted serially.
 *

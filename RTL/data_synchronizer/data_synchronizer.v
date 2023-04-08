@@ -1,3 +1,19 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:                     The clock of the destination domain.
+* reset:                   Global active low asynchronous reset of the destination domain
+*                          after synchronization.
+* asynchronous_data_valid: A signal to indicate that the data on the 'asynchronous_data' bus is valid.  
+* asynchronous_data:       The data to be synchronized (it is sent from another asynchronous domain
+*                          to the destination domain).
+* 
+* ----------------------------- Outputs -----------------------------
+* Q_pulse_generator:       
+* synchronous_data_valid:  A signal to indicate that the synchronized data is valid.
+* synchronous_data:        The data after synchronization to the destination domain.
+*/
+
 `include "../bus_synchronizer/bus_synchronizer.v"
 
 module data_synchronizer #(

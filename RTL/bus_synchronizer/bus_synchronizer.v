@@ -1,3 +1,16 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:               The clock of the destination domain.
+* reset:             Global active low asynchronous reset of the destination domain
+*                    after synchronization.
+* asynchronous_data: The data to be synchronized (it is sent from another asynchronous domain
+*                    to the destination domain).
+* 
+* ----------------------------- Outputs -----------------------------
+* synchronous_data:  The data after synchronization to the destination domain.
+*/
+
 `include "register.v"
 
 module bus_synchronizer #(

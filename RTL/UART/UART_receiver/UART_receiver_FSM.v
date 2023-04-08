@@ -6,22 +6,22 @@
 * parity_enable:    Signal to enable the transmission of the parity bit in the frame.
 * prescale:         The ratio between the frequency of the receiver and the frequecy of the 
 *                   transmitter (The avaialable prescale values are: 8, 16, 32).
-* serial_data_in:      The data which is received serially. 
+* serial_data_in:   The data which is received serially. 
 * start_bit_error:  Signal to indicate that the sampled start bit is wrong 
-*                   (i.e. the samples are 011 or 111 or 110 or 101)
+*                   (i.e. the samples are 011 or 111 or 110 or 101).
 * parity_bit_error: Signal to indicate that the sampled parity bit is wrong
 * stop_bit_error:   Signal to indicate that the sampled stop bit is wrong
 *                   (i.e. the samples are 100 or 000 or 001 or 010)
 * edge_count:
 * edge_count_done:  
 * ----------------------------- Outputs -----------------------------
-* start_bit_check_enable:           The output of the transmitter (It is also the output of the mux that selects
+* start_bit_check_enable:               The output of the transmitter (It is also the output of the mux that selects
 * parity_bit_check_enable:
-* stop_bit_check_enable
-* edge_counter_and_data_sampler_enable
-* deserializer_enable
-* data_index
-* data_valid
+* stop_bit_check_enable:
+* edge_counter_and_data_sampler_enable: 
+* deserializer_enable:
+* data_index:
+* data_valid: Signal to indicate that the received data by the UART receiver was free of errors.
 */
 
 module UART_receiver_FSM #(
