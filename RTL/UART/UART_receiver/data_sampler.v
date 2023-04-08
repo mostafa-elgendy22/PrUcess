@@ -1,3 +1,17 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:            
+* reset:          
+* serial_data_in: 
+* prescale:       
+* enable:         
+* edge_count:     
+* 
+* ----------------------------- Outputs -----------------------------
+* sampled_bit:     
+*/
+
 module data_sampler (
     input clk,
     input reset,

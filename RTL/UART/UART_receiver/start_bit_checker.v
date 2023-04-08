@@ -1,3 +1,16 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:             
+* reset:           
+* enable:          
+* sampled_bit:     
+* 
+* ----------------------------- Outputs -----------------------------
+* start_bit_error: 
+*/
+
+
 module start_bit_checker (
     input clk,
     input reset,

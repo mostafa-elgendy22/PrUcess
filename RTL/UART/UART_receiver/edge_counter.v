@@ -1,3 +1,16 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:             
+* reset:           
+* prescale:         
+* enable:          
+* 
+* ----------------------------- Outputs -----------------------------
+* edge_count:      
+* edge_count_done: 
+*/
+
 module edge_counter (
     input clk,
     input reset,

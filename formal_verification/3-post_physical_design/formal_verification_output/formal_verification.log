@@ -19,7 +19,7 @@
 
 Build: 4031317
 Hostname: IC (RHEL64)
-Current time: Tue Mar 28 21:39:16 2023
+Current time: Sun Apr  9 05:58:47 2023
 
 Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
 # Add the path of the std cells, RTL files, and the synthesis files to the search path variable
@@ -220,10 +220,10 @@ Status:  Checking designs...
     Warning: 3 (10) undriven nets found in reference (implementation) design; see formality.log for list (FM-399)
 Status:  Building verification models...
 Status:  Processing Guide Commands...
-    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "bus_synchronizer_0" to design "FM_uniq_26".
-    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "data_synchronizer_0" to design "FM_uniq_33".
-    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "FM_uniq_26" to design "bus_synchronizer_0".
-    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "FM_uniq_33" to design "data_synchronizer_0".
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "bus_synchronizer_0" to design "FM_uniq_25".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "data_synchronizer_0" to design "FM_uniq_32".
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "FM_uniq_25" to design "bus_synchronizer_0".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "FM_uniq_32" to design "data_synchronizer_0".
 
 ***************************** Guidance Summary *****************************
                                          Status
@@ -232,18 +232,18 @@ Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
 architecture_netlist:          5          0          0          0          5
 boundary            :          5          0          0          0          5
 boundary_netlist    :          4          0          0          0          4
-change_names        :          3         10          0          0         13
-datapath            :          1          4          0          0          5
+change_names        :          1         12          0          0         13
+datapath            :          0          5          0          0          5
 environment         :          6          0          0          0          6
 instance_map        :          0          1          0          0          1
 inv_push            :          1          0          0          0          1
 mark                :         18          0          0          0         18
-merge               :          1          5          0          0          6
+merge               :          0          6          0          0          6
 multiplier          :          0          2          0          0          2
-replace             :          7         12          0          0         19
+replace             :          5         14          0          0         19
 scan_input          :          0          2          0          0          2
 ungroup             :          0          2          0          0          2
-uniquify            :         35          5          0          0         40
+uniquify            :         34          6          0          0         40
 ununiquify          :          1          0          0          0          1
 
 Note: If verification succeeds you can safely ignore unaccepted guidance commands.
@@ -291,6 +291,7 @@ Unmatched Objects                                                        REF    
 ****************************************************************************************
 
 Status:  Verifying...
+.
 
 ********************************* Verification Results *********************************
 Verification SUCCEEDED
@@ -321,3 +322,12 @@ cd "../../../RTL/clock_gating_cell"
 exec tclsh place_ICG_cell.tcl -r
 cd "../../formal_verification/3-post_physical_design/scripts"
 start_gui
+     1  source -echo -verbose formal_verification_script.tcl
+1
+exit
+Maximum memory usage for this session: 445676 KB
+CPU usage for this session: 87.75 seconds
+Current time: Sun Apr  9 06:00:51 2023
+Elapsed time: 137 seconds
+
+Thank you for using Formality (R)!

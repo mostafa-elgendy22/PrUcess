@@ -1,3 +1,17 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:              
+* reset:            
+* parity_type:       
+* enable:            
+* sampled_bit:       
+* parallel_data:       
+* 
+* ----------------------------- Outputs -----------------------------
+* parity_bit_error: 
+*/
+
 module parity_bit_checker #(
     parameter DATA_WIDTH = 8
 ) 

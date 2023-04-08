@@ -1,3 +1,16 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:           
+* reset:         
+* enable:         
+* data_index:    
+* sampled_bit:   
+* 
+* ----------------------------- Outputs -----------------------------
+* parallel_data:  
+*/
+
 module deserializer #(
     parameter DATA_WIDTH = 8
 ) 
