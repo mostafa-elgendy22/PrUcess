@@ -233,6 +233,7 @@ In all ALU commands, the UART transmitter sends two consecutive frames (becuase 
 
 Note that the mentioned configurations are outputs from the register file (reference clock domain) and they are inputs to blocks that operates on UART clock (i.e. Metastability may occur becuase the source and destination domains are asynchronous to one another), however there is no synchronizers used to synchronize those signals because they are **Quasi-static signals** (they are effectively stable for long periods of time. Such domain crossings do not require synchronizers in the destination domain, because they are held long enough to be captured by even the slowest clock domains without the risk of metastability).
 
+<hr>
 
 ## System Top Level Module
 
@@ -292,6 +293,8 @@ Note that the mentioned configurations are outputs from the register file (refer
         <td>A signal to indicate that the start bit or the stop bit was incorrect.</td>
     </tr>
 </table>
+
+<hr>
 
 ## System Submodules
 
@@ -574,6 +577,8 @@ It selects between (start bit, serial data bit, parity bit, or stop bit) accordi
     </tr>
 </table>
 
+<hr>
+
 ### UART Receiver
 
 #### Top Level Module
@@ -702,6 +707,8 @@ Note that if any omitted condition occurs, the current state won't change.
     </tr>
 </table>
 
+<hr>
+
 ### Clock Gating Cell
 
 #### Logic Diagram
@@ -742,6 +749,8 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
         <td>The output gated clock (ALU clock).</td>
     </tr>
 </table>
+
+<hr>
 
 ### ALU
 
@@ -813,6 +822,8 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
         <td>The result of the ALU.</td>
     </tr>
 </table>
+
+<hr>
 
 ### Register File
 
@@ -899,8 +910,9 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
     </tr>
 </table>
 
-### Bus Synchronizer
+<hr>
 
+### Bus Synchronizer
 It acts as a gray encoded bus synchronizer or a single bit synchronizer according to the value of the BUS_WIDTH parameter. It consists of multiple registers (single bit or multiple bits) connected in a cascaded scheme, and the number of stages is parametrized with a default value of 2.
 
 #### Logic Diagram
@@ -940,6 +952,8 @@ It acts as a gray encoded bus synchronizer or a single bit synchronizer accordin
         <td>The data after synchronization to the destination domain.</td>
     </tr>
 </table>
+
+<hr>
 
 ### Data Synchronizer
 
@@ -1000,6 +1014,8 @@ This module is used to synchronize any arbitrary bus by synchronizing its 'data 
         <td>The data after synchronization to the destination domain.</td>
     </tr>
 </table>
+
+<hr>
 
 ### System Controller
 
@@ -1194,6 +1210,7 @@ Note that if any omitted condition occurs, the current state won't change.
     </tr>
 </table>
 
+<hr>
 
 ### Reset Synchronizer
 
