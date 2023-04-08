@@ -1,7 +1,7 @@
 `include "../../../RTL/UART/UART_transmitter/UART_transmitter.v"
 `timescale 1ns/1ps
 
-module UART_transmitter_tb ();
+module UART_transmitter_tb;
 
     parameter DATA_WIDTH = 8;
 
@@ -28,8 +28,7 @@ module UART_transmitter_tb ();
     // Output file
     integer file;
 
-    // Clock frequency = 200 MHz, clock period = 5 ns
-    localparam CLK_PERIOD = 5;
+    localparam CLK_PERIOD = 8762;
 
 
 

@@ -1,3 +1,25 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:                              Reference clock.
+* reset:                            Global active low asynchronous reset after synchronization.
+* enable:                           A signal to enable the operation of the controller, this signal
+*                                   is used to prevent the processing of frames while there is another
+*                                   frame being sent by the UART transmitter.
+* parallel_data_valid_synchronized: A synchronized signal to indicate that there exist new data received by the 
+*                                   UART receiver.
+* parallel_data_synchronized:       The data received by the UART receiver.
+* 
+* ----------------------------- Outputs -----------------------------
+* ALU_function:                 A binary code to determine the function of the ALU.
+* ALU_enable:                   A signal to enable the operation of the ALU.
+* ALU_clk_enable:               A signal to enable the clock gating cell which outputs the ALU clock.
+* address:                      The address of the register to be read from or written to.
+* write_enable:                 A signal to enable the read operation from the register file.
+* write_data:                   The data to be written in the given address in the register file.
+* read_enable:                  A signal to enable the read operation in the register file.
+*/
+
 module UART_receiver_controller #(
     parameter DATA_WIDTH = 8,
     parameter REGISTER_FILE_DEPTH = 16

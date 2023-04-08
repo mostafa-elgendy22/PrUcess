@@ -33,7 +33,7 @@ module serializer #(
 
     // Serial data register
     always @(posedge clk or negedge reset) begin
-        if (!reset) begin
+        if (~reset) begin
             serial_data <= 1'b0;
         end
         else if (serial_enable) begin

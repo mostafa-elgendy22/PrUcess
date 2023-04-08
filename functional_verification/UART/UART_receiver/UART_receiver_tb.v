@@ -29,8 +29,7 @@ module UART_receiver_tb;
     integer passed_test_cases;
     integer total_test_cases;
 
-    // Clock frequency = 200 MHz, clock period = 5 ns
-    localparam RECEIVER_CLK_PERIOD = 5;
+    localparam RECEIVER_CLK_PERIOD = 271;
 
 
     initial 

@@ -1,3 +1,25 @@
+/*
+* ----------------------------- Ports' Definition -----------------------------
+* ----------------------------- Inputs -----------------------------
+* clk:                             Reference clock.
+* reset:                           Global active low asynchronous reset after synchronization.
+* ALU_result_valid:                A signal to indicate the ALU result is valid.
+* ALU_result:                      The result of the ALU.
+* read_data_valid:                 A signal to indicate that the data on the 'read_data' bus of the register file is a valid data.
+* read_data:                       The data read from the given address from the register file.
+* transmitter_busy_synchronized:   The UART transmitter busy signal after synchronization.
+* transmitter_Q_pulse_generator:   The output signal of the pulse generator of the data synchronizer
+*                                  that synchronizes the UART transmitter data after being  
+*                                  synchronized to the reference clock domain.
+* 
+* ----------------------------- Outputs -----------------------------
+* transmitter_parallel_data_valid: A signal to indicate that there is new data to be transmitted.
+* transmitter_parallel_data:       The data sent to the UART transmitter to transmit it serially.
+* UART_receiver_controller_enable: A signal to enable the operation of the controller, this signal
+*                                  is used to prevent the processing of frames while there is another
+*                                  frame being sent by the UART transmitter.
+*/
+
 module UART_transmitter_controller #(
     parameter DATA_WIDTH = 8
 )

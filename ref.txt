@@ -1,1 +1,0 @@
-https://www.analog.com/en/technical-articles/determining-clock-accuracy-requirements-for-uart-communications.html

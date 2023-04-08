@@ -2,7 +2,7 @@ import re
 from bitarray import bitarray
 from change_prescale import write_prescale
 
-prescale = 16
+prescale = 8
 
 def main():
     # -------------------------------- Write test cases here ------------------------------
@@ -28,6 +28,9 @@ def main():
     ALU_operation_without_operands('*')
     register_file_write(7, 20)
     register_file_read(7)
+    register_file_write(0, 10)
+    ALU_operation_without_operands('-')
+    ALU_operation_without_operands('^')
 
 
 def read_parameters():

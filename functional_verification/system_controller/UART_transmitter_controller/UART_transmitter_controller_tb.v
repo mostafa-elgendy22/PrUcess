@@ -9,7 +9,7 @@ module UART_transmitter_controller_tb;
     localparam REFERENCE_CLK_PERIOD = 25;
 
     // The clock period of the UART transmitter is = (271 ns) * 32 = 8672 ns
-    localparam TRANSMITTER_CLK_PERIOD = 8680;
+    localparam TRANSMITTER_CLK_PERIOD = 8672;
 
     // Input signals' declaration
     reg reference_clk_tb;

@@ -59,7 +59,7 @@ module UART_receiver_FSM #(
     // FSM state encoding
     localparam [2:0] IDLE = 3'b000;
     localparam [2:0] START_BIT_RECEPTION = 3'b001;
-    localparam [2:0] serial_data_in_RECEPTION = 3'b010;
+    localparam [2:0] SERIAL_DATA_RECEPTION = 3'b010;
     localparam [2:0] PARITY_BIT_RECEPTION = 3'b011;
     localparam [2:0] STOP_BIT_RECEPTION = 3'b100;
     localparam [2:0] DATA_VALID = 3'b101;
@@ -77,7 +77,7 @@ module UART_receiver_FSM #(
         if (~reset) begin
             data_transmission_state <= 'b0;
         end
-        else if (current_state == serial_data_in_RECEPTION && edge_count == final_edge_number) begin 
+        else if (current_state == SERIAL_DATA_RECEPTION && edge_count == final_edge_number) begin 
             data_transmission_state <= data_transmission_state + 'b1;
         end
         else if (data_transmission_state[$clog2(DATA_WIDTH)]) begin
@@ -115,18 +115,18 @@ module UART_receiver_FSM #(
                         next_state = IDLE;
                 end
                 else if (edge_count_done) begin
-                        next_state = serial_data_in_RECEPTION;
+                        next_state = SERIAL_DATA_RECEPTION;
                 end
                 else begin
                     next_state = START_BIT_RECEPTION;
                 end
             end
 
-            serial_data_in_RECEPTION: begin
+            SERIAL_DATA_RECEPTION: begin
                 if (edge_count_done) begin
                     // The byte is not completely received yet
                     if (~data_transmission_state[$clog2(DATA_WIDTH)]) begin
-                        next_state = serial_data_in_RECEPTION;
+                        next_state = SERIAL_DATA_RECEPTION;
                     end
                     else if (parity_enable) begin
                         next_state = PARITY_BIT_RECEPTION;
@@ -136,7 +136,7 @@ module UART_receiver_FSM #(
                     end
                 end
                 else begin
-                    next_state = serial_data_in_RECEPTION;
+                    next_state = SERIAL_DATA_RECEPTION;
                 end
             end
 
@@ -211,7 +211,7 @@ module UART_receiver_FSM #(
                 data_valid = 1'b0;
             end
 
-            serial_data_in_RECEPTION: begin
+            SERIAL_DATA_RECEPTION: begin
                 edge_counter_and_data_sampler_enable = 1'b1;
                 
                 if (edge_count == sampling_edge_number + 4'd5) begin

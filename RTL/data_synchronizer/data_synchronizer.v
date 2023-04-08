@@ -9,7 +9,7 @@
 *                          to the destination domain).
 * 
 * ----------------------------- Outputs -----------------------------
-* Q_pulse_generator:       
+* Q_pulse_generator:       The output of the pulse generator register.
 * synchronous_data_valid:  A signal to indicate that the synchronized data is valid.
 * synchronous_data:        The data after synchronization to the destination domain.
 */
