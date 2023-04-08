@@ -57,7 +57,27 @@
 
 # PrUcess (Processing unit through UART)
 
+## Introduction
+
 Pr**U**cess is a **processing** unit that executes commands (arithmetic &amp; logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it tranmsits the commands' results through the **UART** transmitter module.
+
+This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:
+<ol>
+    <li>System's architecure design.</li>
+    <li>Synthesizable RTL modelling (behavioral modelling, FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized synchronizers, and system's main controller).</li>
+    <li>Functional verification using self-checking testbenches and automated Python verification environments and running them using Modelsim.</li>
+    <li>Logic synthesis using Synopsys Design Compiler.</li>
+    <li>Formal verification post logic synthesis using Synopsys Formality.</li>
+    <li>Design for testatbility (DFT) using Synopsys DFT Compiler.</li>
+    <li>Formal verification post DFT using Synopsys Formality.</li>
+    <li>Physical design (floor planning, power planning, placement, CTS, routing, and chip finishing) using Cadence innovus.</li>
+    <li>Formal verification post physical design using Synopsys Formality.</li>
+</ol>
+
+<hr>
+
+
+## System's Specifications
 
 UART is a standard serial communication protocol widely used in many applications. Oversampling is a technique used in UART receivers to improve the accuracy and reliability of the received data. In a UART receiver, data is received as a series of binary bits that are transmitted asynchronously with respect to a clock signal. To correctly interpret the received data, the receiver must sample the incoming signal at the correct time to capture the correct value of each bit. Oversampling involves sampling the incoming signal at a higher frequency than the baud rate of the transmitted data. This means that multiple samples are taken during the transmission of each bit, allowing the receiver to more accurately determine the timing and value of each bit. Oversampling also helps to mitigate the effects of noise and other signal distortions that can cause errors in the received data. By taking multiple samples of each bit, the receiver can detect and correct for these errors, improving the overall reliability of the data transmission.
 
@@ -224,7 +244,7 @@ In all ALU commands, the UART transmitter sends two consecutive frames (becuase 
 
 
 
-#### The register file is used to configure the whole system:
+#### System's Configurations
 <ul>
     <li>The parity configuration of UART (parity enable and parity type).</li>
     <li>The oversampling prescale (division ratio) of the UART receiver.</li>
@@ -663,6 +683,8 @@ It selects between (start bit, serial data bit, parity bit, or stop bit) accordi
 <img src="docs/screenshots/system_design/UART/UART_receiver/UART_receiver_FSM.png">
 
 Note that if any omitted condition occurs, the current state won't change.
+
+<hr>
 
 ### Clock Divider
 
