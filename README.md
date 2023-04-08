@@ -65,7 +65,7 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
 <ol>
     <li>System's architecure design.</li>
     <li>Synthesizable RTL modelling (behavioral modelling, FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized synchronizers, and system's main controller).</li>
-    <li>Functional verification using self-checking testbenches and automated Python verification environments and running them using Modelsim.</li>
+    <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
     <li>Logic synthesis using Synopsys Design Compiler.</li>
     <li>Formal verification post logic synthesis using Synopsys Formality.</li>
     <li>Design for testatbility (DFT) using Synopsys DFT Compiler.</li>
@@ -598,6 +598,10 @@ It selects between (start bit, serial data bit, parity bit, or stop bit) accordi
     </tr>
 </table>
 
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 <hr>
 
 ### UART Receiver
@@ -685,6 +689,11 @@ It selects between (start bit, serial data bit, parity bit, or stop bit) accordi
 
 Note that if any omitted condition occurs, the current state won't change.
 
+
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 <hr>
 
 ### Clock Divider
@@ -730,6 +739,28 @@ Note that if any omitted condition occurs, the current state won't change.
     </tr>
 </table>
 
+#### Functional Verification
+
+This module is verified through logic simulation in Modelsim. The simulation can be run using `run.tcl` script.
+
+<br>
+
+Test case (1) (division_ratio = 3)
+
+<img src="docs/screenshots/functional_verification/clock_divider/3.PNG">
+
+Test case (2) (division_ratio = 5)
+
+<img src="docs/screenshots/functional_verification/clock_divider/5.PNG">
+
+Test case (3) (division_ratio = 6)
+
+<img src="docs/screenshots/functional_verification/clock_divider/6.PNG">
+
+Test case (4) (division_ratio = 8)
+
+<img src="docs/screenshots/functional_verification/clock_divider/8.PNG">
+
 <hr>
 
 ### Clock Gating Cell
@@ -740,7 +771,7 @@ Latch-based clock gating cell:
 
 <img src="docs/screenshots/system_design/clock_gating_cell/clock_gating_cell.PNG">
 
-This module is replaced by the integrated clock gating cell (ICG) from the standard cell library. ICG is a full custom cell whose path delays are well balanced which eliminates the occurrence of pulse clipping and spurious clocking issues. The replacement procedure is done automatically using the `place_ICG_cell.tcl` script to ease the process of placement (in the backend flow) and removal (in the functional simulation and verification) of the ICG cell.
+This module is replaced by the integrated clock gating cell (ICG) from the standard cell library. ICG is a full custom cell whose path delays are well balanced which eliminates the occurrence of pulse clipping and spurious clocking issues (those issues may occur only after fabrication due to imbalanced delays but not in simulation because ideally, the latch-based clock gating cell doesn't suffer from any clock issues). The replacement procedure is done automatically using the `place_ICG_cell.tcl` script to ease the process of placement (in the backend flow) and removal (in the functional simulation and verification) of the ICG cell.
 
 <img src="docs/screenshots/system_design/clock_gating_cell/integrated_clock_gating_cell.png">
 
@@ -772,6 +803,12 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
         <td>The output gated clock (ALU clock).</td>
     </tr>
 </table>
+
+#### Functional Verification
+
+This module is verified through logic simulation in Modelsim. The simulation can be run using `run.tcl` script.
+
+<img src="docs/screenshots/functional_verification/clock_gating_cell/1.PNG">
 
 <hr>
 
@@ -845,6 +882,10 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
         <td>The result of the ALU.</td>
     </tr>
 </table>
+
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
 
 <hr>
 
@@ -933,6 +974,11 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
     </tr>
 </table>
 
+
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 <hr>
 
 ### Bus Synchronizer
@@ -975,6 +1021,12 @@ It acts as a gray encoded bus synchronizer or a single bit synchronizer accordin
         <td>The data after synchronization to the destination domain.</td>
     </tr>
 </table>
+
+#### Functional Verification
+
+This module is verified through a Python script which generates all the possible binary gray codes of a given size, the testbench reads the gray codes from the external file and waveform simulation is performed in Modelsim. The simulation can be run using `run.tcl` script.
+
+<img src="docs/screenshots/functional_verification/bus_synchronizer/1.PNG">
 
 <hr>
 
@@ -1038,6 +1090,10 @@ This module is used to synchronize any arbitrary bus by synchronizing its 'data 
     </tr>
 </table>
 
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 <hr>
 
 ### System Controller
@@ -1053,6 +1109,8 @@ This module consists of two FSMs:
 </ol>
 
 Main FSM: This FSM controls the following output ports according to the current state: transmitter_parallel_data_valid, transmitter_parallel_data, UART_receiver_controller_enable.
+
+The "WAIT_FOR_UPPER_ALU_RESULT" state is used so that the "transmitter_parallel_data_valid" can be set to logic zero during that state, this is done so that the pulse generator can accept a new "data_valid" signal (this is because when the "transmitter_parallel_data_valid" is high (because of the transmission of the lower ALU result), the output of the NOT gate of the pulse generator is low and it won't change its value until the "transmitter_parallel_data_valid" becomes low. After that, the output of the NOT gate is high and a new "data_valid" signal can be sent). To exit "WAIT_FOR_UPPER_ALU_RESULT" state, the output of the pulse generator register "Q_pulse_generator" must be low (to ensure that the zero that was sent during the "WAIT_FOR_UPPER_ALU_RESULT" state has reached the pulse generator) and then the upper ALU result can be sent with a new "data_valid" signal. Note that the "Q_pulse_generator" is asynchronous to the reference clock domain (i.e. it is generated by the UART transmitter clock) so a bit synchronizer is used to synchronize it to the reference clock domain.
 
 <img src="docs/screenshots/system_design/system_controller/UART_transmitter_controller_FSM.png">
 
@@ -1140,13 +1198,23 @@ Note that if any omitted condition occurs, the current state won't change.
     </tr>
 </table>
 
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 #### UART Receiver Controller
 
 This module controls the ALU control signals (ALU_function, ALU_enable, ALU_clk_enable) and register file control signals (address, write_enable, write_data, read_enable) based on the received frames from the UART receiver (i.e. according to the command to be executed).
 
 ##### Finite State Machine (FSM)
 
+The "EVALUATE_RESULT" state is a dummy state whose function is to delay the return to the "IDLE" state for one cycle so that "ALU_clk_enable" signal goes high for one cycle after the ALU result is evaluated.
+
 <img src="docs/screenshots/system_design/system_controller/UART_receiver_controller_FSM.png">
+
+The waveform after executing an ALU operation is shown in the following figure.
+
+<img src="docs/screenshots/functional_verification/system_controller/ALU_clk_enable.PNG">
 
 Note that if any omitted condition occurs, the current state won't change.
 
@@ -1233,6 +1301,10 @@ Note that if any omitted condition occurs, the current state won't change.
     </tr>
 </table>
 
+#### Functional Verification
+
+This module is verified through self-checking testbench in Modelsim. The testbench can be run using `run.tcl` script.
+
 <hr>
 
 ### Reset Synchronizer
@@ -1270,3 +1342,9 @@ It is used to synchronize a global reset signal to different clock domains. It c
         <td>The reset signal after synchronization to the destination domain.</td>
     </tr>
 </table>
+
+#### Functional Verification
+
+This module is verified through logic simulation in Modelsim. The simulation can be run using `run.tcl` script.
+
+<img src="docs/screenshots/functional_verification/reset_synchronizer/1.PNG">
