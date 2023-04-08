@@ -1348,3 +1348,96 @@ It is used to synchronize a global reset signal to different clock domains. It c
 This module is verified through logic simulation in Modelsim. The simulation can be run using `run.tcl` script.
 
 <img src="docs/screenshots/functional_verification/reset_synchronizer/1.PNG">
+
+<hr>
+<hr>
+
+## Logic Synthesis
+
+The whole system is synthesized using Synopsys Design Compiler and "TSMC 130nm CL013G-FSG Process
+1.2V Metro<sup>TM</sup> v1.0" Standard Cell Library. There are 3 scripts that are used in the synthesis process:
+<ol>
+    <li>`constraints.tcl`: It defines all clock source using `create_clock` and `create_generated_clock`, defines asynchronous clock groups using `set_clock_groups -asynchronous`, sets input and output delays, sets the output load on the output ports, and sets the different operating conditions to be used in timing analysis (slow-slow library is used for setup analysis, fast-fast library is used for hold analysis).</li>
+    <li>`logic_synthesis_script.tcl`: It places the ICG instead of the RTL module, reads libraries, reads RTL modules, links and compiles the design, generates the reports, netlist, and SDF file, and replaces the ICG with the RTL module again (to be used in simulations).</li>
+    <li>`run.sh`: It runs the `logic_synthesis_script.tcl` and produces the log file which contains all the steps of the synthesis and their outputs and cleans the directory from temporary files after the synthesis is done.</li>
+</ol>
+
+### Reports
+
+#### Area
+
+<img src="docs/screenshots/logic_synthesis/area.PNG">
+
+#### Clocks
+
+<img src="docs/screenshots/logic_synthesis/clocks.PNG">
+
+#### Power
+
+<img src="docs/screenshots/logic_synthesis/power1.PNG">
+
+<img src="docs/screenshots/logic_synthesis/power2.PNG">
+
+#### Timing reports (setup and hold) can be found at "logic_synthesis/logic_synthesis_output/reports"
+
+
+## Post - Logic Synthesis Formal Verification
+
+Formal verification takes the original RTL modules (golden RTL files) and the netlist generated fom the synthesis process and performs functional equivalence checking and reports whether or not the two systems (RTL and netlist) have the same functionality or not. The formal verification is run using Synopsys Formality. There are 2 scripts that are used in the formal verification process:
+<ol>
+    <li>`formal_verification_script.tcl`: It places the ICG instead of the RTL module, reads libraries, reads golden RTL modules, reads the netlist generated from the synthesis process, compares the two designs, and replaces the ICG with the RTL module again (to be used in simulations).</li>
+    <li>`run.sh`: It runs the `formal_verification_script.tcl` and produces the log file which contains all the steps of the formal verification and their outputs and cleans the directory from temporary files after the verification is done.</li>
+</ol>
+
+#### Verification Results
+
+<img src="docs/screenshots/formal_verification/post-logic_synthesis.PNG">
+
+<hr>
+<hr>
+
+## Design For Testability (DFT)
+
+DFT is used to insert additional logic (not for functional mode) to ensure that chip is free of manufacturing errors. The main concept is to create scan chains consisting of all registers in the system to be able to observe and control most of the nodes of the circuit (i.e. achieve high coverage). After DFT insertion, all the flip-flops (except shift registers) are replaced with scan flip-flops.
+
+DFT ports:
+<ul>
+    <li>scan_clk: The clock which the system uses in test mode</li>
+    <li>scan_reset: The reset which the system uses in the test mode</li>
+    <li>SE: Scan enable signal, when SE = 1: all the registers in the scan chain acts as asingle shift register, when SE = 0: The output of the register passes through the combinational logic following it (this is used to to test nodes in the circuit). SE is connected to all the SE pins of all the scan flops.</li>
+    <li>test_mode: A signal to indicate whether the chip is operating in the functional mode or the test mode.</li>
+    <li>SI: The input to the scan chain. The width of this port is the number of the scan chains</li>
+    <li>SO: The output from the scan chain. The width of this port is the number of the scan chains</li>
+</ul>
+
+Number of scan chains:
+These results are produced after the logic synthesis indicating that there should exist 3 scan chains in the system if each chain has 100 flip-flops.
+
+<img src="docs/screenshots/DFT/preparation.PNG">
+
+The logic of the scan_clk and scan_reset is manually inserted by using 2x1 muxes for the clocks and resets in the system. The clock gating cell is bypassed by connecting its enable pin with (test_mode | enable) (i.e. the clock gating cell will be always enabled in the test mode). This leads to a violation on this cell because it is not controllable.
+
+<img src="docs/screenshots/DFT/violations.PNG">
+
+
+There are 3 modes of operation after the DFT logic is inserted:
+<ol>
+    <li>Functional mode: test_mode = 0, SE = 0</li>
+    <li>Test scan mode: test_mode = 1, SE = 1</li>
+    <li>Test capture mode: test_mode = 1, SE = 0</li>
+</ol>
+
+The whole system is synthesized and DFT insertion is performed using Synopsys DFT Compiler and "TSMC 130nm CL013G-FSG Process 1.2V Metro<sup>TM</sup> v1.0" Standard Cell Library. The synthesis and DFT insertion is repeated 3 times (once for each mode of operation) to ensure that there is no violations in any mode. There are 3 scripts that are used in the DFT insertion process:
+<ol>
+    <li>`constraints.tcl`: Same constraints of the logic synthesis process but it additionaly defines the scan clock to be used in timing analysis</li>
+    <li>`DFT_script.tcl`: Same operations done in the logic synthesis process but it additionaly defines the DFT ports, identify the shift registers in the design so that they are not replaced with scan flip-flops, and insert DFT logic.</li>
+    <li>`run.sh`: It runs the `DFT_script.tcl` 3 times by using the `change_mode.py` script which changes the mode of operation automatically and produces the log file which contains all the steps of the synthesis and their outputs and cleans the directory from temporary files after the DFT insertion is done.</li>
+</ol>
+
+## Post - DFT Formal Verification
+
+#### Verification Results
+
+<img src="docs/screenshots/formal_verification/post-DFT.PNG">
+
+There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the tool).

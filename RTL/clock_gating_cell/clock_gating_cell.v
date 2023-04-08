@@ -2,7 +2,7 @@
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
 * clk:        The source clock to be gated (reference clock).
-* clk_enable: An enable signal for the clock gating.
+* clk_enable: Clock gating enable.
 * 
 * ----------------------------- Outputs -----------------------------
 * gated_clk:  The output gated clock (ALU clock).

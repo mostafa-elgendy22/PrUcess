@@ -7,6 +7,10 @@ Info:  Net implementation:/WORK/register_file/register2[2] is undriven.
 Info:  Net implementation:/WORK/register_file/register3[7] is undriven.
 Info:  Net implementation:/WORK/register_file/register3[6] is undriven.
 Info:  Net implementation:/WORK/data_synchronizer_0/Q_pulse_generator is undriven.
+Info:  guide_replace 16 (Line: 100)  Could not find pre_resource 'sub_28' in design 'clock_divider'.
+Info:  guide_replace 16 (Line: 100)  Could not find pre_resource 'sub_24' in design 'clock_divider'.
+Info:  SVF Operation 16 (Line: 100) - replace.  Status: rejected
+
 Info:  guide_merge 29 (Line: 179)  Rejected transformation 29 because design 'ALU' cannot be found.
 Info:  SVF Operation 29 (Line: 179) - merge.  Status: rejected
 
@@ -111,7 +115,24 @@ Info:  guide_uniquify 74 (Line: 603)  Cannot find object "DP_OP_14J1_127_5561" i
 Info:  guide_datapath 79 (Line: 713) Cannot find reference cell for instance 'DP_OP_14J1_127_5561' in design 'data_sampler'.
 Info:  SVF Operation 79 (Line: 713) - datapath.  Status: rejected
 
-Info:  Pre-verification of reference:/WORK/clock_divider/DP_OP_14J1_128_5438 SUCCEEDED.
+Info:  guide_replace 80 (Line: 718)  Could not find pre_resource 'eq_24' in design 'clock_divider'.
+Info:  guide_replace 80 (Line: 718)  Could not find pre_resource 'eq_28' in design 'clock_divider'.
+Info:  SVF Operation 80 (Line: 718) - replace.  Status: rejected
+
+Info:  guide_merge 81 (Line: 733)  Could not find pre_resource 'sub_24' in design 'clock_divider'.
+Info:  guide_merge 81 (Line: 733)  Could not find pre_resource 'EXTRA_CMP_12' in design 'clock_divider'.
+Info:  SVF Operation 81 (Line: 733) - merge.  Status: rejected
+
+Info:  guide_change_names 82 (Line: 744)  Cannot find or apply name change to cell 'eq_28_2' in design 'clock_divider'.
+Info:  SVF Operation 82 (Line: 744) - change_names.  Status: rejected
+
+Info:  guide_change_names 83 (Line: 748)  Cannot find or apply name change to cell 'add_35' in design 'clock_divider'.
+Info:  SVF Operation 83 (Line: 748) - change_names.  Status: rejected
+
+Info:  guide_uniquify 84 (Line: 752)  Cannot find object "DP_OP_14J1_128_5438" in design 'clock_divider'.
+Info:  guide_datapath 89 (Line: 811) Cannot find reference cell for instance 'DP_OP_14J1_128_5438' in design 'clock_divider'.
+Info:  SVF Operation 89 (Line: 811) - datapath.  Status: rejected
+
 Info:  guide_ungroup 92 (Line: 836)  Cannot find cell 'U_ALU/div_2' in design 'system_top'.
 Info:  SVF Operation 92 (Line: 836) - ungroup.  Status: rejected
 

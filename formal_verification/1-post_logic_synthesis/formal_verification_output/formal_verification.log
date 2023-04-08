@@ -19,7 +19,7 @@
 
 Build: 4031317
 Hostname: IC (RHEL64)
-Current time: Wed Mar 22 21:15:31 2023
+Current time: Sun Apr  9 03:56:38 2023
 
 Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
 # Add the path of the std cells, RTL files, and the synthesis files to the search path variable
@@ -191,10 +191,10 @@ Status:  Checking designs...
     Warning: 0 (9) undriven nets found in reference (implementation) design; see formality.log for list (FM-399)
 Status:  Building verification models...
 Status:  Processing Guide Commands...
-    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "bus_synchronizer_0" to design "FM_uniq_19".
-    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "data_synchronizer_0" to design "FM_uniq_26".
-    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "FM_uniq_19" to design "bus_synchronizer_0".
-    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "FM_uniq_26" to design "data_synchronizer_0".
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "bus_synchronizer_0" to design "FM_uniq_18".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "data_synchronizer_0" to design "FM_uniq_25".
+    Info:  Attempting to modify down-design of instance "U_busy_bit_synchronizer" from design "FM_uniq_18" to design "bus_synchronizer_0".
+    Info:  Attempting to modify down-design of instance "U_UART_receiver_data_synchronizer" from design "FM_uniq_25" to design "data_synchronizer_0".
 
 ***************************** Guidance Summary *****************************
                                          Status
@@ -203,17 +203,17 @@ Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
 architecture_netlist:          5          0          0          0          5
 boundary            :          5          0          0          0          5
 boundary_netlist    :          4          0          0          0          4
-change_names        :          3         10          0          0         13
-datapath            :          1          4          0          0          5
+change_names        :          1         12          0          0         13
+datapath            :          0          5          0          0          5
 environment         :          3          0          0          0          3
 instance_map        :          0          1          0          0          1
 inv_push            :          2          0          0          0          2
 mark                :         18          0          0          0         18
-merge               :          1          5          0          0          6
+merge               :          0          6          0          0          6
 multiplier          :          0          2          0          0          2
-replace             :          7         12          0          0         19
+replace             :          5         14          0          0         19
 ungroup             :          0          2          0          0          2
-uniquify            :          3          5          0          0          8
+uniquify            :          2          6          0          0          8
 
 Note: If verification succeeds you can safely ignore unaccepted guidance commands.
 
@@ -309,9 +309,9 @@ start_gui
 1
 exit
 
-Maximum memory usage for this session: 492408 KB
-CPU usage for this session: 10.13 seconds
-Current time: Wed Mar 22 21:15:54 2023
-Elapsed time: 34 seconds
+Maximum memory usage for this session: 492412 KB
+CPU usage for this session: 11.33 seconds
+Current time: Sun Apr  9 04:35:46 2023
+Elapsed time: 2358 seconds
 
 Thank you for using Formality (R)!
