@@ -57,11 +57,11 @@
 
 # PrUcess (Processing unit through UART)
 
-Pr**U**cess is a **processing** unit that executes commands (arithmetic &amp; logic operations, register file read &amp; write operations) which are received from an external source through **UART** serial communication protocol.
+Pr**U**cess is a **processing** unit that executes commands (arithmetic &amp; logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it tranmsits the commands' results through the **UART** transmitter module.
 
-Oversampling is a technique used in UART receivers to improve the accuracy and reliability of the received data. In a UART receiver, data is received as a series of binary bits that are transmitted asynchronously with respect to a clock signal. To correctly interpret the received data, the receiver must sample the incoming signal at the correct time to capture the correct value of each bit. Oversampling involves sampling the incoming signal at a higher frequency than the baud rate of the transmitted data. This means that multiple samples are taken during the transmission of each bit, allowing the receiver to more accurately determine the timing and value of each bit. Oversampling also helps to mitigate the effects of noise and other signal distortions that can cause errors in the received data. By taking multiple samples of each bit, the receiver can detect and correct for these errors, improving the overall reliability of the data transmission.
+UART is a standard serial communication protocol widely used in many applications. Oversampling is a technique used in UART receivers to improve the accuracy and reliability of the received data. In a UART receiver, data is received as a series of binary bits that are transmitted asynchronously with respect to a clock signal. To correctly interpret the received data, the receiver must sample the incoming signal at the correct time to capture the correct value of each bit. Oversampling involves sampling the incoming signal at a higher frequency than the baud rate of the transmitted data. This means that multiple samples are taken during the transmission of each bit, allowing the receiver to more accurately determine the timing and value of each bit. Oversampling also helps to mitigate the effects of noise and other signal distortions that can cause errors in the received data. By taking multiple samples of each bit, the receiver can detect and correct for these errors, improving the overall reliability of the data transmission.
 
-The system includes two asynchronous clock domains (reference clock and UART clock). The command is received by the UART receiver, then it is sent to the system controller through a synchronizer (to solve the CDC issues) to decode and execute the command and then it sends the result to the UART transmitter through a synchronizer to transmit the result serially.
+The system includes two asynchronous clock domains (reference clock domain and UART clock domain). The command is received by the UART receiver, then it is sent to the system controller through a synchronizer (to solve the CDC issues) to decode and execute the command and then it sends the result to the UART transmitter through a synchronizer which will finally transmit it serially.
 
 #### System's Parameters
 
@@ -74,7 +74,7 @@ The system includes two asynchronous clock domains (reference clock and UART clo
     <tr>
         <td>DATA_WIDTH</td>
         <td align="center">8</td>
-        <td>It is the size of: registers, ALU operands, UART transmitter frame, and UART receiver frame.</td>
+        <td>It is the size of: registers, ALU operands, UART transmitter frames, and UART receiver frames.</td>
     </tr>
     <tr>
         <td>REGISTER_FILE_DEPTH</td>
@@ -89,7 +89,7 @@ The system includes two asynchronous clock domains (reference clock and UART clo
     <tr>
         <td>oversampling_prescale</td>
         <td align="center">the default value after resetting the system is 8</td>
-        <td>The ratio between the frequency of the UART receiver clock and the UART transmitter clock.</td>
+        <td>The ratio between the frequency of the UART receiver clock and the frequency of the UART transmitter clock.</td>
     </tr>
 </table>
 
@@ -150,10 +150,11 @@ The system includes two asynchronous clock domains (reference clock and UART clo
     </tr>
 </table>
 
+
 Note that the oversampling prescale can have the values (8, 16, or 32) but 32 is used in the simulations and backend flow to ensure that the UART recceiver is functioning correctly in the worst case (highest clock frequency).
 
-The system components:
 
+#### System's Components:
 <ol>
     <li>UART: It consists of UART receiver which receives the commands and UART transmitter that transmits the commands' results.</li>
     <li>Clock divider: An integer clock divider which can divide the source clock up to division ratio of 32. It is used to divide the UART clock to produce UART transmitter clock with division ratio equal oversampling prescale.</li>
@@ -166,12 +167,12 @@ The system components:
     <li>Data synchronizer: It is used to synchronize a bus by using a bit synchronizer and pulse generator to synchronize the bus's data valid signal.</li>
 </ol>
 
-ALU operations:
 
+#### ALU Operations:
 <ol>
     <li>Addition (+)</li>
     <li>Subtraction (-)</li>
-    <li>Multiplication(*)</li>
+    <li>Multiplication (*)</li>
     <li>Division (/)</li>
     <li>Bit-wise AND (&)</li>
     <li>Bit-wise OR (|)</li>
@@ -186,8 +187,8 @@ ALU operations:
     <li>Shift left (<<1)</li>
 </ol>
 
-The system commands:
 
+#### System's Commands:
 <ul>
     <li>Register file write command. This command consists of 3 frames as follows: 
         <ol>
@@ -217,10 +218,13 @@ The system commands:
         </ol>
     </li>
 </ul>
+
+
 In all ALU commands, the UART transmitter sends two consecutive frames (becuase the size of the ALU result is double the size of the frame).
 
-The register file is used to configure the whole system:
 
+
+#### The register file is used to configure the whole system:
 <ul>
     <li>The parity configuration of UART (parity enable and parity type).</li>
     <li>The oversampling prescale (division ratio) of the UART receiver.</li>
@@ -228,6 +232,7 @@ The register file is used to configure the whole system:
 
 
 Note that the mentioned configurations are outputs from the register file (reference clock domain) and they are inputs to blocks that operates on UART clock (i.e. Metastability may occur becuase the source and destination domains are asynchronous to one another), however there is no synchronizers used to synchronize those signals because they are **Quasi-static signals** (they are effectively stable for long periods of time. Such domain crossings do not require synchronizers in the destination domain, because they are held long enough to be captured by even the slowest clock domains without the risk of metastability).
+
 
 ## System Top Level Module
 
