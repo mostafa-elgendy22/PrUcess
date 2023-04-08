@@ -320,11 +320,12 @@ Note that the mentioned configurations are outputs from the register file (refer
 
 ### UART Transmitter
 
-#### Top Level Module
-
 #### UART Transmitter Frame Types
 
 <img src="docs/screenshots/system_design/UART/UART_transmitter/frames.png">
+
+#### Top Level Module
+
 
 #### Block Diagram
 
@@ -393,7 +394,7 @@ Note that the mentioned configurations are outputs from the register file (refer
 
 ##### FSM
 
-<img src="docs/screenshots/system_design/UART/UART_transmitter/UART_transmitter_FSM.png">
+<img src="docs/screenshots/system_design/UART/UART_transmitter/UART_transmitter_FSM.PNG ">
 
 Note that if any omitted condition occurs, the current state won't change.
 
@@ -605,7 +606,7 @@ It selects between (start bit, serial data bit, parity bit, or stop bit) accordi
 
 ##### Block Diagram
 
-<img src="docs/screenshots/system_design/UART/UART_receiver/UART_receiver.png">
+<img src="docs/screenshots/system_design/UART/UART_receiver/UART_receiver.PNG">
 
 ##### Port Description
 
@@ -737,7 +738,7 @@ Note that if any omitted condition occurs, the current state won't change.
 
 Latch-based clock gating cell:
 
-<img src="docs/screenshots/system_design/clock_gating_cell/clock_gating_cell.png">
+<img src="docs/screenshots/system_design/clock_gating_cell/clock_gating_cell.PNG">
 
 This module is replaced by the integrated clock gating cell (ICG) from the standard cell library. ICG is a full custom cell whose path delays are well balanced which eliminates the occurrence of pulse clipping and spurious clocking issues. The replacement procedure is done automatically using the `place_ICG_cell.tcl` script to ease the process of placement (in the backend flow) and removal (in the functional simulation and verification) of the ICG cell.
 
@@ -784,7 +785,7 @@ This module is replaced by the integrated clock gating cell (ICG) from the stand
 
 'ALU result valid' logic diagram:
 
-<img src="docs/screenshots/system_design/ALU/ALU_result_valid.png">
+<img src="docs/screenshots/system_design/ALU/ALU_result_valid.PNG">
 
 #### Port Decription
 
