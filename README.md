@@ -1394,7 +1394,6 @@ Formal verification takes the original RTL modules (golden RTL files) and the ne
 <img src="docs/screenshots/formal_verification/post-logic_synthesis.PNG">
 
 <hr>
-<hr>
 
 ## Design For Testability (DFT)
 
@@ -1441,3 +1440,47 @@ The whole system is synthesized and DFT insertion is performed using Synopsys DF
 <img src="docs/screenshots/formal_verification/post-DFT.PNG">
 
 There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the tool).
+
+<hr>
+
+## Physical Design
+
+### Import Design
+
+In this step: the netlist generated from the DFT process, standard cells' lef file, technology lef file (6 metal layers are used), and system_top lef file (which specifies the layout of the whole system) are loaded. The MMMC (multi-mode multi-corner) constraints file is also loaded, this file defines the three modes of operations of the system (as explained in the DFT section) and also defines all the corners to be used in static timing analysis (the corners are defined by the fast-fast library and slow-slow library).
+
+### Floor Planning
+
+The chip size is 240.67x160.0 μm<sup>2</sup>.
+
+<img src="docs/screenshots/physical_design/floor_plan.PNG">
+
+### Power Planning
+
+The power planning step is performed to reduce the IR drop and minimize the effect of electromigration. In this step: power rings, power stripes, and power rails are inserted.
+
+<img src="docs/screenshots/physical_design/power_plan.PNG">
+
+### Placement
+
+Place the stanard cells and optimize if there is any timing violation.
+
+<img src="docs/screenshots/physical_design/place.PNG">
+
+### Clock Tree Synthesis (CTS)
+
+Build the clock tree to minimize the clock skew between registers and optimize if there is any timing violation.
+
+<img src="docs/screenshots/physical_design/CTS.PNG">
+
+### Routing
+
+Route the standard cells and optimize if there is any timing violation.
+
+<img src="docs/screenshots/physical_design/route.PNG">
+
+### Chip Finishing
+
+Insert filler cells, generate gate level netlist (used in gate-level simulation (GLS)), gate level netlist with PG pins (used for analog IR drop simulation), SDF file (used in GLS), and GDS file which is used in manufacturing of the chip.
+
+<img src="docs/screenshots/physical_design/final_chip.PNG">
