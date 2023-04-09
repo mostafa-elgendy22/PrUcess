@@ -6,14 +6,14 @@ Pr**U**cess is a **processing** unit that executes commands (arithmetic &amp; lo
 
 This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:
 <ol>
-    <li>System's architecure design.</li>
+    <li>System's architecture design.</li>
     <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
     <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
     <li>Logic synthesis using Synopsys Design Compiler.</li>
     <li>Formal verification post logic synthesis using Synopsys Formality.</li>
-    <li>Design for testatbility (DFT) using Synopsys DFT Compiler.</li>
+    <li>Design for testability (DFT) using Synopsys DFT Compiler.</li>
     <li>Formal verification post DFT using Synopsys Formality.</li>
-    <li>Physical design (floor planning, power planning, placement, CTS, routing, and chip finishing) using Cadence innovus.</li>
+    <li>Physical design (floor planning, power planning, placement, CTS, routing, timing closure, and chip finishing) using Cadence innovus.</li>
     <li>Formal verification post physical design using Synopsys Formality.</li>
 </ol>
 
