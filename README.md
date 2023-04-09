@@ -1812,7 +1812,7 @@ The whole system is synthesized and DFT insertion is performed using Synopsys DF
 
 <img src="docs/screenshots/formal_verification/post-DFT.PNG">
 
-There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
+There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
 
 <hr>
 
@@ -1864,7 +1864,7 @@ Insert filler cells, generate gate level netlist (used in gate-level simulation 
 
 <img src="docs/screenshots/formal_verification/post-physical_design.PNG">
 
-There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
+There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
 
 <hr>
 
