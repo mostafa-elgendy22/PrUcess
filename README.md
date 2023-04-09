@@ -95,7 +95,7 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
 18. [Design For Testability (DFT)]()
 19. [Post - DFT Formal Verification]()
 20. [Physical Design]()
-21. [Chip Finishing](#Final_Chip_Layout)
+21. [Chip Finishing](#Chip_Finishing)
 22. [Post - Physical Design Formal Verification]()
 
 
