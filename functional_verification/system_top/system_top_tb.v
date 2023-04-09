@@ -8,7 +8,7 @@ module system_top_tb;
 
 	localparam PRESCALE = 8;
 
-	localparam TEST_CASES_DEPTH = 2;
+	localparam TEST_CASES_DEPTH = 63;
 
 	localparam TEST_CASES_WIDTH = 11;
 

@@ -64,7 +64,7 @@ Pr**U**cess is a **processing** unit that executes commands (arithmetic &amp; lo
 This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:
 <ol>
     <li>System's architecure design.</li>
-    <li>Synthesizable RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
+    <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
     <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
     <li>Logic synthesis using Synopsys Design Compiler.</li>
     <li>Formal verification post logic synthesis using Synopsys Formality.</li>
@@ -73,6 +73,10 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
     <li>Physical design (floor planning, power planning, placement, CTS, routing, and chip finishing) using Cadence innovus.</li>
     <li>Formal verification post physical design using Synopsys Formality.</li>
 </ol>
+
+## Table of Contents
+1. [System's Specifications] (#System's Specifications)
+
 
 <hr>
 
@@ -312,6 +316,27 @@ Note that the mentioned configurations are outputs from the register file (refer
         <td>A signal to indicate that the start bit or the stop bit was incorrect.</td>
     </tr>
 </table>
+
+### Functional Verification
+
+The whole system is verified through an automated Python environment which does the following:
+<ol>
+    <li>Generates the opcodes of all the given commands in an external file.</li>
+    <li>Generates all the expected results that should be transmitted serially through the UART transmitter in an external file.</li>
+    <li>Generates the memory file which corresponds to the final values that should be stored in the register file after the execution of all the commands.</li>
+    <li>Compares the results of the Verilog testbench (transmitted through UART transmitter) and the generated memory file with the expected results' file and expected memory file.</li>
+    <li>Reports any mismatch that occur in the testbench.</li>
+    <li>Reports the number of passed and failed testcases.</li>
+</ol>
+
+Sample test cases:
+Any arbitrary test case can be written in `functional_verification/system_top/test_cases_generator.py` as the following:
+
+<img src="docs/screenshots/functional_verification/system_top/test_cases.PNG">
+
+Then the script `functional_verification/system_top/run.tcl` is used to: run the Python script to generate the expected results, run the testbench to generate the actual results, and compare both the results to report any mismatch in the results.
+
+<img src="docs/screenshots/functional_verification/system_top/results.PNG">
 
 <hr>
 
