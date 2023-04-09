@@ -75,7 +75,28 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
 </ol>
 
 ## Table of Contents
-1. [System's Specifications] (#System's Specifications)
+1. [System's Specifications]()
+2. [System Top Level Module]()
+3. [Functional Verification]()
+4. [UART Transmitter]()
+5. [UART Receiver]()
+6. [Clock Divider]()
+7. [Clock Gating Cell]()
+8. [ALU]()
+9. [Register File]()
+10. [Bus Synchronizer]()
+11. [Data Synchronizer]()
+12. [System Controller]()
+13. [UART Transmitter Controller]()
+14. [UART Receiver Controller]()
+15. [Reset Synchronizer]()
+16. [Logic Synthesis]()
+17. [Post - Logic Synthesis Formal Verification]()
+18. [Design For Testability (DFT)]()
+19. [Post - DFT Formal Verification]()
+20. [Physical Design]()
+21. [Chip Finishing](#Final_Chip_Layout)
+22. [Post - Physical Design Formal Verification]()
 
 
 <hr>
@@ -1124,6 +1145,8 @@ This module is verified through self-checking testbench in Modelsim. The testben
 
 ### System Controller
 
+This moudule consists of the two submodules (UART Transmitter Controller, UART Receiver Controller) in which the transmitter controller sends an enable signal to the receiver controller to prevent it from processing a frame sent from the UART receiver while there is another frame being sent through the UART transmitter.
+
 #### UART Transmitter Controller
 
 ##### Finite State Machine (FSM)
@@ -1375,7 +1398,6 @@ This module is verified through logic simulation in Modelsim. The simulation can
 
 <img src="docs/screenshots/functional_verification/reset_synchronizer/1.PNG">
 
-<hr>
 <hr>
 
 ## Logic Synthesis
