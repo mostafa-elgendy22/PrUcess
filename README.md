@@ -13,7 +13,7 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
     <li>Formal verification post logic synthesis using Synopsys Formality.</li>
     <li>Design for testatbility (DFT) using Synopsys DFT Compiler.</li>
     <li>Formal verification post DFT using Synopsys Formality.</li>
-    <li>Physical design (floor planning, power planning, placement, CTS, routing, and chip finishing) using Cadence innovus.</li>
+    <li>Physical design (floor planning, power planning, placement, CTS, routing, timing closure, and chip finishing) using Cadence innovus.</li>
     <li>Formal verification post physical design using Synopsys Formality.</li>
 </ol>
 
