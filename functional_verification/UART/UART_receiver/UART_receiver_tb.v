@@ -325,6 +325,34 @@ module UART_receiver_tb;
         total_test_cases = total_test_cases + 1;
         $display("----------------------------------------------------------------");
 
+        $display("--------------------- Test case (8) ---------------------");
+        parity_enable_tb = 1'b1;
+        transmitted_byte = 'h57;
+        $display("time = %0t", $time);
+        $display("Configuration signals: parity_enable = %1b, prescale = %6b", 
+                  parity_enable_tb, prescale_tb);
+        
+        serial_data_in_tb = 1'b0;
+        #(RECEIVER_CLK_PERIOD);
+        
+        serial_data_in_tb = 1'b1;
+        @(posedge frame_error_tb)
+        #(2 * RECEIVER_CLK_PERIOD);
+        
+        if (~frame_error_tb) begin
+            $display("Test case (8) passed.");
+            $fdisplay(file, "Test case (8) passed.");
+            passed_test_cases = passed_test_cases + 1;
+        end
+        else begin
+            $display("Test case (8) failed.");
+            $fdisplay(file, "----------------------------------------------------------------");
+            $fdisplay(file, "Test case (8) failed.");
+            $fdisplay(file, "----------------------------------------------------------------");
+        end
+        total_test_cases = total_test_cases + 1;
+        $display("----------------------------------------------------------------");
+
         $fdisplay(file, "Total: %0d/%0d.", passed_test_cases, total_test_cases);
 
         $stop;

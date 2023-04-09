@@ -14,7 +14,7 @@
 * parallel_data:  The data which is received serially bit by bit.
 * parity_error:   A signal to indicate that there is parity mismatch between the received parity bit
 *                 and the calculated parity bit.
-* frame_error:    A signal to indicate that the start bit or the stop bit was incorrect.
+* frame_error:    A signal to indicate that the start bit or the stop bit is incorrect.
 */
 
 `include "UART_receiver_FSM.v"

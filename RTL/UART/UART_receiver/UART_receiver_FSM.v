@@ -3,25 +3,31 @@
 * ----------------------------- Inputs -----------------------------
 * clk:              UART clock.
 * reset:            Global active low asynchronous reset after synchronization.
-* parity_enable:    Signal to enable the transmission of the parity bit in the frame.
+* parity_enable:    A signal to enable the transmission of the parity bit in the frame.
 * prescale:         The ratio between the frequency of the receiver and the frequecy of the 
 *                   transmitter (The avaialable prescale values are: 8, 16, 32).
-* serial_data_in:   The data which is received serially. 
-* start_bit_error:  Signal to indicate that the sampled start bit is wrong 
+* serial_data_in:   The data which is received serially.
+* start_bit_error:  A signal to indicate that the sampled start bit is wrong 
 *                   (i.e. the samples are 011 or 111 or 110 or 101).
-* parity_bit_error: Signal to indicate that the sampled parity bit is wrong
-* stop_bit_error:   Signal to indicate that the sampled stop bit is wrong
-*                   (i.e. the samples are 100 or 000 or 001 or 010)
-* edge_count:
-* edge_count_done:  
+* parity_bit_error: A signal to indicate that the sampled parity bit is wrong.
+* stop_bit_error:   A signal to indicate that the sampled stop bit is wrong
+*                   (i.e. the samples are 100 or 000 or 001 or 010).
+* edge_count:       A counter value which indicates the number of the current edge. Its value
+*                   depends on the prescale value (because prescale of value 8 means that the 
+*                   counter should stop at 7 and wrap around again).
+* edge_count_done:  A signal to indicate that a full cycle of the UART tranmsitter has passed
+*                   (when prescale value is 8, edge_count_done becomes high when the edge
+*                   counter value is 7).
 * ----------------------------- Outputs -----------------------------
-* start_bit_check_enable:               The output of the transmitter (It is also the output of the mux that selects
-* parity_bit_check_enable:
-* stop_bit_check_enable:
-* edge_counter_and_data_sampler_enable: 
-* deserializer_enable:
-* data_index:
-* data_valid: Signal to indicate that the received data by the UART receiver was free of errors.
+* start_bit_check_enable:               A signal to enable the operation of the start bit checker.
+* parity_bit_check_enable:              A signal to enable the operation of the parity bit checker.
+* stop_bit_check_enable:                A signal to enable the operation of the stop bit checker.
+* edge_counter_and_data_sampler_enable: A signal to enable the operation of the edge counter 
+*                                       and data sampler.
+* deserializer_enable:                  A signal to enable the operation of the deserializer.
+* data_index:                           The index of the of bit to be received in the frame.
+* data_valid:                           A signal to indicate that the received data by the UART 
+*                                       receiver was free of errors.
 */
 
 module UART_receiver_FSM #(

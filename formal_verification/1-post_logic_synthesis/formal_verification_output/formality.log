@@ -109,6 +109,14 @@ Info:  SVF Operation 71 (Line: 571) - datapath.  Status: rejected
 Info:  guide_change_names 72 (Line: 576)  Cannot find reference design 'UART_transmitter_FSM'.
 Info:  SVF Operation 72 (Line: 576) - change_names.  Status: rejected
 
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'sub_16' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'eq_24' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'add_24' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'eq_24_2' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'add_24_2' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'eq_24_3' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'add_24_3' in design 'data_sampler'.
+Info:  guide_merge 73 (Line: 580)  Could not find pre_resource 'eq_24_4' in design 'data_sampler'.
 Info:  SVF Operation 73 (Line: 580) - merge.  Status: rejected
 
 Info:  guide_uniquify 74 (Line: 603)  Cannot find object "DP_OP_14J1_127_5561" in design 'data_sampler'.
@@ -132,6 +140,9 @@ Info:  SVF Operation 83 (Line: 748) - change_names.  Status: rejected
 Info:  guide_uniquify 84 (Line: 752)  Cannot find object "DP_OP_14J1_128_5438" in design 'clock_divider'.
 Info:  guide_datapath 89 (Line: 811) Cannot find reference cell for instance 'DP_OP_14J1_128_5438' in design 'clock_divider'.
 Info:  SVF Operation 89 (Line: 811) - datapath.  Status: rejected
+
+Info:  guide_change_names 90 (Line: 816)  Cannot find or apply name change to cell 'add_16' in design 'edge_counter'.
+Info:  SVF Operation 90 (Line: 816) - change_names.  Status: rejected
 
 Info:  guide_ungroup 92 (Line: 836)  Cannot find cell 'U_ALU/div_2' in design 'system_top'.
 Info:  SVF Operation 92 (Line: 836) - ungroup.  Status: rejected

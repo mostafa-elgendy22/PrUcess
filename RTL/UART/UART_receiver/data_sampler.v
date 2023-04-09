@@ -1,15 +1,22 @@
 /*
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
-* clk:            
-* reset:          
-* serial_data_in: 
-* prescale:       
-* enable:         
-* edge_count:     
-* 
+* clk:            UART clock.
+* reset:          Global active low asynchronous reset after synchronization.
+* serial_data_in: The data which is received serially.
+* prescale:       The ratio between the frequency of the receiver and the frequecy of the 
+*                 transmitter (The avaialable prescale values are: 8, 16, 32).
+*                 This is the 5 MSBs of the prescale, becuase the data sampler module operates 
+*                 on the prescale after shifting its value.
+* enable:         A signal to enable the data sampler.
+* edge_count:     A counter value which indicates the number of the current edge. Its value
+*                 depends on the prescale value (because prescale of value 8 means that the 
+*                 counter should stop at 7 and wrap around again).
+*
 * ----------------------------- Outputs -----------------------------
-* sampled_bit:     
+* sampled_bit:    The resulting sampled bit out of three samples taken at three different edges.
+*                 It is equal to the bit appearing the most times in the samples
+*                 (e.g. if samples = 101, sampled_bit = 1. if samples = 100, sampled_bit = 0).
 */
 
 module data_sampler (
@@ -30,7 +37,7 @@ module data_sampler (
     assign sampling_edge_number = prescale - 4'd2;
 
     always @(posedge clk or negedge reset) begin
-        if (!reset) begin
+        if (~reset) begin
             samples <= 3'b0;
             sample_enable <= 1'b0;
         end

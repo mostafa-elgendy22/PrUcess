@@ -1,60 +1,3 @@
-<table>
-    <tr>
-        <th align="left">Port</th>
-        <th>Direction</th>
-        <th>Width</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-    <tr>
-        <td>FILLER</td>
-        <td>FILLER</td>
-        <td align="center">FILLER</td>
-        <td>FILLER</td>
-    </tr>
-</table>
-
 # PrUcess (Processing unit through UART)
 
 ## Introduction
@@ -77,7 +20,7 @@ This is a full ASIC design project (from RTL to GDS). It goes through the ASIC d
 ## Table of Contents
 1. [System's Specifications](#systems-specifications)
 2. [System Top Level Module](#system-top-level-module)
-3. [Functional Verification]()
+3. [System Functional Verification](#functional-verification)
 4. [UART Transmitter](#uart-transmitter)
 5. [UART Receiver](#uart-receiver)
 6. [Clock Divider](#clock-divider)
@@ -145,7 +88,6 @@ The system includes two asynchronous clock domains (reference clock domain and U
         <th>Clock Names</th>
         <th>Modules</th>
         <th>Frequency</th>
-        <th>Periodic Time</th>
     </tr>
     <tr>
         <td>Reference clock domain</td>
@@ -163,7 +105,6 @@ The system includes two asynchronous clock domains (reference clock domain and U
             </ul>
         </td>
         <td align="center">Reference clock frequency = ALU clock frequency = 40 MHz</td>
-        <td>Reference clock period = ALU clock period = 25 ns</td>
     </tr>
     <tr>
         <td>UART clock domain</td>
@@ -186,16 +127,11 @@ The system includes two asynchronous clock domains (reference clock domain and U
                 <li>UART clock frequency = oversampling_prescale * 115.2 KHz = 32 * 115.2 KHz = 3.6864 MHz</li>
             </ul>
         </td>
-        <td>
-            <ul>
-                UART clock period = 271 ns
-            </ul>
-        </td>
     </tr>
 </table>
 
 
-Note that the oversampling prescale can have the values (8, 16, or 32) but 32 is used in the simulations and backend flow to ensure that the UART recceiver is functioning correctly in the worst case (highest clock frequency).
+Note that the oversampling prescale can have the values (8, 16, or 32) but 32 is used in the simulations and backend flow to ensure that the UART receiver is functioning correctly in the worst case (highest clock frequency).
 
 
 #### System's Components:
@@ -651,6 +587,10 @@ This module is verified through self-checking testbench in Modelsim. The testben
 
 ### UART Receiver
 
+The following figure illustrates how oversampling with prescale = 8 works, the recieved bit is sampled 3 times and output bit from the sampler is the most represented bit in those 3 bits.
+
+<img src="docs/screenshots/system_design/UART/UART_receiver/oversampling_prescale.PNG">
+
 #### Top Level Module
 
 ##### Block Diagram
@@ -734,8 +674,393 @@ This module is verified through self-checking testbench in Modelsim. The testben
 
 Note that if any omitted condition occurs, the current state won't change.
 
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>parity_enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the transmission of the parity bit in the frame.</td>
+    </tr>
+    <tr>
+        <td>prescale</td>
+        <td>input</td>
+        <td align="center">6</td>
+        <td>The ratio between the frequency of the receiver and the frequecy of the transmitter (The avaialable prescale values are: 8, 16, 32).</td>
+    </tr>
+    <tr>
+        <td>serial_data_in</td>
+        <td>input</td>
+        <td align="center">5</td>
+        <td>The data which is received serially.</td>
+    </tr>
+    <tr>
+        <td>start_bit_error</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the sampled start bit is wrong (i.e. the samples are 011 or 111 or 110 or 101).</td>
+    </tr>
+    <tr>
+        <td>parity_bit_error</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the sampled parity bit is wrong.</td>
+    </tr>
+    <tr>
+        <td>stop_bit_error</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the sampled stop bit is wrong (i.e. the samples are 100 or 000 or 001 or 010).</td>
+    </tr>
+    <tr>
+        <td>edge_count</td>
+        <td>input</td>
+        <td align="center">5</td>
+        <td>A counter value which indicates the number of the current edge. Its value depends on the prescale value (because prescale of value 8 means that the counter should stop at 7 and wrap around again).</td>
+    </tr>
+    <tr>
+        <td>edge_count_done</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that a full cycle of the UART tranmsitter has passed (when prescale value is 8, edge_count_done becomes high when the edge counter value is 7).</td>
+    </tr>
+    <tr>
+        <td>start_bit_check_enable</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the start bit checker.</td>
+    </tr>
+    <tr>
+        <td>parity_bit_check_enable</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the parity bit checker.</td>
+    </tr>
+    <tr>
+        <td>stop_bit_check_enable</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the stop bit checker.</td>
+    </tr>
+    <tr>
+        <td>edge_counter_and_data_sampler_enable</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the edge counter and data sampler.</td>
+    </tr>
+    <tr>
+        <td>deserializer_enable</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the deserializer.</td>
+    </tr>
+    <tr>
+        <td>data_index</td>
+        <td>output</td>
+        <td align="center">log<sub>2</sub>(DATA_WIDTH) (default value is 3)</td>
+        <td>The index of the of bit to be received in the frame.</td>
+    </tr>
+    <tr>
+        <td>data_valid</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the received data by the UART receiver was free of errors.</td>
+    </tr>
+</table>
 
 
+#### Edge Counter
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>prescale</td>
+        <td>input</td>
+        <td align="center">6</td>
+        <td>The ratio between the frequency of the receiver and the frequecy of the transmitter (The avaialable prescale values are: 8, 16, 32).</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the edge counter.</td>
+    </tr>
+    <tr>
+        <td>edge_count</td>
+        <td>output</td>
+        <td align="center">5</td>
+        <td>A counter value which indicates the number of the current edge. Its value depends on the prescale value (because prescale of value 8 means that the counter should stop at 7 and wrap around again).</td>
+    </tr>
+    <tr>
+        <td>edge_count_done</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that a full cycle of the UART tranmsitter has passed (when prescale value is 8, edge_count_done becomes high when the edge counter value is 7).</td>
+    </tr>
+</table>
+
+#### Data Sampler
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>serial_data_in</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>The data which is received serially.</td>
+    </tr>
+    <tr>
+        <td>prescale</td>
+        <td>input</td>
+        <td align="center">5</td>
+        <td>The ratio between the frequency of the receiver and the frequecy of the transmitter (The avaialable prescale values are: 8, 16, 32). These are the 5 MSBs of the prescale, becuase the data sampler module operates on the prescale after shifting its value.</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the data sampler.</td>
+    </tr>
+    <tr>
+        <td>edge_count</td>
+        <td>output</td>
+        <td align="center">5</td>
+        <td>A counter value which indicates the number of the current edge. Its value depends on the prescale value (because prescale of value 8 means that the counter should stop at 7 and wrap around again).</td>
+    </tr>
+    <tr>
+        <td>sampled_bit</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>The resulting sampled bit out of three samples taken at three different edges. It is equal to the bit appearing the most times in the samples (e.g. if samples = 101, sampled_bit = 1. if samples = 100, sampled_bit = 0).</td>
+    </tr>
+</table>
+
+#### Deserializer
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the deserializer.</td>
+    </tr>
+    <tr>
+        <td>data_index</td>
+        <td>input</td>
+        <td align="center">log<sub>2</sub>(DATA_WIDTH) (default value is 3)</td>
+        <td>The index of the of bit to be received in the frame.</td>
+    </tr>
+    <tr>
+        <td>sampled_bit</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>The resulting sampled bit out of three samples taken at three different edges. It is equal to the bit appearing the most times in the samples (e.g. if samples = 101, sampled_bit = 1. if samples = 100, sampled_bit = 0).</td>
+    </tr>
+    <tr>
+        <td>parallel_data</td>
+        <td>output</td>
+        <td align="center">DATA_WIDTH (default value is 8)</td>
+        <td>The data which is received serially bit by bit.</td>
+    </tr>
+</table>
+
+#### Parity Bit Checker
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>parity_type</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to indicate the parity type (1 for odd, 0 for even).</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the parity bit checker.</td>
+    </tr>
+    <tr>
+        <td>sampled_bit</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>The sampled bit from the data sampler. It is always the parity bit for this module because it is only enabled when the parity bit is received.</td>
+    </tr>
+    <tr>
+        <td>parallel_data</td>
+        <td>input</td>
+        <td align="center">DATA_WIDTH (default value is 8)</td>
+        <td>The data which is received serially bit by bit.</td>
+    </tr>
+    <tr>
+        <td>parity_bit_error</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that there is parity mismatch between the received parity bit and the calculated parity bit.</td>
+    </tr>
+</table>
+
+#### Start Bit Checker
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the start bit checker.</td>
+    </tr>
+    <tr>
+        <td>sampled_bit</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>The sampled bit from the data sampler. It is always the start bit for this module because it is only enabled when the start bit is received.</td>
+    </tr>
+    <tr>
+        <td>start_bit_error</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the start bit is incorrect (the sampled bit is 1).</td>
+    </tr>
+</table>
+
+#### Stop Bit Checker
+<table>
+    <tr>
+        <th align="left">Port</th>
+        <th>Direction</th>
+        <th>Width</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clk</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>UART clock.</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>Global active low asynchronous reset after synchronization.</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>A signal to enable the operation of the stop bit checker.</td>
+    </tr>
+    <tr>
+        <td>sampled_bit</td>
+        <td>input</td>
+        <td align="center">1</td>
+        <td>The sampled bit from the data sampler. It is always the stop bit for this module because it is only enabled when the stop bit is received.</td>
+    </tr>
+    <tr>
+        <td>stop_bit_error</td>
+        <td>output</td>
+        <td align="center">1</td>
+        <td>A signal to indicate that the stop bit is incorrect (the sampled bit is 0).</td>
+    </tr>
+</table>
 
 #### Functional Verification
 
@@ -1487,7 +1812,7 @@ The whole system is synthesized and DFT insertion is performed using Synopsys DF
 
 <img src="docs/screenshots/formal_verification/post-DFT.PNG">
 
-There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the tool).
+There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
 
 <hr>
 
@@ -1539,4 +1864,16 @@ Insert filler cells, generate gate level netlist (used in gate-level simulation 
 
 <img src="docs/screenshots/formal_verification/post-physical_design.PNG">
 
-There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the tool).
+There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).
+
+<hr>
+
+## Future Work
+
+Gate-level simulation using:
+<ol>
+    <li>SDF file generated from the physical design process.</li>
+    <li>Testbench used in the RTL functional verification.</li>
+    <li>Gate-level netlist generated from the physical design process.</li>
+    <li>Verilog standard cell library.</li>
+</ol>

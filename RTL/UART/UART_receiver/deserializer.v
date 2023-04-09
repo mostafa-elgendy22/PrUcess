@@ -1,14 +1,16 @@
 /*
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
-* clk:           
-* reset:         
-* enable:         
-* data_index:    
-* sampled_bit:   
+* clk:           UART clock.
+* reset:         Global active low asynchronous reset after synchronization.
+* enable:        A signal to enable the operation of the deserializer.
+* data_index:    The index of the of bit to be received in the frame.
+* sampled_bit:   The resulting sampled bit out of three samples taken at three different edges.
+*                It is equal to the bit appearing the most times in the samples
+*                (e.g. if samples = 101, sampled_bit = 1. if samples = 100, sampled_bit = 0).
 * 
 * ----------------------------- Outputs -----------------------------
-* parallel_data:  
+* parallel_data: The data which is received serially bit by bit.
 */
 
 module deserializer #(

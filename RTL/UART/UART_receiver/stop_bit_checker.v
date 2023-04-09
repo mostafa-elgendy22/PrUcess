@@ -1,13 +1,14 @@
 /*
 * ----------------------------- Ports' Definition -----------------------------
 * ----------------------------- Inputs -----------------------------
-* clk:             
-* reset:           
-* enable:          
-* sampled_bit:     
+* clk:             UART clock.
+* reset:           Global active low asynchronous reset after synchronization.
+* enable:          A signal to enable the operation of the stop bit checker.
+* sampled_bit:     The sampled bit from the data sampler. It is always the stop bit
+*                  for this module because it is only enabled when the stop bit is received.
 * 
 * ----------------------------- Outputs -----------------------------
-* stop_bit_error: 
+* stop_bit_error: A signal to indicate that the stop bit is incorrect (the sampled bit is 0).
 */
 
 module stop_bit_checker (

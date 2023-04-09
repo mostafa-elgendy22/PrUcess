@@ -19,7 +19,7 @@
 
 Build: 4031317
 Hostname: IC (RHEL64)
-Current time: Sun Apr  9 03:56:38 2023
+Current time: Sun Apr  9 22:38:24 2023
 
 Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
 # Add the path of the std cells, RTL files, and the synthesis files to the search path variable
@@ -203,7 +203,7 @@ Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
 architecture_netlist:          5          0          0          0          5
 boundary            :          5          0          0          0          5
 boundary_netlist    :          4          0          0          0          4
-change_names        :          1         12          0          0         13
+change_names        :          0         13          0          0         13
 datapath            :          0          5          0          0          5
 environment         :          3          0          0          0          3
 instance_map        :          0          1          0          0          1
@@ -310,8 +310,8 @@ start_gui
 exit
 
 Maximum memory usage for this session: 492412 KB
-CPU usage for this session: 11.33 seconds
-Current time: Sun Apr  9 04:35:46 2023
-Elapsed time: 2358 seconds
+CPU usage for this session: 10.51 seconds
+Current time: Sun Apr  9 22:40:00 2023
+Elapsed time: 107 seconds
 
 Thank you for using Formality (R)!
