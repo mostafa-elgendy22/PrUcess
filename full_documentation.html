@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>README.md</title>
+<title>full_documentation</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -367,17 +367,18 @@ code {
   </script>
 <h1 id="prucess-processing-unit-through-uart">PrUcess (Processing unit through UART)</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Pr<strong>U</strong>cess is a <strong>processing</strong> unit that executes commands (arithmetic &amp; logical operations, register file read &amp; write operations) which are received from an external source through <strong>UART</strong> receiver module and it transmits the commands' results through the <strong>UART</strong> transmitter module.</p>
+<p>Pr<strong>U</strong>cess is a <strong>processing</strong> unit that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through <strong>UART</strong> receiver module and it transmits the commands' results through the <strong>UART</strong> transmitter module.</p>
 <p>This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:</p>
 <ol>
-    <li>System's architecure design.</li>
+    <li>System's architecture design.</li>
     <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
+    <li>Solving CDC issues by using synchronizers.</li>
     <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
-    <li>Logic synthesis using Synopsys Design Compiler.</li>
+    <li>Logic synthesis using Synopsys Design Compiler &amp; 130 nm technology node.</li>
     <li>Formal verification post logic synthesis using Synopsys Formality.</li>
-    <li>Design for testatbility (DFT) using Synopsys DFT Compiler.</li>
+    <li>Design for testability (DFT) using Synopsys DFT Compiler.</li>
     <li>Formal verification post DFT using Synopsys Formality.</li>
-    <li>Physical design (floor planning, power planning, placement, CTS, routing, and chip finishing) using Cadence innovus.</li>
+    <li>Physical design (floor planning, power planning, placement, CTS, routing, timing closure, and chip finishing) using Cadence innovus.</li>
     <li>Formal verification post physical design using Synopsys Formality.</li>
 </ol>
 <h2 id="table-of-contents">Table of Contents</h2>
@@ -1958,7 +1959,7 @@ These results are produced after the logic synthesis indicating that there shoul
 <h2 id="post---dft-formal-verification">Post - DFT Formal Verification</h2>
 <h4 id="verification-results">Verification Results</h4>
 <img src="docs/screenshots/formal_verification/post-DFT.PNG">
-<p>There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).</p>
+<p>There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).</p>
 <hr>
 <h2 id="physical-design">Physical Design</h2>
 <h3 id="import-design">Import Design</h3>
@@ -1984,7 +1985,7 @@ These results are produced after the logic synthesis indicating that there shoul
 <h2 id="post---physical-design-formal-verification">Post - Physical Design Formal Verification</h2>
 <h4 id="verification-results">Verification Results</h4>
 <img src="docs/screenshots/formal_verification/post-physical_design.PNG">
-<p>There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exeist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).</p>
+<p>There exist 3 don't compare points which are the 3 output pins of the SO port, they are not verified because they doesn't exist in the golden RTL files (i.e. their logic was automatically inserted by the DFT tool).</p>
 <hr>
 <h2 id="future-work">Future Work</h2>
 <p>Gate-level simulation using:</p>
@@ -1994,5 +1995,6 @@ These results are produced after the logic synthesis indicating that there shoul
     <li>Gate-level netlist generated from the physical design process.</li>
     <li>Verilog standard cell library.</li>
 </ol>
+
 </body>
 </html>
