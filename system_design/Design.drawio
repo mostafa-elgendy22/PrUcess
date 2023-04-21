@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-04-09T18:15:43.478Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="MoTJ1y0dxeRndlBpqlKW" version="21.1.2" type="device" pages="12">
+<mxfile host="Electron" modified="2023-04-21T11:53:04.883Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="5aV2QdNprrLxv7eV0uh5" version="21.1.2" type="device" pages="12">
   <diagram id="I2hknLywWardgOlWjwkR" name="PrUcess">
-    <mxGraphModel dx="1839" dy="622" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2014" dy="692" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -406,11 +406,11 @@
         <mxCell id="GtN2hdlv_9Q7q_uJnz8w-72" value="UART_transmitter" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="644" y="628.5" width="116" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="GtN2hdlv_9Q7q_uJnz8w-74" value="register2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="90" y="807" width="65" height="26" as="geometry" />
+        <mxCell id="GtN2hdlv_9Q7q_uJnz8w-74" value="register2 (UART_parity_configuration)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="15" y="807" width="220" height="26" as="geometry" />
         </mxCell>
         <mxCell id="GtN2hdlv_9Q7q_uJnz8w-86" value="register3 (prescale)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="81" y="763.5" width="121" height="26" as="geometry" />
+          <mxGeometry x="20" y="765" width="121" height="26" as="geometry" />
         </mxCell>
         <mxCell id="GtN2hdlv_9Q7q_uJnz8w-160" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.569;entryY=0.003;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#964B00;fontSize=12;fontColor=#000000;endArrow=classic;endFill=1;" parent="1" source="GtN2hdlv_9Q7q_uJnz8w-94" target="GtN2hdlv_9Q7q_uJnz8w-110" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -427,7 +427,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="a0SlBnVBh_tFAWuG1Um3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.107;entryY=0.022;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#964B00;" edge="1" parent="1" source="GtN2hdlv_9Q7q_uJnz8w-94" target="GtN2hdlv_9Q7q_uJnz8w-72">
+        <mxCell id="a0SlBnVBh_tFAWuG1Um3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.107;entryY=0.022;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#964B00;" parent="1" source="GtN2hdlv_9Q7q_uJnz8w-94" target="GtN2hdlv_9Q7q_uJnz8w-72" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="545" y="30" />

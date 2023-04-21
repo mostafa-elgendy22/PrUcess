@@ -1,3 +1,4 @@
 backend
 UART_receiver_DFT.v
 RTL/UART/UART_receiver/multiplexer_2x1.v
+*.bkp

@@ -139,7 +139,7 @@ Note that the oversampling prescale can have the values (8, 16, or 32) but 32 is
 <ol>
     <li>UART: It consists of UART receiver which receives the commands and UART transmitter that transmits the commands' results.</li>
     <li>Clock divider: An integer clock divider which can divide the source clock up to division ratio of 32. It is used to divide the UART clock to produce UART transmitter clock with division ratio equal oversampling prescale.</li>
-    <li>ALU: It executes arithmetic and logical operations.</li>
+    <li>ALU: It executes unsigend arithmetic operations and logical operations.</li>
     <li>Clock gating cell: It is used to gate the ALU clock because there is significant time in which the ALU is not in operation (because the ALU operates on a very fast clock compared with the UART, so it waits long time to receive a new command).</li>
     <li>Register file.</li>
     <li>System controller: It is the main controller of the system. It consists of UART transmitter controller and UART receiver controller. The UART transmitter controller controls the UART transmitter by sending to it the data to be sent serially after it is ready (ALU result or register file data). The UART receiver controller controls the ALU and register file control signals based on the received frames from the UART receiver.</li>
@@ -221,6 +221,8 @@ Note that the mentioned configurations are outputs from the register file (refer
 ### Block Diagram
 
 <img src="docs/screenshots/system_design/system_top/system_top.png">
+
+Blue-colored signals are the system's input ports, while red-colored signals are the system's output ports.
 
 #### Port Description
 
