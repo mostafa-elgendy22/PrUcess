@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Pr**U**cess is a **processing** unit that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it transmits the commands' results through the **UART** transmitter module.
+Pr**U**cess is low-power multi-clock configurable digital **processing** system that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it transmits the commands' results through the **UART** transmitter module.
 
 This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:
 <ol>
     <li>System's architecture design.</li>
-    <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
+    <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers, reset synchronizer, and system's main controller).</li>
     <li>Solving CDC issues by using synchronizers.</li>
     <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
     <li>Logic synthesis using Synopsys Design Compiler &amp; 130 nm technology node.</li>

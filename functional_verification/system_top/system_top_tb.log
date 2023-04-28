@@ -1,4 +1,4 @@
-Start time: 16:32:56 on Apr 09,2023
+Start time: 17:12:55 on Apr 28,2023
 vlog system_top_tb.v 
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module UART_transmitter_FSM
@@ -31,5 +31,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	system_top_tb
-End time: 16:32:56 on Apr 09,2023, Elapsed time: 0:00:00
+End time: 17:12:55 on Apr 28,2023, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

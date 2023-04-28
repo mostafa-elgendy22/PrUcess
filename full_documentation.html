@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>full_documentation</title>
+<title>full documentation</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -367,11 +367,11 @@ code {
   </script>
 <h1 id="prucess-processing-unit-through-uart">PrUcess (Processing unit through UART)</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Pr<strong>U</strong>cess is a <strong>processing</strong> unit that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through <strong>UART</strong> receiver module and it transmits the commands' results through the <strong>UART</strong> transmitter module.</p>
+<p>Pr<strong>U</strong>cess is low-power multi-clock configurable digital <strong>processing</strong> system that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through <strong>UART</strong> receiver module and it transmits the commands' results through the <strong>UART</strong> transmitter module.</p>
 <p>This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:</p>
 <ol>
     <li>System's architecture design.</li>
-    <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers for solving CDC issues, reset synchronizer, and system's main controller).</li>
+    <li>Synthesizable Verilog RTL modelling (behavioral modelling, structural modelling, and FSM coding) of all the system blocks from scratch (UART transmitter and receiver, integer clock divider, ALU, register file, parametrized data and bit synchronizers, reset synchronizer, and system's main controller).</li>
     <li>Solving CDC issues by using synchronizers.</li>
     <li>Functional verification using self-checking testbenches and automated Python verification environments and running the testbenches using Modelsim.</li>
     <li>Logic synthesis using Synopsys Design Compiler &amp; 130 nm technology node.</li>

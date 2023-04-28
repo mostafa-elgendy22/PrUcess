@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Pr**U**cess is a **processing** unit that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it transmits the commands' results through the **UART** transmitter module.
+Pr**U**cess is low-power multi-clock configurable digital **processing** system that executes commands (unsigned arithmetic operations, logical operations, register file read &amp; write operations) which are received from an external source through **UART** receiver module and it transmits the commands' results through the **UART** transmitter module.
 
 This is a full ASIC design project (from RTL to GDS). It goes through the ASIC design flow from frontend to backend:
 <ol>
