@@ -1,4 +1,4 @@
-# PrUcess (Processing unit through UART)
+# PrUcess (Processing system through UART)
 
 ## Introduction
 
